@@ -205,3 +205,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# 사용자 지정 제외 폴더
+.vscode/
+chroma_db/
+open_deep_research/
+searxng/
+
+# 추가로 추천하는 제외 항목 (주피터 노트북 체크포인트)
+.ipynb_checkpoints/
