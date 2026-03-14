@@ -1,0 +1,1577 @@
+[셀 1]
+====================================================================================================
+TITLE: 2025년 미국 화장품 산업정보
+DATE: 2025-07-01
+====================================================================================================
+
+
+1. 산업 특성
+
+
+1.1 정책 및 규제
+
+
+미국에서 화장품을 제조하거나 수입· 유통·판매하기 위해서는 ‘연방 식품∙의약품∙화장품법(Food Drug & Cosmetics Act)’과 ‘공정 포장 및 라벨링법(FPLA)’을 철저히 준수해야 한다. 여기에 더해 2022년 말 제정된 ‘화장품 규제 현대화법(이하 MOCRA, Modernization of Cosmetics Regulation Act of 2022)’이 2023년부터 단계적으로 시행됨에 따라 미국 화장품 규제는 수십 년 만에 가장 큰 변화를 맞이했다.
+
+
+MOCRA 는 FDA에 더 많은 감독 권한을 부여하고, 제조업체 및 유통업체에 새로운 의무를 부과하고 있다. 주요 내용으로는 화장품 제조시설 등록 의무화, 제품 및 성분 목록 제출, 심각한 부작용 보고 의무, 우수제조관리기준(cGMP) 적용, 라벨에 연락처 및 특정 알레르기 유발 성분 표시 등이 포함된다. 이로 인해 해외 기업이 미국 시장에 화장품을 수출하려면 제품 라벨링과 안전성, 제조공정 등에 대한 규정 준수를 보다 철저히 준비해야 한다.
+
+
+1.2 주요 기업 현황
+
+
+2025 년 현재 미국 화장품 제조 시장은 로레알USA(62억 달러), 유니레버(49억 달러), P&G(44억 달러), 에스티로더(40억 달러) 등 글로벌 대기업들이 시장의 상당 부분을 점유하고 있다. 이들 기업은 대규모 R&D 투자와 글로벌 유통망, 강력한 브랜드 포트폴리오를 통해 산업을 주도하고 있으며, 소비자 세분화 전략과 채널 다변화 전략을 동시에 활용하고 있다.
+
+
+특히 로레알은 NYX, 랑콤, 메이블린 등 다양한 브랜드를 보유하고 있어 가격대별·연령대별 소비자 니즈에 유연하게 대응하고 있다. 로레알은 프랑스가 본사지만 글로벌 로컬 생산 전략을 통해 판매하는 주요국마다 현지 생산 비중을 높이고 있다. 미국에서도 아칸소주와 뉴저지주 등에 생산 공장을 운영하며 미국 시장 맞춤형 제품을 생산하기 위해 노력하고 있다. 경쟁사인 에스티로더의 경우, 프리미엄 제품에 집중하여 부티크 및 백화점을 중심으로 유통되고 있으며, D2C 및 온라인 판매도 확대 중이다 . 에스티로더의 경우 매출 감소로 인한 주가 하락 등이 불거졌었으나 2024년 캐나다 기반 스킨케어 브랜드 ‘디 오디너리’(The Ordinary)를 완전 인수하면서 기성 세대부터 젠지(Gen Z)를 아우르는 선전으로 시장점유율을 일부 회복했다.
+
+
+< 미국에서 선전 중인 브랜드 ’디 오디너리’>
+
+
+[ 자료: The Ordinary]
+
+
+1.3 최신기술 동향
+
+
+미국 화장품 산업은 디지털 전환과 기술 혁신을 중심으로 빠르게 재편되고 있다. 특히 코로나19 팬데믹 이후 비대면 소비가 확산되면서, 증강현실(AR), 인공지능(AI), 챗봇 등의 기술을 접목한 비대면 가상 체험 솔루션이 확산되었다. 대표적으로 로레알(L’Oréal)와 MAC 등 주요 뷰티 브랜드는 소비자가 스마트폰 앱이나 웹캠을 통해 립스틱, 아이섀도우 등의 색조 화장품을 가상으로 자신의 얼굴에 적용해 볼 수 있는 기능을 제공하고 있다. 이러한 기능은 소비자의 구매 전 체험을 가능하게 하여 반품률을 낮추고, 소비자 만족도를 높이는 동시에 충성 고객 확보에도 기여하고 있다. 더불어 AI 기반 기술을 활용해 피부 타입, 피부 고민, 생활 습관에 맞는 제품을 추천하거나, 맞춤형 스킨케어 루틴을 설계하는 기능도 보편화되면서, 기술이 단순한 마케팅을 넘어 제품 개발 및 소비자 관리의 핵심 도구로 자리 잡고 있다.
+
+
+< 로레알의 버츄얼 메이크업 앱>
+
+
+[ 자료: L’Oréal]
+
+
+기술 혁신은 생산 공정과 브랜드 마케팅 전략에도 영향을 미치고 있다. 예를 들어, 3D 프린팅 기술을 활용해 사용자가 원하는 색상을 립스틱이나 아이섀도우로 즉시 구현하거나, 로봇이 자동으로 매니큐어를 칠해주는 셀프 뷰티 기기 등 개인화된 제품 생산 및 체험 기술이 주목받고 있다. 또한, 스마트팩토리 시스템을 도입한 제조업체들은 AI와 IoT 기반의 자동화 기술을 통해 제품의 품질을 정밀하게 관리하고, 생산 효율을 높이며, 동시에 친환경적인 제조를 실현하고 있다. 유통과 마케팅 측면에서는 블록체인이나 QR코드 기반의 제품 이력 추적 시스템이 도입되며, 소비자에게 성분 정보와 제조 이력을 실시간으로 제공하는 브랜드가 증가하는 추세이다. 이는 ‘클린 뷰티’와 같은 투명성과 안전성을 중시하는 소비자 요구에 부응하는 동시에, MOCRA 등 강화되는 규제 환경에 대한 선제적 대응으로 평가된다.
+
+
+1.4 주요 이슈
+
+
+최근 몇 년간 미국 화장품 시장에서 가장 주목받는 변화는 소비자 직접 판매(Direct-to-Consumer, D2C) 방식의 확산이다. 과거에는 백화점, 드럭스토어, 세포라와 같은 전문 매장을 중심으로 한 간접 유통 채널이 주류였으나, SNS와 온라인 쇼핑의 활성화로 많은 브랜드들이 자사 웹사이트나 모바일 앱을 통해 소비자와 직접 소통하며 제품을 판매하는 방식을 강화하고 있다. 특히 중소 브랜드나 니치 브랜드는 D2C 채널을 통해 초기 고정비용과 유통 마진을 줄이고, 소비자 피드백을 빠르게 제품 개발에 반영할 수 있다는 점에서 경쟁 우위를 확보하고 있다. 일부 브랜드는 소비자와의 지속적인 상호작용을 바탕으로 ‘공동 개발’, ‘커스터마이징’ 제품을 출시하며 브랜드 충성도를 높이고 있다. 이처럼 D2C 모델은 단순한 유통 구조의 변화에 그치지 않고, 브랜딩 전략과 제품 기획에까지 영향을 미치고 있다.
+
+
+또한 소비자들이 제품의 성분 안전성에 민감하게 반응하면서, ‘클린 뷰티(Clean Beauty)’와 ‘그린 포뮬라(Green Formula)’는 제품 선택의 핵심 기준으로 자리 잡고 있다. 과거에는 가격이나 브랜드 인지도가 주요 결정 요소였지만, 최근에는 파라벤, 프탈레이트, 실리콘, 계면활성제 등 유해 성분 배제 여부와 동물실험 금지 인증, 비건 인증 여부 등을 확인하는 소비자들이 크게 늘고 있다. 이러한 변화는 단순히 프리미엄 제품에만 국한되지 않고, 매스마켓 브랜드까지 영향을 미치고 있다. 브랜드들은 세포라의 ‘Clean + Planet Aware at Sephora’ 같은 자체 인증을 활용하거나, EWG(환경작업그룹) 등 제3기관의 인증 마크를 획득해 신뢰도를 높이고 있으며, 투명한 성분 공개와 원료 출처 표시가 점차 기본 요건으로 자리 잡고 있다.
+
+
+< 세포라 Clean + Planet Aware 인증>
+
+
+[ 자료: Sephora]
+
+
+2. 산업 수급현황
+
+
+2.1 미국 화장품 수급 현황
+
+
+< 미국 화장품 및 뷰티 제품의 수급현황>
+
+
+( 단위: US$ 백만)
+
+
+[TABLE]
+
+   구분  2023 년  2024 년 2025 년 (예상)
+0  수출  10,008  10,011      10,320
+1  수입  14,958  16,727      16,817
+2  매출  44,261  44,219      45,265
+
+
+[ 자료: IBIS World]
+
+
+2025 년 미국 화장품 제조 산업의 전체 매출은 453억 달러로 추정되며, 이 중 수출은 103억 달러, 수입은 168억 달러로 미국은 순수입국이다. 미국의 화장품 수입의존도는 약 37%에 달하며, 프랑스, 이탈리아, 한국, 일본 등에서 들어오는 고급 화장품이 중심이다. 특히 한국산 화장품은 스킨케어 중심의 고기능성 제품과 자외선 차단 기능이 강화된 선케어 제품에서 인기를 끌고 있다. K-뷰티는 혁신적인 성분과 트렌디한 패키징으로 미국 소비자들 사이에서 강력한 브랜드 이미지를 구축하고 있으며, 미국 내 아시아계 및 젊은 세대를 중심으로 높은 성장세를 유지하고 있다.
+
+
+2.2 미국의 국가별 화장품 수입현황
+
+
+< 최근 3년간 미국의 화장품 수입 동향(HS Code 3304 기준)>
+
+
+( 단위: US$ 백만, %)
+
+
+[TABLE]
+
+        순위      국가 연도별 수입액      비중     증감률                                
+0   2022 년  2023 년  2024 년  2022 년  2023 년  2024 년  `23/`24               
+1        -      전체   6,110   6,668   7,592  100.00   100.00  100.00  13.87
+2        1      한국   824.2   1,103   1,701   13.49    16.54   22.41  54.32
+3        2     프랑스   1,052   1,151   1,262   17.21    17.27   16.63   9.66
+4        3     캐나다   907.1   1,033   1,022   14.84    15.49   13.46  -1.04
+5        4    이탈리아   705.9   825.4   879.2   11.55    12.38   11.58   6.52
+6        5      중국   575.9   646.2   671.4    9.43     9.69    8.84   3.89
+7        6     멕시코   224.0   276.0   276.2    3.67     4.14    3.64   0.06
+8        7      영국   243.2   251.9   250.1    3.98     3.78    3.29  -0.71
+9        8      일본   224.5   176.8   220.8    3.67     2.65    2.91  24.85
+10       9      독일   204.1   176.4   214.6    3.34     2.65    2.83  21.64
+11      10     스웨덴   234.6   149.0   145.9    3.84     2.23    1.92  -2.09
+
+
+* 주1: 순위 정렬은 2024년 수입액 기준
+
+
+[ 자료: IHS Markit Connect Global Trade Atlas(2025.6.10.)]
+
+
+화장품 전반을 아우르는 HS Code 3304를 기준으로 살펴보았을 때, 2024년은 미국 내 한국 제품의 성장이 두드러진 한 해였다. 2024년 미국의 한국 화장품 수입액은 약 17억 달러로 전년대비 54.32% 증가하며, 해당 품목 전체 수입액에서 22.41%의 비중을 차지했다. 이로서 한국은 오랜 화장품 생산강국으로 꼽히는 프랑스를 이기며 미국의 화장품 수입대상국 중 1위를 차지하였다. 한국의 뒤를 이어 프랑스, 캐나다, 이탈리아, 중국이 상위권을 차지하였다.
+
+
+3. 진출 전략
+
+
+3.1 SWOT 분석
+
+
+[TABLE]
+
+                                            Strength  \
+0  - 업종 평균 대비 높은 수익성 - 고객층 다양성으로 인한 낮은 고객 집중 리스크 ...   
+1                                      Opportunities   
+2  - 지속적인 시장 성장세 -1 인당 가처분 소득 증가로 프리미엄 제품 수요 증가 -...   
+
+                                            Weakness  
+0  - 경쟁 강도 매우 높음 ( 글로벌 기업 및 인디 브랜드 동시 존재) - 브랜드 성...  
+1                                            Threats  
+2  -FDA 등 규제 강화 추세 - 글로벌 공급망 불안전성에 따른 포장재, 운송비 등 ...  
+
+
+[자료: KOTRA 로스앤젤레스 무역관 정리]
+
+
+3.2 유망분야
+
+
+①클린뷰티: 클린뷰티는 몇 년 전부터 미국 화장품 시장에서 주목받아온 화두이다. 이제 클린뷰티는 단순한 트렌드를 넘어서 미국 화장품 산업 내에서 지속적인 성장이 기대되는 핵심 유망 분야로 평가받는다. 성분의 안전성과 투명성, 동물 실험 반대, 친환경 포장 등으로 대표되는 클린 뷰티는 대부분의 미국 주요 브랜드의 기본 전략 요소로 자리 잡고 있다. 특히 MoCRA 시행 이후, 제품의 안전성과 성분 관리에 대한 관리가 법적으로 강화되면서 선택을 넘어 필수 요소로 강조되고 있다.
+
+
+②BIPOC 브랜드: 백인이 아닌 흑인, 원주민, 유색인종을 가리키는 BIPOC(Black, Indigenous, and People of Color)를 위한 제품을 취급하는 브랜드는 지난 5년 동안 소셜 트렌드 및 얼타(Ulta), 세포라(Sephora) 등 대형 유통망의 투자 속에서 성장해 왔다. 미국 인구 구조의 변화 속에서 보다 다양한 피부색, 모발 유형을 고려한 브랜드가 성장 중이며 특히 유명 가수 리한나(Rihanna)가 런칭한 펜티 뷰티(Fenty Beauty)의 경우 포용성을 브랜드 전면에 내세우며 큰 성장을 이루었다.
+
+
+③디지털 네이티브 뷰티(Digital Native Beauty): 젠지(Gen Z)가 미국 화장품 시장의 주요 소비자로 올라서면서 틱톡, 인스타그램, 유튜브와 같은 소셜 미디어가 화장품 구매 행동에 결정적인 허브로서 역할하게 되었다. 이에 따라 오프라인 매장 없이 소셜 미디어에서 출발한 브랜드들이 급성장을 이루게 되었다. 그 대표 브랜드인 글로시에(Glossier)의 경우 2014년 온라인 전용 D2C 채널로 시작하여 전통 광고 없이 인스타그램과 유저 후기만으로 초기 성공을 이루었고 2018년에야 비로소 팝업스토어를 개장하였다. 이러한 디지털 네이티브 뷰티 브랜드들은 기존 대형 화장품 기업들과는 다른 방식으로 팬덤 구축을 통해 미국 화장품 시장 내 새로운 성장 축으로 자리 잡게 되었다.
+
+
+자료: IBIS World, Global Trade Atlas, FDA, Sephora, MAC, KOTRA 로스앤젤레스 무역관 자료 종합
+
+
+[셀 2]
+====================================================================================================
+TITLE: U.S. Skin Care Products Market Size & Share | Report, 2030
+DATE: 
+CONTENT BLOCK COUNT: 3
+====================================================================================================
+
+====================================================================================================
+BLOCK 1
+U.S. Skin Care Products Market Trends The U.S. skin care products market size was estimated at USD 22.90 billion in 2023 and is expected to grow at a compound annual growth rate (CAGR) of 4.2% from 2024 to 2030. The market growth is attributed to the large number of individuals spend a considerable amount on skin care and personal grooming in the country.Growing awareness regarding one’s physical appearance is expected to spur the demand for various skin care products such as face creams, face washes, and cleansers over the forecast period. U.S. skin care products market accounted for the share of 16.10% of the global skin care products market in 2023. Consumers in the region prefer prominent e-commerce players such as Amazon and Walmart to buy most of their daily use items, including skin care and beauty products, as they offer various benefits like the convenience of free home delivery, easy return policies, and cashless payments. In addition, social media marketing by new companies through popular platforms like Instagram, Twitter, and Facebook have been influencing consumer purchasing decisions to buy products available on sale or discount, which is expected to favor the growth of the online segment. Personalized products have been gaining traction among consumers in the U.S. The rising consumer demand for specific skin care solutions and increasing consciousness regarding specific ingredients are expected to boost the demand for personalized beauty products. Proven, a personalized beauty and skin care brand headquartered in California, creates consumer-specific skin care products based on the questionnaire provided and adapts to unique product requirements and ingredient allergies. This trend is particularly true for the millennial population, which is fueled by a focus on personal representation. The rising desire among men and women to retain a youthful appearance and obtain clean and clear skin is the key factor driving the skin care products market. According to a 2021 survey by PowerReviews, 87% of consumers have been spending more on beauty and skin care products since the pandemic than pre-Covid-19 times, with growing interest among men. Consumer preference for high-quality products has led to an increase in the willingness to spend more on skin care products. This has driven the market for daily-use personal care and beauty products, including skin lightening creams, masks, and serums. The rising spending on skin care products has also driven product launches catering to specific consumer needs. For instance, Brickell, a leading manufacturer and distributor of skin care products made from natural and organic ingredients, offers a daily essential face moisturizer with aloe vera, jojoba oil, and vitamin E. Market Concentration & Characteristics The U.S. skin care market is characterized by high degree of innovation, with businesses continuously focusing on differentiating themselves through unique experiences and offerings.Increasing investments in the research & development of products, coupled with the rising trend of natural ingredient-based skin care products, have encouraged manufacturers to launch new products. For instance, in June 2021, Hale Cosmeceuticals, a well-established skin care manufacturer in the U.S., launched two natural ingredient products-Natural AZA Cleanser and Date Palm Deep Moisturizer-for the U.S. market. The industry is also characterized by a moderate level of merger and acquisition (M&A) activity by the leading players.For instance, Unilever has been the most acquisitive of the large companies in terms of the number of skin care acquisitions, acquiring Murad Skin care, Dermalogica, Kate Somerville Skin care, and REN Skin care, for building a better brand portfolio. Furthermore, players are focus to increase their product line and effective products for the consumers. Collaboration with beauty influencers to promote products for higher revenue. End-user concentration is a significant factor in the U.S. skin care products market. The rising desire among men and women to retain a youthful appearance and obtain healthy skin is the key factor driving the global skin care products market. Rise in disposable income and high spending capacity of population in this region. Key players are focusing on creative budget-friendly skin care products along with the presence of offline and online modes of purchase is creating a great opportunity for the market. Gender Insights The demand for skin care products from female accounted for the revenue share of 62.84% in 2023 owing to rise in consciousness about personal grooming among the population. High purchasing power of the women population due to growing number of female workforce is anticipated to boost the product’s demand in the near future. Furthermore, the importance of self-care in recent years has encouraged women to proactively create relaxing self-care experiences through complex skin care routines at home. The demand for skin care products from male is projected to grow at a CAGR of 4.6% from 2024 to 2030.Increasing awareness regarding men’s grooming and hygiene is expected to increase the demand for men’s skin care products over the forecast period. Growing aesthetic concerns among men, as well as an increase in the number of companies venturing into e-commerce, is propelling the expansion of cosmetic products in the U.S. Men's advertising campaigns are being developed at a much more prominent rate and more companies are likely to develop products to meet this demand. Product Insights The face creams and moisturizers segment held the largest revenue share of 43.71% in 2023. With growing consumer inclination for natural beauty products, the concept of creams, serums, and moisturizers infused with natural ingredients is expected to witness significant demand over the forecast period. Such products are considered to be more effective and have few or no side effects, which, in turn, is expected to increase their application among consumers. The shaving lotions and creams segment is projected to grow at a CAGR of 6.3% from 2024 to 2030. The rising popularity of grooming products for men coupled with the increasing spending of men on personal care products has contributed to various product launches.The growing male awareness of grooming and cleanliness is a major factor driving the demand for shaving lotions and creams. Distribution Channel Insights The supermarkets and hypermarkets segment held the largest revenue share of 39.12% in 2023. The presence of established supermarkets & hypermarkets and departmental stores in the U.S. has been encouraging beauty and skin care product manufacturers to distribute their products through these channels. Hypermarkets and supermarkets sell a variety of cosmetic and beauty care products for both men and women. Demand from online retailers is set to expand at a CAGR of about of 4.7% from 2023 to 2030. The increasing online presence of beauty & personal care products has led to considerable digital investment. In 2018, L’Oréal Group acquired Modiface, a company that has had a hand in the creation of many custom augmented reality beauty apps, including those from Sephora and Estée Lauder. Modiface has developed advanced technologies for 3D virtual make-up and color and skin diagnostic services using proprietary know-how, which track facial features and color and are used by nearly all the major beauty brands. Such efforts are projected to result in ample growth opportunities for the online skin care products market in the U.S. Key U.S. Skin Care Products Company Insights Some of the key players operating in the market include Revlon, Colgate-Palmolive Company, and L’Oréal S.A. Revlon designs, manufactures, and distributes cosmetic, skin care, fragrance, and personal care products.The company offers its products under brands such as Revlon, Revlon Professional, Elizabeth Arden, American Crew, Almay, Cutex, Mitchum, Elizabeth Taylor, Christina Aguilera, Britney Spears, Juicy Couture, Curve, Shawn Mendes, and John Varvatos. Colgate-Palmolive Company offers skin care products under the brands Palmolive Naturals, PCA Skin, EltaMD Skin care, and Filorga. Palmolive Naturals offers a wide range of essential skin care products such as moisturizers, body wash, face wash, and others. PCA Skin offers products such as moisturizers, serums, retinol, cleansers/toners, exfoliants, and sunscreens. EltaMD Skin care offers products such as cleansers, moisturizers, serum, and anti-aging skin care products. Coty Inc.,Johnson & Johnson Services, Inc., and Procter & Gamble (P&G) are some of the other participants in the U.S. skin care products market, Coty Inc. was founded in 1904 and is headquartered in New York, U.S. The company is a manufacturer, designer, distributor, and retailer of fragrances, cosmetics, skin care, nail care, and hair care products. The company sells a wide range of products under 77 brands, which are segmented into Coty Luxury, Coty Consumer Beauty, and Coty Professionals. Johnson & Johnson Services, Inc mainly offers skin care products under brands like Neutrogena, Aveeno, Dr. CI:Labo, NeoStrata, Dabao, and others. It is a multinational company founded in 1979 and headquartered in New Jersey, U.S. Key U.S. Skin Care Products Companies: Revlon Colgate-Palmolive Company Coty Inc. Johnson & Johnson Services, Inc. Procter & Gamble (P&G) L’Oréal S.A. CeraVe Cetaphil The Ordinary Estée Lauder Recent Developments In August, 2023, L’Oréal S.A. announced a complete acquisition of distinctive luxury beauty brand, Aesop. This acquisition will help the companies’ to grow and expand their product line. U.S. Skin Care Products Market Report Scope U.S. Skin Care Products Market Report Segmentation This report forecasts revenue growth at regional, and country levels and provides an analysis on the latest trends in each of the sub-segment from 2018 to 2030. For this study, Grand View Research has segmented the global U.S. skin care products market report based on gender, product, distribution channel, and region. Gender Outlook (Revenue, USD Million, 2018 - 2030) Male Female Product Outlook (Revenue, USD Million, 2018 - 2030) Face Creams & Moisturizers Cleansers & Face Wash Sunscreen Body Creams & Moisturizers Shaving Lotions & Creams Others Distribution Channel Outlook (Revenue, USD Million, 2018 - 2030) Supermarkets & Hypermarkets Convenience Stores Pharmacy & drugstore Online Others Frequently Asked Questions About This Report How big is the U.S. skin care products market? b. The U.S. skin care products market size was estimated at USD 22.90 billion in 2023 and is expected to reach USD 23.85 billion in 2024. What is the U.S. skin care products market growth? b. The U.S. skin care products market is expected to grow at a compound annual growth rate of 4.2% from 2024 to 2030 to reach USD 30.60 billion by 2030. Which segment accounted for the largest U.S. skin care products market share? b. Face creams & moisturizers dominated the U.S. skin care products market with a share of more than 43.71% in 2023. With growing consumer inclination for natural beauty products, the concept of creams, serums, and moisturizers infused with natural ingredients is expected to witness significant demand over the forecast period Who are the key players in the U.S. skin care products market? b. Some key players operating in the U.S. skin care products include Revlon; Colgate-Palmolive Company; Estée Lauder; Coty Inc.; Johnson & Johnson Services, Inc.; Procter & Gamble (P&G); L’Oréal S.A.; CeraVe; Cetaphil; The Ordinary What are the factors driving the U.S. skin care products market? b. Key factors that are driving the U.S. skin care products market growth include the growing awareness regarding one’s physical appearance is expected to spur the demand for various skin care products such as face creams, face washes, and cleansers over the forecast period
+
+====================================================================================================
+BLOCK 2
+[TABLE]
+
+            Report Attribute                         Details
+0  Market size value in 2024               USD 23.85 billion
+1   Revenue forecast in 2030               USD 30.60 billion
+2                Growth rate  CAGR of 4.2% from 2024 to 2030
+3                    Actuals                     2018 - 2023
+4            Forecast period                     2024 - 2030
+
+====================================================================================================
+BLOCK 3
+Request a Free Sample
+
+
+[셀 3]
+====================================================================================================
+TITLE: Beauty and Personal Care Products Market Report, 2030
+DATE: 
+CONTENT BLOCK COUNT: 3
+====================================================================================================
+
+====================================================================================================
+BLOCK 1
+Beauty And Personal Care Products Market Summary The global beauty and personal care products market size was estimated at USD 557.24 billion in 2023 and is projected to reach USD 937.13 billion by 2030, growing at a CAGR of 7.7% from 2024 to 2030. One of the primary factors driving market expansion is the rising consciousness of consumers about their appearance. Key Market Trends & Insights The Asia Pacific beauty and personal care products market dominated the global market with a revenue share of 39.3% in 2023. The Australian market is projected to grow at a CAGR of around 8.5% from 2024 to 2030. By type, the conventional segment beauty and personal care market accounted for the largest revenue share of 84.6% in 2023. By product, the skincare segment accounted for a revenue share of 33.7% of the beauty and personal care products industry in 2023. Market Size & Forecast 2023 Market Size: USD 557.24 Billion 2030 Projected Market Size: USD 937.13 Billion CAGR (2024-2030): 7.7% Asia Pacific: Largest market in 2023 The introduction of cosmetics with natural, non-toxic, and organic ingredients has also been boosting the market growth. The easy availability of these cosmetic items through various sales channels such as specialty stores, pharmacies, and beauty salons has contributed to the growth of the market in terms of value sales. In addition, the increasing focus of male consumers on skin care and grooming to enhance their physical appearance and take better care of their skin is anticipated to offer strong opportunities for growth. Increasing investments in the research and development of new and effective offerings also bode well for market growth. Rising consumer awareness about using cosmetics that are vegan, organic, natural, and, at the same time, good for the planet has encouraged manufacturers to launch new offerings and expand their footprint. For instance, in June 2021, SO'BiO étic, a socially responsible French beauty company, launched its organic beauty line in the U.S., to supply eco-friendly and healthy beauty items. The company’s products do not contain glycol , parabens, silicones, nanoparticles, PEG, or chemical filters. Various chemicals used as ingredients in beauty and personal care products can have adverse side effects on the skin. Similarly, long-term and extensive use of haircare commodities containing harsh chemicals can lead to numerous hair problems such as hair fall, premature greying, and dry and lackluster hair. Growing consumer awareness regarding the probable side effects of using such products is one of the major factors limiting the growth of conventional beauty and personal care products. Consumer trends have been shaping the market for beauty and personal care products over the years. Ongoing trends influencing the market include sustainability, natural and organic ingredients, health, and convenience. The growing consumer preference for natural, organic, vegan beauty and personal care products to avoid the harmful effects of synthetic and rough chemicals is boosting the market growth. Consumers are replacing conventional beauty and personal care products with clean labeled and environment-friendly products. The primary consumer demographic propelling the trend is composed of Millennials and Gen Z, who exhibit heightened enthusiasm for organic and natural beauty products in comparison to the general consumer base. According to a blog by ESW in July 2022, within this age group, 43% of consumers express a preference for natural skincare, surpassing 31% of the overall consumer population in the U.S. The COVID-19 pandemic has also had a significant impact on the growth of the market. The pandemic disrupted the production as well as supply of beauty and personal care items. The situation was exacerbated by strict restrictions on movement, as well as social distancing and stay-home policies. Demand for new orders from retailers came to a standstill as major markets were under lockdown and commodity sales took a major hit, both through online and offline channels. Market Concentration & Characteristics In the beauty and personal care products market, product innovation is a driving force, characterized by a strong focus on natural, sustainable, and clean formulations. Companies are investing in developing products that incorporate natural and organic ingredients, responding to consumer demand for safer, environmentally friendly options. Additionally, there is a notable emphasis on incorporating advanced technologies, such as biotechnology and nanotechnology, to create more effective and targeted skincare solutions. Merger and acquisition activities in the beauty and personal care products market have been prominent, with major players strategically acquiring and integrating companies to diversify their product portfolios and expand their market reach. Companies are seeking acquisitions of niche brands specializing in natural and organic products, as well as startups focused on innovative technologies to gain a competitive edge. Additionally, there is a trend of vertical integration, where companies acquire or merge with suppliers to ensure a seamless and efficient supply chain. Regulations in the beauty and personal care products market are designed to ensure consumer safety and product efficacy. Government agencies such as the Food and Drug Administration (FDA) in the United States and the European Commission in the European Union oversee the industry, setting guidelines for product ingredients, labeling, and advertising. Regulations govern the use of certain ingredients to ensure they are safe for consumer use, with restrictions on substances known to be harmful or potentially allergenic. Furthermore, labeling regulations mandate clear and accurate information regarding product contents, usage instructions, and warnings. Substitutes in the beauty and personal care products market encompass a broad spectrum of options, including natural ingredients often used in home-made remedies and do-it-yourself (DIY) beauty treatments. This trend has gained momentum owing to the growing consumer interest in clean, organic, and sustainable alternatives. Additionally, the rise of independent brands and small-scale manufacturers specializing in handmade, natural, and artisanal beauty products presents a substitute for mass-produced items. Type Insights The conventional beauty and personal care market accounted for the largest revenue share of 84.6% in 2023. Low prices of the conventional type compared to organic variants and their easy availability through various distribution channels across the globe have driven segment growth so far. However, conventional cosmetics frequently contain a high percentage of petroleum-based ingredients, which is not only harmful to the skin when not properly refined but also required extensive mining, which can endanger wildlife and soils. This could hamper segment growth. The organic beauty and personal care products market is expected to grow at a CAGR of 8.8% from 2024 to 2030. These cosmetics are formulated by using organically sourced ingredients and are safe for the skin, cruelty-free, and aid in the protection of the environment and biodiversity. Rising consumer awareness regarding the benefits associated with the use of organic cosmetics is expected to drive its adoption among consumers globally. This, in addition to a rising number of players offering clean and organic beauty and personal care products, is likely to boost the segment over the forecast period. Product Insights The skincare market accounted for a revenue share of 33.7% of the beauty and personal care products industry in 2023. This is attributable to the rising popularity of cosmetics containing natural and organic ingredients such as herbs, plant extracts, and fruit extracts. Skincare products can have numerous benefits and functions, such as rejuvenating and protecting the skin, treating wrinkles and signs of aging, reducing the occurrence of acne, lightening spots, and keeping the skin healthy and young. These benefits continue to propel the growth of the skincare segment. The haircare products market is expected to grow at a CAGR of over 8.1% from 2024 to 2030. Haircare products are used to solve various hair problems like frizzy hair, split ends, hair fall, dandruff, and dry or itchy scalp. The availability of a wide range of haircare products, such as shampoo, conditioner, hair gel, hair wax, hair serum, hair oil, and hair colorants, in different formats and for various customer requirements will drive segment growth over the forecast period. Distribution Channel Insights The sales of beauty and personal care products through specialty stores hold the revenue share of 35.6% in 2023, driven by the growing presence of such stores around the globe. These stores have been focusing on offering natural and chemical-free beauty and personal care products to pique customer interest and allow them to choose from numerous brands and variants before making a purchase. Additionally, the presence of store associates that help customers select the right cosmetics for their needs and provide adequate knowledge about the ingredients has been boosting the growth of this segment. Supermarkets and hypermarkets have become popular for the purchase of beauty and personal care products as they offer a wide range of items under a single roof and are located near residential areas for convenient and easy accessibility. The sales of beauty and personal care products through e-commerce channel is projected to grow at a CAGR of 10.3% from 2024 to 2030. Rising internet penetration and target marketing by companies to reach a wider audience has fueled segment growth. In addition, heavy discounts and offers provided by online platforms will boost the sale of beauty and personal care items through this segment. Regional Insights The Asia Pacific beauty and personal care products market dominated the global market with a revenue share of 39.3% in 2023, and is expected to grow at a CAGR of nearly 9% from 2024 to 2030. This is attributable to the rising number of working women in countries such as China and India and their growing interest and spending capacity for beauty and personal care products. Moreover, the rising young population in these countries with access to the internet is expected to offer immense opportunities for the growth of the regional market over the forecast years. Australia Beauty and Personal Care Products Market There is a notable emphasis on natural and organic products, driven by increasing consumer awareness of ingredients, sustainability, and environmental impact. Additionally, the trend towards clean beauty and skincare, which involves the use of products free from potentially harmful chemicals, is gaining traction in the beauty & personal care products market in Australia. Furthermore, the rise of e-commerce and digital channels has expanded consumer access to a wide range of beauty and personal care products, fueling market growth. The Australian market is projected to grow at a CAGR of around 8.5% from 2024 to 2030. Europe beauty and personal care products market The growth of the beauty and personal care products market in Europe is fueled by the growing inclination of consumers toward natural and vegan cosmetics, especially in the UK, France, and Germany. The European market is projected to grow at a CAGR of 6.2% from 2024 to 2030. In North America, consumers are willing to pay a high price for cosmetics that enhance their physical appearance, and this is especially true for consumers in the U.S. and Canada. The higher spending power of consumers in these regions and the presence of leading players will drive the regional markets. The beauty and personal care products market in Canada is expected to grow at a CAGR of 8.7% from 2024 to 2030. According to the International Trade Administration, the recovery of the beauty and personal care industry in Canada presents a significant opportunity for cosmetic product exporters from the U.S. The growing desire for natural or organic, cruelty-free, and non-animal-tested cosmetic products is an ongoing product trend in beauty products. Due to consumer preferences, the Canadian skincare market now comprises about 40% of organic and ethically derived goods. Emerging market trends have fostered the expansion of cosmetic items in Canada. In addition to using technology to improve marketing methods, this includes producing products to appeal to the age, gender, and ethnicity of consumers. The popularity of beauty products has also been aided by the use of innovative, environmentally friendly packaging and design. Key Beauty And Personal Care Products Company Insights There are a host of international and domestic players in this market and they have been focusing on strategies such as innovation and the launch of natural, organic, and vegan beauty and personal care products in the retail space. Key Beauty And Personal Care Products Companies: The following are the leading companies in the beauty and personal care products market . These companies collectively hold the largest market share and dictate industry trends. Financials, strategy maps & products of these beauty and personal care products companies are analyzed to map the supply network. Unilever Estée Lauder Shiseido Revlon Procter & Gamble L'Oréal S.A. Coty Inc. Kao Corporation AVON PRODUCTS, INC ORIFLAME COSMETICS S.A. Recent Developments In September 2023, L’Oréal Groupe agreed to make a minority investment in Shinehigh Innovation, an innovative biotech company based in China, to forge a lasting partnership to jointly develop novel and environmentally sustainable beauty solutions. In April 2023, Pacifica launched a new body care line called Wake Up Beautiful, featuring retinoid and mushroom body products to renew skin. The collection includes a body serum and lotion, both formulated with sustainable and eco-friendly ingredients. The product contains mushrooms to promote skin hydration. In February 2023, Shiseido Co., Ltd., in collaboration with Shoppers Stop Ltd.'s Global SS Beauty Brands, introduced its makeup brand, NARS Cosmetics, to the Indian market. The strategic plan includes the opening of 14 stores in New Delhi and Mumbai throughout 2023, along with the promotion of NARS products through Sephora outlets. In February 2023, Neon Hippie, a mushroom-based skin care brand, launched in the U.S. with its 7 Shroom Complex featuring chaga, reishi, shiitake, tremella, trametes versicolor, cordyceps, and coprinus. The product line includes seven items and is available at select Neiman Marcus stores and online. In January 2023, Shroom Skincare launched its first product, Mycelium Glow Brightening Serum, which combines mushroom extracts and vitamin C to rejuvenate and moisturize the skin. The serum offers a range of benefits, including protection from environmental damage, reduction of inflammation, and improvement in the appearance of aging and uneven skin tone. The product contains maitake, reishi, chaga, and cordyceps mushroom extracts, each providing different skin benefits. Beauty And Personal Care Products Market Report Scope Global Beauty And Personal Care Products Market Report Segmentation This report forecasts revenue growth at global, regional & country levels and provides an analysis on the latest trends and opportunities in each of the sub-segment from 2018 to 2030. For the purpose of this study, Grand View Research has segmented the global beauty and personal care products market report on the basis of type, product, distribution channel, and region: Type Outlook (Revenue, USD Billion; 2018 - 2030) Conventional Organic Product Outlook (Revenue, USD Billion; 2018 - 2030) Skin Care Face Skin Care Face Creams & Moisturizers Cleansers & Face Wash Sunscreen/Sun Care Others (Masks, Serum, Scrub, etc.) Body Skin Care Body Washes & Shower Gels Hair Removal Products Creams & Moisturizers Body Sunscreen/Sun Care Others (Serum, Body Scrub, Oils, etc.) Hair Care Shampoo Conditioner Oils Serums Others (Hair Masks, Peels, Etc.) Color Cosmetics Fragrances Others Distribution Channel Outlook (Revenue, USD Billion; 2018 - 2030) Hypermarkets & Supermarkets Specialty Stores E-commerce Others Regional Outlook (Revenue, USD Billion; 2018 - 2030) North America U.S. Canada Mexico Europe Germany UK France Spain Italy Asia Pacific China India Japan South Korea Australia & New Zealand Central & South America Brazil Argentina Middle East & Africa South Africa UAE Frequently Asked Questions About This Report How big is the beauty and personal care products market? b. The global beauty and personal care products market size was estimated at USD 518.6 billion in 2022 and is expected to reach USD 557.24 billion in 2023. What is the beauty and personal care products market growth? b. The global beauty and personal care products market is expected to grow at a compound annual growth rate of 7.7% from 2023 to 2030 to reach USD 973.13 billion by 2030. Which segment accounted for the largest beauty and personal care products market share? b. The Asia Pacific dominated the beauty and personal care products market with a share of 39% in 2022. This is attributable to the rising number of working women population in countries such as China and India and their rising interest in spending on beauty and personal care products. Who are the key players in beauty and personal care products market? b. Some of the key players operating in the beauty and personal care products market include Unilever; The Estée Lauder Companies Inc.; Shiseido; MacAndrews & Forbes (Revlon); L’Oréal S.A.; Coty Inc.; Procter & Gamble; Kao Corporation; Oriflame Cosmetics S.A.; Avon Products, Inc. What are the factors driving the beauty and personal care products market? b. One of the primary factors driving beauty and personal care products market expansion is the rising number of appearance-conscious consumers globally. Additionally, beauty and personal care products such as skincare, color cosmetics, hair care, and others are becoming an integral part of grooming among millennials.
+
+====================================================================================================
+BLOCK 2
+[TABLE]
+
+            Report Attribute                         Details
+0  Market size value in 2024              USD 599.15 billion
+1   Revenue forecast in 2030              USD 937.13 billion
+2                Growth rate  CAGR of 7.7% from 2024 to 2030
+3               Actuals Data                     2018 - 2023
+4            Forecast period                     2024 - 2030
+
+====================================================================================================
+BLOCK 3
+Request a Free Sample
+
+
+[셀 5]
+====================================================================================================
+TITLE: K-Beauty Products Market Size, Share | Industry Report 2033
+DATE: 
+CONTENT BLOCK COUNT: 3
+====================================================================================================
+
+====================================================================================================
+BLOCK 1
+K-beauty Products Market Summary The global K-beauty products market size was estimated at USD 118.28 billion in 2025 and is expected to reach USD 252.41 billion by 2033 , growing at a CAGR of 10.0% from 2026 to 2033 . The global rise of Korean pop culture, including K-pop and K-dramas, has played a significant role in expanding K-beauty worldwide, as consumers increasingly adopt skin care and makeup trends inspired by Korean celebrities and influencers. Key Market Trends & Insights By product, skin care led the K-beauty products market and accounted for a share of 56.78% in 2025. By end user, women led the K-beauty products market and accounted for a share of 61.81% in 2025. By distribution channel, specialty stores led the K-beauty products market and accounted for a share of 44.96% in 2025. By region, North America led the K-beauty products market and accounted for a share of 34.38% in 2025. Market Size & Forecast 2025 Market Size: USD 118.28 Billion 2033 Projected Market Size: USD 252.41 Billion CAGR (2026-2033): 10.0% North America: Largest market in 2025 At the same time, rising demand for natural and skin-friendly ingredients is driving market growth, with consumers favoring gentle, clean formulations focused on hydration, skin health, and preventive skin care. The skin-first beauty approach, popularized by K-beauty, emphasizes achieving naturally healthy, radiant skin rather than relying on heavy makeup coverage. The “glass skin” trend reflects consumer preference for clear, smooth, deeply hydrated skin, driving demand for multi-step skin care routines and moisture-rich products such as essences, serums, and hydrating creams that prioritize long-term skin health and luminosity. Korean manufacturers and brands are increasingly working with major e-commerce platforms , distributors, and beauty retailers to expand market access, localize offerings, and increase consumer reach. For instance, partnerships such as Kolmar Korea’s collaboration with Amazon and distribution alliances with European retailers highlight how joint initiatives are helping Korean brands scale globally while strengthening supply chains and retail presence in new regions. For instance, in September 2025, Nykaa expanded its Korean beauty portfolio by launching Mise En Scène and RYO haircare brands in India, strengthening its long-standing partnership with South Korean beauty giant Amorepacific. The launch, marking nearly a decade of collaboration, reflects the growing popularity of K-beauty beyond skin care into haircare, with Mise En Scène focusing on “glass hair” shine and repair solutions. At the same time, RYO emphasizes scalp health using traditional Korean herbal science. Innovation-led product development remains a core driver of the K-beauty skin care market, as brands continuously introduce advanced formulations, unique ingredients, and rapid product innovation cycles to meet evolving consumer expectations. Rising demand for science-backed K-beauty skin care solutions that deliver visible results has encouraged companies to launch multifunctional products featuring innovative textures, dermatology-inspired technologies, and active ingredients such as fermented extracts, peptides, and probiotics , strengthening K-beauty’s global leadership in skin care innovation. For instance, in November 2025, Actress Shay Mitchell launched Rini, a Korean-made skincare brand developed specifically for children, highlighting a new niche expansion within the K-beauty market. The brand introduced dermatologist-tested hydrogel and sheet masks formulated with up to 95% natural-origin ingredients, including aloe vera, vitamin B12, and white tremella mushroom extract, focusing on gentle, safe, and transparent skin care for young users. Manufactured in South Korea, the launch demonstrates how K-beauty innovation is expanding beyond traditional adult skin care into emerging segments such as Gen Alpha and kids’ skin care, supported by rising parental demand for safe, age-appropriate self-care products. Consumer Insights Consumer behavior insights highlight that skin care routines play a central role in beauty habits, with individuals using an average of nearly six skin care products simultaneously. Many consumers follow layered routines that go beyond basic toner and cream, incorporating products such as essences, serums, mists, and emulsions to achieve targeted skin benefits. This reflects the strong influence of K-beauty’s multi-step skin care philosophy, which prioritizes consistent care, hydration, and skin maintenance over quick cosmetic fixes, demonstrating growing awareness of long-term skin health. Similarly, makeup usage shows diversity, with consumers using an average of 5.9 products, ranging from simple cushion foundation and lipstick combinations to more comprehensive base routines. When selecting products, consumers primarily focus on effectiveness and texture, followed by value for money and positive online reviews, highlighting the growing influence of digital influencers on purchase decisions. Product Insights Skin care products held the largest revenue share of the K-beauty industry in 2025, accounting for a 56.78%. Korean beauty culture strongly emphasizes skin health over makeup, encouraging consumers to invest in preventive and long-term skin care routines. The popularity of multi-step regimens involving cleansers, toners, essences, serums, and moisturizers drives higher product consumption compared to color cosmetics. In addition, K-beauty brands are known for innovative formulations, gentle skin-friendly ingredients, and hydration-focused solutions that appeal to a wide range of consumers seeking effective yet affordable skin care. The color cosmetic category is anticipated to witness a CAGR of 12.3% from 2026 to 2033. Consumers increasingly prefer lightweight products such as cushion foundations, lip tints, and cream blushes that enhance rather than conceal the skin, aligning with the broader skin-first beauty trend. Continuous product innovation, hybrid skin care-makeup formulations, and affordable pricing make K-beauty cosmetics accessible to a broad consumer base. End User Insights Women held the largest revenue share of the K-beauty industry in 2025, accounting for 61.81%. Women have higher engagement in skin care and beauty routines, stronger awareness of skin health, and greater spending on personal care products. K-beauty’s multi-step skin care philosophy, wide product variety, and targeted solutions for concerns such as hydration, aging, acne, and brightening strongly resonate with female consumers who prioritize preventive skin care and appearance enhancement. In addition, marketing strategies, influencer promotions, and beauty trends primarily target women. The demand for K-beauty products among men is anticipated to witness a CAGR of 10.9% from 2026 to 2033. Growing awareness about skin health, acne care, sun protection, and anti-aging has encouraged men to adopt simple skin care routines inspired by Korean beauty culture. The influence of K-pop idols, Korean actors, and social media trends has normalized male grooming and appearance consciousness globally. In addition, brands are launching gender-inclusive products and easy-to-use multifunctional skin care solutions tailored for men. Distribution Channel Insights Hypermarkets & supermarkets held the largest revenue share of the K-beauty industry in 2025, accounting for a share of 44.96%. These retail formats allow customers to physically examine textures, shades, and packaging before purchase, which is especially important for skin care and cosmetics. Competitive pricing, promotional discounts, and strong distribution partnerships with global retailers further attract mass-market buyers. Online sales are expected to witness a CAGR of 11.8% from 2026 to 2033. Online platforms allow consumers to easily compare products, read reviews, access a broader range of international brands, and take advantage of discounts and personalized recommendations. The rise of influencer marketing, live commerce, and viral beauty trends on platforms such as Instagram and TikTok has further accelerated online purchases, especially among younger consumers. Brands are also collaborating to expand their reach. For instance, in October 2025, Kolmar Korea announced its partnership with Amazon Beauty at Amazon Beauty Seoul 2025, reflecting a strategic collaboration to accelerate the globalization of K-beauty brands. As the exclusive manufacturing sponsor, Kolmar Korea will work closely with Amazon to provide brands with product development expertise, manufacturing capabilities, and global distribution support, helping Korean beauty companies scale internationally. Regional Insights North America K-Beauty Products Market Trends The K-beauty products market in North America held the largest revenue share of 34.38% of the global K-beauty products industry in 2025. Korean brands emphasize preventive skin care, multi-step routines, and advanced formulations featuring ingredients such as hyaluronic acid, snail mucin, centella asiatica, and fermented extracts. Consumers in the region increasingly prefer hydration, skin-barrier repair, and “glass skin” results over heavy makeup, driving higher demand for serums, essences, sheet masks, and gentle treatment products. Continuous product innovation, fast trend adaptation, and science-backed skin care solutions position K-beauty as a high-performance alternative to traditional Western beauty products. U.S. K-Beauty Products Market Trends The K-beauty products market in the U.S. held the revenue share of 67.96% in the North American K-beauty industry in 2025. K-beauty products in the U.S. are rapidly expanding beyond niche online platforms into major mainstream retailers such as Sephora, Ulta Beauty, Target, and department stores. This wider retail presence improves product accessibility, increases brand visibility, and enhances consumer trust by allowing shoppers to experience products in physical stores. The K-beauty products market in Canada is anticipated to witness a CAGR of 8.6% from 2026 to 2033. In Canada, the K-beauty skin care market is gaining momentum as consumers increasingly prioritize clean, safe, and high-quality beauty products. Shoppers prefer ingredient transparency, dermatologically gentle formulations, and products free of harsh chemicals, aligning closely with K-beauty’s focus on botanical extracts, skin-barrier protection, and long-term skin health. This quality-driven purchasing behavior is encouraging Canadian consumers to adopt K-beauty skin care solutions that combine innovation, efficacy, and clean beauty standards. Asia Pacific K-Beauty Products Market Trends The K-beauty products market in Asia Pacific is anticipated to witness a CAGR of 11.3% from 2026 to 2033. Consumers increasingly prefer products formulated with natural extracts, fermented ingredients, and mild active compounds that promote skin health while minimizing irritation. K-beauty brands are responding by emphasizing transparency, sustainable sourcing, and dermatologically tested formulations, positioning clean beauty innovation as a key driver of the regional K-beauty product market's expansion. The K-beauty products market in China held the revenue share of 34.59% in the Asia Pacific K-beauty industry in 2025. The popularity of Korean pop culture, including K-pop, K-dramas, and Korean celebrities, shapes beauty standards and consumer preferences. Exposure to Korean skin care routines and the “glass skin” aesthetic through social media and entertainment platforms increases brand awareness. It drives demand for K-beauty skin care products among younger Chinese consumers. The K-beauty products market in Australia is anticipated to witness a growth rate of 12.2% from 2026 to 2033, supported by rising consumer interest in ingredient-focused skin care and multi-step beauty routines. Australian consumers are increasingly drawn to Korean formulations that emphasize hydration, skin barrier repair, and gentle actives, aligning with the broader shift toward preventative and wellness-oriented skin care. In addition, the strong presence of cross-border e-commerce platforms, specialty beauty retailers, and social media-driven discovery is accelerating product accessibility and brand awareness across the country. Influencer-led education, growing demand for clean and cruelty-free formulations, and the popularity of hybrid makeup-skin care products are further strengthening market penetration and supporting the sustained growth of K-beauty brands in Australia. Europe K-Beauty Products Market Trends The K-beauty products market in Europe held a revenue share of 18.28% of the global K-beauty products industry in 2025. The rapid growth of e-commerce platforms and online beauty communities enhances product discovery and consumer education. Social media influencers, online reviews, and digital skin care content are increasing awareness of Korean beauty routines, encouraging online purchases and accelerating the adoption of K-beauty skin care products across European markets. The K-beauty products market in the UK held the revenue share of 42.59% in the European K-beauty products industry. The rising demand for skin care-focused beauty routines as consumers increasingly prioritize skin health, hydration, and natural radiance over heavy makeup. K-beauty skin care products emphasizing preventive care, gentle formulations, and long-term skin benefits are gaining popularity among UK consumers seeking practical and minimalist beauty solutions. The K-beauty products market in France is anticipated to witness a CAGR of 10.1% from 2026 to 2033. Consumers increasingly embrace innovative skin care solutions that complement the country’s established dermocosmetic culture. Rising interest in gentle formulations, hydration-focused skin care, and clean beauty ingredients is encouraging French consumers to adopt K-beauty skin care products, while expanding online retail channels and social media influence continue to enhance product awareness and market penetration. Central & South America K-Beauty Products Market Trends The K-beauty products market in Central & South America is anticipated to witness a CAGR of 9.7% from 2026 to 2033. The Central & South America K-beauty products market is growing as consumers become more beauty-conscious and increasingly adopt skin care-focused routines. Rising awareness of skin health, hydration, and preventive skin care is driving demand for K-beauty products known for innovative formulations, visible results, and premium, affordable positioning across the region. Middle East & Africa K-Beauty Products Market Trends The K-beauty products in the Middle East & Africa held a revenue share of 9.85% of the global K-beauty products industry in 2025. The Middle East & Africa (MEA) K-beauty market is emerging as a promising growth region, driven by rising beauty awareness, increasing disposable incomes, and strong demand for premium skin care solutions. Expanding urban populations, digital retail growth, and growing interest in global beauty trends are accelerating the adoption of K-beauty skin care products across countries such as the UAE, Saudi Arabia, South Africa, and Egypt. Key K-Beauty Products Company Insights Leading players in the baby bassinet market include BANILLA CO, AMOREPACIFIC, and The Crème Shop, among others. The global K-beauty products market is highly competitive, characterized by established Korean cosmetics conglomerates, emerging indie K-beauty brands, dermatology-driven skin care companies, and digitally native direct-to-consumer players expanding into specialty beauty stores, supermarkets, department stores, and online marketplaces. Companies are increasingly focusing on rapid product innovation, advanced skin care formulations, unique ingredients, and trend-driven product development to meet evolving consumer demand for effective, skin-first, and technology-inspired beauty solutions. Strong emphasis on research and development, global collaborations, and social media-led marketing strategies continues to strengthen brand differentiation and accelerate international expansion within the K-beauty products market. Key K-Beauty Products Companies: The following key companies have been profiled for this study on the K-beauty products market. BANILLA CO AMOREPACIFIC The Crème Shop Clio CARVER KOREA CO. (Unilever) Able C&C The Face Shop, Inc. Nature Republic TolyMoly LG HOUSEHOLD & HEALTH CARE LTD. Recent Developments In November 2025, Actress and entrepreneur Shay Mitchell launched Rini, a Korean-made skin care brand designed specifically for children, developed alongside Esther Song and Matte Babel, and formulated with pediatric chemists in South Korea. The brand debuted with a five-product lineup, including what is promoted as the world’s first hydrogel face mask tailored for kids, focusing on gentle, safe formulations and playful designs to encourage early self-care routines. In May 2025, Amorepacific’s Korean skin care brand Hanyul expanded its international presence through an exclusive launch at Sephora in the United States, marking a strategic step in accelerating global growth for heritage-driven K-beauty brands. The launch introduced Hanyul’s skin care range both online and across more than 300 Sephora stores, positioning the brand as a premium yet accessible offering rooted in traditional Korean botanical ingredients combined with science-backed formulations. K-Beauty Products Market Report Scope Global K-Beauty Products Market Report Segmentation This report forecasts revenue growth at global, regional & country levels and provides an analysis of the latest trends and opportunities in each of the sub-segments from 2021 to 2033. For this study, Grand View Research has segmented the K-beauty products market on the basis of product, end user, distribution channel, and region. Product Outlook (Revenue, USD Billion, 2021 - 2033) Skin Care Face Skin Care Lotions, Face Creams, & Moisturizers Cleansers & Face Wash Facial Serums Facial Masks Sunscreen/Sun Care Others (Scrub, etc.) Body Skin Care Lotions, Creams, & Moisturizers Body Sunscreen/Sun Care Body Scrub Others (Serum, Oils, etc.) Hair Care Shampoo Conditioner Oils Serums Others (Hair Masks, Peels, Etc.) Color Cosmetics Face Color Cosmetics Lip Color Cosmetics Eye Color Cosmetics Nail Color Cosmetics End User Outlook (Revenue, USD Billion, 2021 - 2033) Men Women Distribution Channel Outlook (Revenue, USD Billion, 2021-2033) Hypermarkets & Supermarkets Specialty Beauty Stores Pharmacies & Drugstores Online/E-Commerce Others Regional Outlook (Revenue, USD Billion, 2021 - 2033) North America U.S. Canada Mexico Europe Germany UK France Italy Spain Asia Pacific China India Japan Australia Central & South America Brazil Middle East and Africa UAE South Africa Frequently Asked Questions About This Report Who are the key players in the K-beauty products market? b. Some of the key players operating in the K-beauty products market include BANILLA CO, AMOREPACIFIC, The Crème Shop, Clio, CARVER KOREA CO. (Unilever), Able C&C, The Face Shop, Inc., Nature Republic, TolyMoly, and LG HOUSEHOLD & HEALTH CARE LTD.Coty Inc. What are the factors driving the K-beauty products market? b. Key factors that are driving the K-beauty products market growth include the rising awareness of chemical-free beauty products and the rising popularity of personalized skincare products. How big is the K-beauty products market? b. The K-beauty products market was estimated at USD 118.28 billion in 2025 and is expected to reach USD 129.20 billion in 2026. What is the K-beauty products market growth? b. The K-beauty products market is expected to grow at a compound annual growth rate of 10.0% from 2026 to 2033 to reach USD 252.41 billion by 2033. Which segment accounted for the largest K-beauty products market share? b. North America dominated the K-beauty products market with a share of around 34.4% in 2025. This is owing to the people are moving toward a healthy lifestyle and are thinking of a sustainable environment, thus preferring beauty products made from organic and plant-based ingredients.
+
+====================================================================================================
+BLOCK 2
+[TABLE]
+
+           Report Attribute                          Details
+0       Market size in 2026               USD 129.20 billion
+1  Revenue forecast in 2033               USD 252.41 billion
+2     Growth rate (Revenue)  CAGR of 10.0% from 2026 to 2033
+3                   Actuals                      2021 - 2025
+4           Forecast period                      2026 - 2033
+
+====================================================================================================
+BLOCK 3
+Request a Free Sample
+
+
+[셀 6]
+====================================================================================================
+TITLE: K-Beauty’s Global Footprint: Performance, Presence, and Strategic Strengths
+DATE: 12/4/2025
+CONTENT LENGTH: 4024
+====================================================================================================
+K-beauty’s global trajectory has entered a new chapter. Once dominated by China, the export landscape has shifted dramatically, with the US now commanding over half of total sales. K-beauty 1.0, spanning roughly 2011-2018, highlighted Korean skin care routines and innovative items like BB cream. In contrast, K-beauty 2.0, emerging from 2020, emphasises advanced technology, stronger global branding, and mid-range products that deliver high quality at accessible prices.
+This article is based on Euromonitor E-Commerce data through to Q2 2025. Download the full-version white paper 
+here
+, with the most updated Q3 2025 E-Commerce data.
+The market reversal from China to the US
+The US has overtaken China as the top export destination for K-beauty, accounting for 55% of total K-beauty’s overseas online sales in the first half-year of 2025, up from 20% in 2022, according to Euromonitor’s E-Commerce system. China’s share has dropped from 66% to 20%, driven by intensified competition from domestic C-beauty brands and a cooling of Chinese consumer sentiment towards Korean brands.
+K-beauty brands are pursuing a deliberate “branch out from China” strategy
+Source: Euromonitor International
+Penetration hotspots: The US, Japan, Australia
+K-beauty’s penetration varies by market and category, with skin care and sun care consistently outperforming colour cosmetics, except in China and Japan. The US, Japan, and Australia have emerged as the top penetration hotspots. In the US, 35 of the top 300 skin care or sun care brands were K-beauty brands in 2024. Brands such as COSRX, Laneige, Anua, and Beauty of Joseon are winning consumers over with their lightweight textures, functional innovation, and soft power of Korean cultural influence through digital media.
+K-beauty’s global momentum is driven by a cohort of high-performing brands. Euromonitor’s E-Commerce system tracks brands’ online sales of selected online retailers in 14 countries. According to this system, in 2024, five K-beauty brands surpassed USD100 million in annual sales, while 24 brands generated USD20-100 million, and 58 brands generated USD1-20 million.
+What’s next for K-beauty? Innovation and tariff challenges in the US
+South Korea’s reputation for advanced aesthetic procedures is shaping the next wave of K-beauty innovation. Ingredients once reserved for clinical treatments, such as PDRN and exosomes, are now entering mainstream skin care, driving premium product development. At the same time, the “skinification” trend is extending to hair care, with scalp health emerging as a growth category. Brands like Dr. Groot are leading with targeted solutions such as scalp tonics and exfoliating scrubs.
+However, K-beauty faces mounting pressure from US tariff policies. The US remains the largest export market, and the potential termination of the free trade agreement in Q2 2025 triggered consumer concerns over rising prices. Higher costs could erode one of K-beauty’s key advantages: affordability, potentially weakening brand loyalty.
+To mitigate these risks, two strategic levers stand out: geographic diversification and premiumisation. Southeast Asia and Latin America offer high growth opportunities to complement the US exposure. Europe is gaining traction as a strategic region, with Western and Central Europe experiencing rapid growth in demand for K-beauty, while the concept is still being introduced to Eastern Europe. Meanwhile, moving upmarket allows brands to command higher price points, creating margin flexibility to absorb tariff shocks. Premiumisation not only strengthens brand equity but also enhances financial resilience against policy volatility.
+Download the full-version of The Rise of K-beauty white paper here.
+Read more of our publications on K-beauty and the Asian beauty market:
+2025 Asia Pacific Beauty: What’s Driving Growth in China, Japan and South Korea?
+The Rise of C-Beauty Brands in Southeast Asia
+The Rise of the Cultural Beauty Movement: How E-Commerce Is Bridging Traditions and Trends Globally
+
+
+[셀 7]
+====================================================================================================
+TITLE: K-beauty 2.0 surges: Online beauty sales expected to surpass 2024 total sales
+DATE: 10 December 2025
+CONTENT LENGTH: 3885
+====================================================================================================
+Online sales reach 86% of the 2024 total in just nine months of this year The US takes 51% of global K-beauty sales, Europe more than triples to 11% 87 brands generate USD 1M+, five exceed USD100M annually In Euromonitor International’s report ‘Glass Skin & Global Wins: The Rise of K-Beauty ’ , K-beauty 2.0 features advanced technology, stronger brand positioning and proven quality at fair prices, unlike K-beauty’s first wave focusing on niche skin care rituals. This evolution aligns with today's value-conscious consumers seeking better performance without premium pricing. K-beauty online sales in 15 countries outside of South Korea are projected to exceed the 2024 total. Yang Hu , Asia Pacific health and beauty insight manager at Euromonitor International , said: “K-beauty 2.0 represents a pivotal shift in the global beauty market. Distributors have a clear opportunity to capitalise on growing consumer demand, while established brands face mounting pressure in mid-price segments where K-beauty excels at combining quality, value and social media marketing." K-beauty 2.0 drives mainstream adoption K-beauty has seen the US overtake China as the leading market, accounting for a 51% share of total online K-beauty sales in the first three quarters of 2025. Europe has more than tripled its share from 3% in 2022 to 11% in 2025, with the UK and Germany emerging as top markets. In China, once a promising market for K-beauty, sales have declined due to rising C-beauty competition and shifting preferences. US and UK become top destinations for K-beauty The ‘skin health is my health’ philosophy drives K-beauty’s growth in the US, especially in skin and sun care. K-beauty online sales in the first three quarters of 2025 surpassed the 2024 total. UK sales in the first nine months of 2025 were already 20% higher than the 2024 total. As major beauty retailers expand their K-beauty product ranges, the market is expected to see another strong year of growth. In the mature market of Japan, K-beauty online sales in the first three quarters of 2025 reached 86% of the 2024 total, with balanced preference, from major brands l to indie brands. In Australia, robust e-commerce growth has accelerated K-beauty’s potential in skin and sun care. K-beauty online sales in the first three quarters of 2025 reached 94% of the 2024 total. However, as 87% of beauty sales take place offline in the country, strengthening offline presence for K-beauty remains essential. Looking ahead: From brands’ diversity to segment diversity According to Euromonitor, in 2024, 87 K-beauty brands generate over USD 1 million in annual online sales, with five exceeding USD100 million and 24 generating USD20-100 million. Consumer preferences will advance towards medically validated wellness solutions as K-beauty evolves deeper into additional segments. “The ‘skinification’ movement is expanding to hair care, with growing interest in beauty devices and clinically backed treatments from South Korea. These are driving the next phase of innovation in K-beauty,” Yang noted. For more information, see the ‘Glass Skin & Global Wins: The Rise of K-Beauty’ report. Contact Us Euromonitor Press Office Press@euromonitor.com About Euromonitor International Euromonitor International leads the world in data analytics and research into markets, industries, economies and consumers. We provide truly global insight and data on thousands of products and services to help our clients in unlocking worlds of opportunity®, and we are the first destination for organisations seeking growth. With our guidance, our clients can make bold, strategic decisions with confidence. We have 16 offices around the world, with 1000+ analysts covering 210 countries and 99.9% of the world's consumers, and use the latest data science and market research techniques to help our clients to make sense of global markets.
+
+
+[셀 9]
+====================================================================================================
+TITLE: '웰니스' 키워드로 보는 미국 스킨케어 시장 동향
+DATE: 2024-05-08
+====================================================================================================
+
+
+바야흐로 ‘웰니스(Wellness)’의 전성시대다. 최근 몇 년간 코로나19 팬데믹으로 인한 깊은 피로감은 많은 미국인들이 신체적, 정서적으로 건강하고 행복한 삶을 추구하는 ‘웰니스’를 삶의 중요한 가치로 인식 하게 되는 계기가 됐 다. 이러한 ‘ 웰니스 ’ 중심의 생활 방식은 미국인들의 일상적인 습관에서부터 소비 패턴에 이르기까지 깊은 영향을 미치고 있다 . 웰니스가 단순한 유행을 넘어 삶의 필수적인 부분으로 자리 잡게 되면서 , 뷰티· 스킨케어 업계 또한 변화하는 소비자 수요에 맞춰 새로운 제품군을 선보이며 ‘ 웰니스 ’ 시장 공략에 나서고 있다 .
+
+
+하나의 화장품으로 여러 가지 효과를, ‘멀티태스킹’ 화장품 전성시대
+
+
+최근 미국 뷰티시장에서는 ‘스킨스트리밍(Skin Streaming)’이 새로운 트렌드로 각광받고 있다. 스킨 스트리밍이란 세안부터 보습에 이르기까지 많게는 십여단계에 이르는 과도한 스킨케어 루틴을 줄이고, 소비자 개개인의 피부 상태에 맞는 최소한의 제품 사용을 통해 효과를 극대화하는 스킨케어 방식으로, 피부로 가는 과도한 영양 공급을 제한해 피부 자극을 줄이는 동시에 스킨케어에 소모되는 비용 및 시간을 절감할 수 있어 바쁜 현대인들에게 이상적인 스킨케어 방식으로 각광받고 있다.
+
+
+스킨스트리밍 트렌드에 맞춰, 업계는 보다 효율적이고 간소화 된 제품 개발에 주력하고 있으며, 많은 브랜드들은 보습 , 자외선 차단 등 여러 가지 기능을 포함한 ‘ 멀티태스킹 (Multitasking)’ 제품을 시장에 선보이고 있다 . 이는 소비자들의 스킨케어 루틴을 단순화하는 동시에 피부 관리에 필수적인 기능을 모두 포함해 특히 바쁜 일상 속의 현대인들에게 큰 인기를 얻고 있다 .
+
+
+<멀티테스킹 스킨케어 제품>
+
+
+[TABLE]
+
+  사진                                         주요 기능 및 비고 가격(U$)
+0     - 제품명: 피터토마스로스 얼티밋 솔루션 5 멀티태스킹 모이스처라이저 - 탄력, 미...     65
+1     - 제품명: 필로소피 호프 인어자 스무스 글로우 멀티태스킹 모이스라이저 - 보습, ...     49
+2     - 제품명: 툴라 애 크니 올스타 3- in- 1 클렌저, 마스크, 스팟 트리트먼트...     38
+3     - 제품명: 주스뷰티 프리바이오틱 SPF 45, 글로우 데일리 멀티태스킹 모이스처라...   39.5
+
+
+[자료: 각 브랜드 웹사이트, Ulta Beauty]
+
+
+이러한 제품들은 기본적인 피부 관리 목적을 넘어 , 불필요한 스킨케어 제품 사용과 그에 따른 포장 폐기물 발생을 줄일 수 있어 지속가능한 소비를 가능케 할 뿐 아니라 , 소비자로 하여금 핵심적인 기능에 집중할 수 있도록 해 시간 , 비용상의 절감 효과를 가져다 줄 수도 있다 . 멀티테스킹 스킨케어 제품들이 앞으로 웰니스를 중시하는 미국 소비자들 사이에서 더욱 주목 받을 것으로 예상되는 이유다 .
+
+
+美 소비자들, 피부 효능이 ‘과학적으로 입증’ 된 제품 선호
+
+
+한편 , 스킨스트리밍과 같은 스킨케어 루틴 간소화 트렌드에 발 맞춰 , 미국 소비자들은 제한된 선택지 속에서 최대의 효과를 얻기 위해 과학적 근거를 바탕으로 한 고효능 제품을 선호하고 있는 것으로 나타났다 . 글로벌 컨설팅 기업 맥킨지앤드컴퍼니 (McKinsey & Company, 이하 ‘ 맥킨지 ’) 는 올 초 발표한 2024 년 웰니스 트렌드 보고서에서 글로벌 웰니스 시장에서 두드러진 소비자 변화 중 하나로 ' 임상적인 제품 (Clinical over clean) 을 선호하는 경향 ' 을 꼽았다 . 이는 소비자들이 단순히 깨끗한 성분을 함유한 제품을 선호하는 것에서 더 나아가 , 그 효과가 과학적으로 입증된 고효능 제품을 추구하는 것을 의미하며 , 실제로 맥킨지에서 미국 소비자 약 2000 명을 대상으로 실시 한 조사에 따르면 , 뷰티 제품 , 일반의약품 (Over the counter, OTC), 비타민 , 영양제 등 웰니스 제품을 선택할 때 임상적으로 입증 된 효과 (Clinical proven efficacy) 를 구매 결정 요인으로 고려하는 미국인이 절반 이상인 반면 , 유기농이나 천연 성분을 중요하게 고려하는 비중은 약 20% 에 불과한 것으로 조사된 바 있다 .
+
+
+< 미국 소비자들의 웰니스 제품군별 구매 결정 요인 비중 설문조사 >
+
+
+[ 자료 : McKinsey & Company 2024.1.]
+
+
+소비자들이 과학적 근거와 고효능을 바탕으로 한 제품을 선호하면서 , 많은 스킨케어 브랜드들은 나이아신아마이드 (Niacinamide), 히알루론산 (Hyaluronic Acid), 레티놀 (Retinol), 비타민 C 등 구체적인 성분명을 피부 효능과 함께 제품 포장 및 라벨링 전면에 내세우고 있다 . 이러한 변화는 소비자들이 정보에 근거한 선택을 하는데 도움을 줄 뿐 아니라 , 제품의 투명성을 높이고 브랜드에 대한 소비자 신뢰도를 높이는데 중요한 역할을 하고 있다 .
+
+
+< 구체적인 성분명을 포장 전면에 표기한 미국 스킨케어 제품 >
+
+
+[ 자료 : Paula’s Choice]
+
+
+전망 및 시사점
+
+
+글로벌 수출입 통계 조사기관 글로벌 트레이드 아틀라스 (Global Trade Atlas) 에 따르면 , 지난해 한국은 스킨케어 제품으로 총 7 억 9200 만 달러를 수출하며 , 미국의 3 대 스킨케어 제품 공급국 지위를 굳건히 유지했다 . 이는 팬데믹 이후 미국 이커머스 시장의 대폭 성장과 맞물려 , 아마존 (Amazon) 과 같은 온라인 플랫폼에 다수의 한국 스킨케어 제품이 입점하면서 한국 제품에 대한 접근성이 크게 향상된 데다 , 소비자들이 브랜드에만 치중하던 과거와 달리 스킨케어 제품 선택 시 성분 , 효능 등에 대해 더욱 적극적으로 고려하게 되면서 상대적으로 가성비 높은 한국 제품들이 선전한 결과로 풀이된다 .
+
+
+< 미국 스킨케어 화장품 주요 수입국 현황 (HS Code 3304.99 기준 )>
+
+
+( 단위 : US$ 백만 , %)
+
+
+[TABLE]
+
+   순 위    국가   2021   2022  2023   점유율    증감률
+0    -    전체  3,735  4,167  4534   100    8.8
+1    1   프랑스    700    813   890  19.6    9.5
+2    2   캐나다    620    694   810  17.9   16.7
+3    3    한국    522    558   792  17.5   42.0
+4    4  이탈리아    214    309   335   7.4    8.4
+5    5    중국    200    223   289   6.4   29.8
+6    6    영국    238    228   238   5.2    4.4
+7    7   멕시코    124    158   184   4.0   16.3
+8    8   스웨덴    275    235   152   3.4  -35.1
+9    9    일본    128    152   119   2.6  -22.0
+10  10   스위스     77    101   102   2.2    1.0
+
+
+[ 자료 : Global Trade Atlas 2024.4.]
+
+
+웰니스 트렌드와 같은 미국 내 새로운 수요를 바탕으로, 앞으로 더 많은 우리 기업들이 미국에서 새로운 가능성을 찾을 수 있을 것으로 보인다. 이와 관련해 텍사스 지역에서 뷰티제품 유통업을 영위하는 B사 대표는 KOTRA 달라스 무역관과의 인터뷰를 통해 “최근 피부 내면 건강 향상을 위한 유효 성분이 함유된 스킨케어 제품에 대한 수요가 증가하는 추세”라며, 한국에서 새롭게 인기를 얻고 있는 PDRN 성분 등이 포함된 세럼, 에센스 제품에 관심을 전한 바 있다. 이에, 미국 진출을 고려하는 스킨케어 기업들은 앞서 언급한 멀티테스킹 스킨케어 제품과 같은 신규 트렌드를 정확히 파악하고, 건강과 웰빙에 대한 관심 증가를 적극적으로 활용해 웰니스 지향적인 미국 소비자들의 관심과 구매를 유도해야 할 것이다.
+
+
+또한 스킨케어 제품 선택에 있어 구체적인 성분과 입증된 효능을 중시하는 소비자들의 요구를 충족시키기 위해서는 제품의 임상적 신뢰성을 전면에 내세우는 마케팅 전략이 필요하다. 이러한 전략은 제품의 효과와 안정성을 명확히 드러내 소비자들과의 신뢰를 구축할 수 있게 하고, 최종적으로 구매 결정에 긍정적인 영향을 미치는 데 중요한 역할을 수행한다. 이에, 제 3 기관의 인증을 받거나 의사 인플루언서들과의 협업 등을 통해 제품의 임상적 신뢰성을 부각시키는 마케팅 방법이 필요할 수 있다.
+
+
+한편, KOTRA 달라스 무역관은 우리 기업들의 성공적인 미국 시장 진출을 위해 미국 대형 유통망과 협업 해 수출상담회와 신규 벤더 등록을 지원하고 있으며, 다채롭고 새로운 제품 공급을 필요로 하는 현지 바이어들에게 매년 좋은 반응을 얻은 바 있다. 우리 뷰티제품을 포함한 다양한 소비재 기업을 대상으로 한 미국 유통망 진출 지원사업은 올해도 진행 중이며, 미국 시장 진출을 희망하는 기업들은 신청 접수 및 세부 사항 관련 KOTRA 달라스 무역관에 직접 문의 가능하다.
+
+
+자료: Tiktok.com , Ulta Beauty , Peter Thomas Roth, Philosophy, Tula Skincare, Paula’s Choice, McKinsey & Company , Global Trade Atlas , KOTRA 달라스 무역관 자료 종합
+
+
+[셀 10]
+====================================================================================================
+TITLE: Beauty Consumer Trends: Key Insights from the Voice of the Consumer Survey
+DATE: 11/11/2025
+CONTENT LENGTH: 4556
+====================================================================================================
+In 2025, beauty consumers globally have been more intentional and informed than ever. Over the past five years, consumer focus has shifted from routine-driven habits and product replacement towards strategic, personalised care. Euromonitor International’s Voice of the Consumer: Beauty Survey, fielded in May 2025, reflects that beauty consumers are making conscious choices, prefer clean ingredients, and seek beauty products backed by scientific evidence. Consumers are taking beauty into their own hands by approaching self-care strategically, and integrating beauty with overall wellbeing.
+Beauty as a long-term investment in health and longevity
+Consumers in 2025 view beauty as an investment in their overall health and longevity. 75% of people agree that having a consistent beauty routine contributes to their overall wellbeing and confidence. This mindset means that consumers are investing time and money in products that improve their long-term health and emotional wellbeing, not just their immediate appearance. Over the past five years, the global definition of beauty has remained remarkably consistent, with “looking healthy” (46%) continuing to be the top priority for consumers. However, 2025 has seen a notable shift, as “preventing signs of ageing” has become among the top five leading motivations in skin care product purchases. This marks a transition from routine-based motivations to more targeted, long-term goals towards preventative beauty solutions.
+75% of global consumers agree that having a consistent beauty routine contributes to their overall wellbeing and confidence
+Source: Voice of the Consumer: Beauty Survey, fielded May 2025, N=20,206
+Strategic self-care routines
+As living costs rise, consumers are undertaking beauty treatments at home to gain convenience, control and cost efficiency. Beauty routines are becoming more intentional, with DIY beauty becoming a deliberate lifestyle choice in 2025. This movement goes beyond saving money, as 77% of DIY users demand proven efficacy from at-home products. Millennials and Gen Z are driving this trend, favouring online shopping and prioritising ingredient transparency. Brands that deliver education and credible guidance, with products that integrate seamlessly into daily routines, will earn trust and long-term loyalty.
+Science-driven luxury
+Luxury in beauty now centres on science backed claims, efficacy and personalisation. Consumers define premium products by visible results, medical-grade formulations and clinical credibility. 45% of Luxury Beauty Shoppers surveyed in 2025 are influenced by medical professionals when choosing beauty products, up from 40% in 2024. This rise signals that luxury is blending with medical-grade skin care, where expert-backed efficacy is becoming a key marker of prestige. Proven efficacy leads in terms of perception of premium beauty, and is one of the top motivations for dermocosmetics usage, while medical endorsement and personalisation strengthen trust. Personalisation drives demand, especially among wellness-focused beauty shoppers who expect tailored solutions for specific concerns. Clean scents and conscious choices
+Consumers are increasingly choosing beauty products that align with their values, driving a surge in demand for clean scents and sustainable formulations. Nearly 46% of global fragrance consumers select products with at least one green feature, and natural attributes now dominate the market, generating an estimated USD59 billion in sales in 2024, with About one quarter of global consumers are “clean beauty advocates”, preferring minimal beauty routines and eco-friendly packaging, with 26% of them using beauty apps to scan ingredients and product labels. To stay competitive, brands must go beyond clean formulas, and innovate with beauty formats that support circular economy principles, and strengthen consumer trust and loyalty among eco-conscious buyers. Today, ingredient integrity and emotional impact matter as much as scent itself. Today's beauty consumers plan their beauty spending strategically: they may cut out unnecessary purchases, but they will splurge on a beauty product that claims long-term benefits, offers a personalised solution and aligns with their values.
+Learn more about key beauty consumer insights in our report, Voice of the Consumer: Beauty Survey Key Insights 2025 , to better understand evolving beauty consumer types, changing consumer priorities, and how intentional self-care is shaping product choices and brand loyalty in the modern beauty landscape.
+
+
+[셀 11]
+====================================================================================================
+TITLE: 미국 기초화장품 시장동향
+DATE: 2025-09-15
+====================================================================================================
+
+
+상품명 및 HS Code
+
+
+<상품명 및 HS Code>
+
+
+[TABLE]
+
+     상품명  HS Code
+0  기초화장품  3304.99
+
+
+시 장 동향
+
+
+미국 기초화장품 시장은 2024년 연 매출 249억 달러를 기록하며 전년 대비 0.6% 성장했다. 같은 해 전 세계 화장품 시장에서 북미는 34%의 점유율을 차지하며 글로벌 시장을 주도했으며, 이 중 기초화장품이 가장 큰 비중을 차지한다. 이에 따라 미국 기초화장품 시장의 주요 트렌드를 살펴보고자 한다.
+
+
+1. 혁신 기술
+
+
+다양한 피부 타입 및 톤에 맞춤 제품에 대한 개발이 강화되고 있다. 특히, AI의 발전에 따라서 기초화장품 시장 역시 맞춤형 서비스가 이용가능해졌고, 소비자들은 개인적인 니즈에 따라 제품을 추천받고, 사용하려는 추세를 보이고 있다. 세계적인 브랜드 로레알은 모디페이스(ModiFace)와 같은 기술기업과 협력하여 AI와 증강현실(AR)기술을 접목하여 소비자들이 개인 맞춤형 스킨케어 추천을 받을 수 있다. 또한, 50세 이상의 성인인구 및 30대 여성들 역시, 노화 징후가 나타나기 전에 미리 안티에이징 제품을 사용하는 예방 중심 트렌드가 확산되면서, 과학적 기술 기반 안티에이징 제품에 대한 지출이 증가하고 있다.
+
+
+2. 지속가능 및 클린뷰티
+
+
+특히, 브랜드 구매 결정 요인이 단순한 기능성에서 지속가능성으로 확대되는 추세이다. 친환경 원료, 윤리적 공급망, 재활용 및 생분해성 포장재를 강조하는 브랜드를 선호하는 심리가 강화되고 있다. 이러한 추세에 맞춰서 주요 화장품 제조업체브랜드는 성분을 명확하게 공개하고, 유해 가능성이 있는 화학성분을 제외한 제품을 출시 및 마켓팅하고 있다. 특히, 클린뷰티란, 건강친화적 성분 및 윤리적 제조방식을 결합한 단어로 미국 스킨케어 시장의 주요한 트렌드로 자리잡고 있다. 이에 따라서, 미국 소비자들에게 각광받고있는 주요 성분으로는 히알루로닉에이시드, 나이아신마이드, 스쿠알란, 호호바오일, 녹차추출물 등이 있다.
+
+
+3. 소셜미디어의 영향력 증대
+
+
+소셜미디어(인스타그램, 틱톡 등)의 영향력을 통해 소비자들은 새로운 제품과 정보를 빠르게 접할 수 있게 되었고, 이는 기초화장품 회사들의 마케팅 방식을 크게 변화시키고 있다. 특히, 인플루언서와 협업은 브랜드 이미지 및 신뢰도 향상에 큰 영향을 주고 있으며 인플루언서의 진정성 있는 추천은 제품 매진과 브랜드 충성도 상승으로 이어지고 있다.
+
+
+주재국 수입 동향 및 대한 수입 규모
+
+
+HS Code 3304.99 기준 2024년 미국의 수입액은 약 5 2억 7 2 0 0 만 달러이며, 2020 년에서 2025 년 사 이 수입점유 율은 21.9 %에서 36.1 % 로 상승했다. 그 중 대한민국은 수입점유율 1위 국가로 2024년 전체 수입액 중 25.4%을 차지했다. 특히, 미국 내 한국 화장품은 한국문화에 대한 세계적인 인기와 함께 높은 품질과 가성비로 호평받으며 전년대비 69%가 증가하는 큰 인기를 끌고 있다. K-뷰티(한국의 스킨케어, 메이크업 화장품 전반을 아우른 용어)는 미국 내에서 서양 제품대비 매력적인 가격 및 어성초, 달팽이 점액 등 서양에서는 흔치 않은 성분을 활용한 다양한 혁신 제품과 생산공정을 활용하여 미국 소비자들의 사랑을 받고있다.
+
+
+< HS Code 3304.99 미국 주요 수입 동향>
+
+
+(단위:US$백만, %)
+
+
+[TABLE]
+
+         순위       국가 2022 수입액 2023 수입액 2024 수입액 점유율 ('24) 증감률('2 4/'23)
+0         1       한국    557.8    791.7  1,338.2      25.4          69.0
+1         2      프랑스    813.2    888.8    960.6      18.2           8.1
+2         3      캐나다      694    809.6    819.1      15.5           1.2
+3         4     이탈리아    308.8    334.6    353.5       6.7           5.7
+4         5       중국    222.9    289.1    297.5       5.6           2.9
+5         6       영국    227.3    237.3    234.9       4.5          -1.0
+6         7      멕시코    157.8    183.5    185.8       3.5           1.2
+7         8      스웨덴    234.5    148.9    145.8       2.8          -2.1
+8         9       일본      152      118    134.8       2.6          14.3
+9        10       독일       90     78.2      109       2.1          39.4
+10  전 세계 총합  4,166.2  4,525.6  5,272.4                                 
+
+
+[자료: GTA, 2025.9.10.]
+
+
+경쟁 동향
+
+
+미국 기초 화장품 시장의 주요 기업은 에스티로더(Estee Lauder), 로레알(L'Oréal), 프록터앤갬블(Procter & Gamble), 유니레버(Unilever) 등의 대형 기업이 주도하고 있으며, 이들은 강력한 브랜드 평판, 높은 소비자 충성도, 규모의 경제에 의한 가격경쟁력까지 갖추고 있는 상황이다. 특히, 중국 및 멕시코수입 제품들은 저가형 제품에 포지셔닝 되어 있으며, 프랑스 및 이탈리아 등 유럽제품들은 하이엔드전략을 추진하는 중이다. 한국기업들은 혁신적인 기술력을 바탕으로 경쟁력을 가지고 있다.
+
+
+유통구조
+
+
+미국의 기초화장품 시장은 전통적으로 오프라인에 의한 소비가 주를 이뤘다. 하지만, 소셜미디어와 전자상거래의 성장에 따라서 오프라인 판매 채널은 통한 매출은 감소하고 있으며, 온라인 쇼핑선호도는 증가하고 있다. 특히, 2030년에는 온라인 채널을 통한 판매량이 오프라인 판매량을 뛰어넘을 것으로 예상된다. 그럼에도, 오프라인 판매는 여전히 인기가 있으며, 주요 오프라인 판매점은 Sephora(23.5%), Ultra Beauty, Inc (17.9%) 및 Bath & Body Works(7.8%) 등이 있다. 특 히, 옴니채널 판매전략(오프라인 매장, 온라인 쇼핑몰, 모바일 앱, 소셜 미디어 등 모든 판매 채널을 통합하여 소비자에게 일관된 경험을 제공하는 전략)을 통해 오프라인 매장에서는 제품 체험을 제 공하고, 온라인 플랫폼을 통해 제품 리뷰를 활용하는 방식이 각광받고 있다. 세포라 역시 Shipt와 파트너십을 통해 미국 전역에 당일 배송서비스를 제공하며 고객들의 편리한 쇼핑경험을 제공하며 고 객 만족도를 높이고 있다.
+
+
+관세율
+
+
+미국 조화 관세표 및 한미 자유무역협정(FTA) 의하면, HS Code 3304.99에 대한 수입에 대해서 관세는 부과되지 않는다. 하지만, 미국 트럼프 대통령의 상호관세 정책 하 모든 한국산 화장품에 대하여 15%의 관세가 부과된 바 있어, 참고가 필요하다.
+
+
+규제 및 인증
+
+
+2022년부터 화장품 규제 현대화법(Modernization of Cosmetics Regulation Act)에 따라서 미국 내 유통되는 화장품에 대한 규제가 새롭게 제정되었다. 화장품 규제 현대화법에 따라서, 미국에 화장품을 수출할 때, 1) 모든 화장품 제품(1년마다 갱신) 2) 미국 내 제조 또는 가공되는 화장품 제조시설(2년마다 갱신) 3) 브랜드 소유자 및 책임자(Responsible Person)를 FDA에 등록해야 한다. 또한, 필수 라벨링규정(Fair Packaging and Labeling Act)을 준수하여 제품 용기 및 외부 포장에 책임자(RP)의 연락처와 함께 알러지 성분 표기를 포함해야 한다. 화장품 규제 현대화법에서는 특정 원재료에 대한 라벨링 규정, 소규모 사업자(Small Business)에 대한 면제 등 세부 내용 및 가이드라인을 포함하고있어, 수출 전 FDA 관련 규정을 확인할 필요가 있다.
+
+
+주: Cosmetics | FDA
+
+
+시사점
+
+
+미국 화장품시장에서 한국 제품은 혁신적인 기술 및 가성비를 강점으로 2024년 수입제품 점유율 1위를 차지하였다. 미국의 상호관세 정책으로 한국산 기초화장품에도 15% 관세가 부과될 경우 가격 경쟁력은 다소 약화될 수 있지만, 최근 '케이팝 데몬 헌터스'의 돌풍으로 K-컬처에 대한 소비자들의 높아진 관심과 미국 소비자들의 혁신기술 선호 경향은 국내 기업들의 강점으로 작용할 수 있다. 특히, 최근 한국기업이 글로벌 셀럽과 협업해 아마존에서 성과를 거둔 사례처럼 기술력과 마케팅을 결합한 전략 대응이 요구된다.
+
+
+자료: Precedence Research, Global Trade Atlas,Statista, Ibis World, BBC, Southwest journal, Glow beauty, HTSUS, FDA
+
+
+[셀 12]
+====================================================================================================
+TITLE: Spate reveals 2025 beauty trends: Skinification and multifunctional solutions top the charts
+DATE: 16 Dec 2024
+AUTHOR: | By Sabine Waldeck
+CONTENT LENGTH: 6782
+====================================================================================================
+The skinification of body care, texture-driven experiences and fragrance layering are the key beauty trends to look out for in the coming year. Spate releases its beauty trend predictions for 2025 and tells brands to focus on multi-functional products that simplify routines.
+The machine intelligence platform expects a growing emphasis on category convergence, with body care increasingly borrowing from skin care to create multi-benefit solutions. “Brands that embrace this shift can tap into expanding markets and redefine how body care is perceived,” says Spate.
+The Spate’s
+dashboard analyzes
+over 20 billion search signals and over 60 million beauty-related TikTok videos worldwide. It also implements artificial intelligence to identify trend clusters.
+Skin type tracking
+Consumers are reshaping their preferences for cosmetics toward products with interesting textures — such as jelly solutions — that simplify their routines.
+Korean sunscreen was named the top trend for the new year in skin care. Spate identified growth in searches for Korean sunscreen at a “very high volume,” indicating a high potential despite the increase being seasonal.
+The trend refers to the concept of Korean sunscreen and associated characteristics rather than specific Korean brands. Its predicted growth is 49.2% year over year.
+Spate see's K-beauty continuing to influence skin care and makeup trends in the coming year.
+The top searched concerns were oily skin, acne prone and sensitive skin, revealing that consumers are looking for products for their skin type. The searches span a variety of formats of suncream, such as stick, moisturizer, mist and spray.
+The most searched-for benefits were fragrance-free, skin [barrier] repair, acne-safe and hypoallergenic. Consumers also seek skin care with a plumping and glowy effect. Searches for pore control also reveal a consumer interest in products that help achieve smooth skin.
+Regarding concerns, Spate found a surge in searches for bumps, pimples and fungal acne. This suggests a heightened consumer focus on addressing specific skin conditions and sensitivities. Consumers are looking for solutions that are safe for acne-prone skin or can control sebum to decrease the risk of a breakout.
+Spate also saw consumers are paying attention to mature skin, highlighting the growing importance of specific aging-related skin concerns.
+Earlier this year, the consumer trends investigator
+flagged the increasing interest
+in skin care and makeup solutions for aging skin. It said mature skin emerged as a “significant concern” in the blush and setting spray trends.
+Mature makeup
+The focus on mature skin makeup also took a top spot for next year’s makeup trends. Spate says beauty brands should answer these “unmet needs,” naming only Laura Geller and L’Oréal Paris as notable brands in the space. The mature skin trend has predicted growth of 17.3%.
+“Brands should tap into this growing trend and offer products adapted to more mature skins, emphasizing how important textures, formulas and application techniques are,” details the report.
+Other trends in the category emphasized consumers’ concern for acne. There was an increase in searches for non-comedogenic and pimple in makeup, reflecting a growing awareness of the importance of acne-safe formulas.
+Spate also expects highlighted and glowy makeup to be a top trend in the new year, showing consumers’ continued desire for radiant finishes.
+Makeup will be geared toward mature skin next year.
+Personal Care Insights
+recently investigated
+the glass skin trend
+, primarily driven by the rise of K-beauty, with insights from Samantha Karlin, FAAD and a board-certified dermatologist in Covington, US.
+“The glass skin look might not be realistic for everyone, and some people may run the risk of using too many products, which can lead to issues like clogged pores, irritation and breakouts,” said Karlin.
+Compared to other categories, trending concerns and benefits with reliable growth were relatively few for makeup. Spate suggests this is due to a rapidly changing market or consumers prioritizing formulations, aesthetics or experiences instead.
+Textured hair without harm
+Texturizing powder took the top spot for hair care trends in 2025, with a predicted growth of 50.7%. Trending brands in the space include Slick Gorilla, Redken, Based Body Works and Davines.
+Hairstyle preferences were tousled and voluminous hair, indicating a preference toward products that achieve this style. The popularity of textured, balancing, purifying and frizz control also suggests a demand for specialized products that please various hair types and help with general hair health.
+The report also emphasized no ammonia [hair dye] and sodium lauryl sulfate-free [shampoo], reflecting a need for safe products that won’t damage hair.
+There was a surge in searches for baldness and hormonal hair loss, indicating a consumer focus on addressing hair density and loss concerns, including when caused by hormonal changes. An increased interest in scalp health was also detected.
+Bath and body
+Spate believes the African net sponge will be the next big thing in body care next year. It is a personal skin scrubber similar to a loofah but more durable. Consumers are asking the question of the difference between African net sponges and loofahs, which demonstrates an opportunity for brands to capitalize on this interest while providing education to their audience.
+Body care might feature food scented products in 2025.
+The African net sponge has a predicted growth of 120.6%
+Other top searches included vanilla body wash and vanilla lotion. Spate says this reflects a need for layerable products and scents, and the parallel growing interest in unscented and anti-inflammatory claims highlights a consumer preference for irritation-free formulations tailored to sensitive skin.
+Regarding body care concerns, the search volume for perioral dermatitis, sweat bumps and heat rash is rising. This suggests a heightened awareness of skin health and targeted solutions for discomforting issues.
+Fragranced with food
+In the arena of vanilla products, gourmand scents are expected to be the biggest trend in fragrance, with a predicted growth of 33.9%.
+Gourmand fragrances are predicted to continue growing in 2025, a hypothesis supported by Spate's report that food scents such as caramel and marshmallow have increased search volumes.
+“This trend reflects a consumer preference for comforting, familiar notes that evoke a sense of warmth and indulgence… Increasing searches for niche and custom fragrance products indicate a consumer preference for personalized solutions,” says Spate.
+Searches for [non] toxic fragrances highlight a growing awareness of ingredient safety when it comes to personal fragrances.
+
+
+[셀 14]
+====================================================================================================
+TITLE: The beauty industry is growing — both in store and online
+CONTENT LENGTH: 3351
+====================================================================================================
+by Megan Moyer, corporate marketing manager, as appeared in Inside Beauty for Drug Store News
+There is a positive outlook for the beauty industry and it’s being driven by online shoppers. While TikTok Shops have gained popularity, some surprising categories are having the greatest success.
+In a recent CEW (Cosmetic Executive Women) webinar, “Global Trends Report, Part 2,” Nielsen IQ shared that beauty continues to grow globally, up +10% worldwide. In a deeper dive, their data showed that spend per shopper had increased and units purchased per shopper increased, as did the frequency of shopping trips.
+Additionally, they showed that online beauty sales were driving growth more so than in-store sales with online sales up +19% compared to in-store sales +2%.
+Data from Nielsen IQ indicated that Amazon is the number one online merchant for beauty sales. Pyxis, the consumer analytics division of Bain & Company, in a review of top beauty retailers of their eReceipt panel data* (excluding Walmart), found after Amazon, the next three top online U.S. beauty retailers are Ulta Beauty, TikTok, and Target when looking at year-over-year growth comparing March — August 2025 to the same period in 2024.
+Read more: Ocoa wants girls and women to embrace their curls
+Diving into category growth for that same time period, Pyxis saw that the following categories had double-digit growth:
+Per Pyxis, Amazon’s “subscribe & save” sales have shown notably faster growth versus non-subscription sales across most categories, subcategories, and product types, including:
+In the CEW webinar, Nielsen IQ also described the continued expansion of TikTok Shop. They noted that it’s currently available in 14 markets, has had 4 expansions in 2025 so far (as of July 2024) and is expected to launch in Japan and Brazil by the end of 2025. Pyxis data showed year-over-year TikTok Shop sales growth in top beauty categories in the chart that follows.
+Read more: Rave Nailz is all about the artistry
+Insights regarding a few of the top-selling beauty categories on TikTok:
+The importance and influence of brands’ online presence is demonstrated by the sales growth occurring in online channels. Across platforms, beauty brands need to protect their source of truth and brand integrity and constantly create content that attracts attention and inspires trial. Based on current categories surging in sales, never underestimate how quickly a trend can catch on and propel a category to the forefront. And TikTok Shop cannot be overlooked. Brands who haven’t already established their own TikTok Shop need to address it sooner rather than later. The influence and conversions in this newer shopping channel are significant and can help brands accelerate awareness and growth.
+*Pyxis eReceipt panel data used in analysis includes Amazon, Ulta Beauty, Sephora, TikTok, BeautyCounter, Target, Nordstrom, Sam’s Club, Bath & Body Works, Macy’s, Costco, JCPenney, FragranceNet.com, Instacart, Mary Kay, Neiman Marcus, Temu, HEB, and Kohl’s. Walmart was not included in this analysis; however, Pyxis has broad coverage for US merchants and can add new logos by request. While the data presented doesn’t represent a “full market” view of the beauty sector given offline channels and certain retailers are not included, it provides a directional view of growth and category trends.
+
+
+[셀 16]
+====================================================================================================
+TITLE: U.S. Skincare Products Consumer Insights - Usage, Attitudes, And Brand Performance Report
+CONTENT LENGTH: 3980
+====================================================================================================
+Introduction
+Skin care consumers are evolving globally, and the U.S. is at the forefront of this evolution. Thanks to the free flow of information all around, consumers today are more knowledgeable, aware, well-read, and hence less driven by mere promotions and visuals. Brands need to keep a tap on the changing pulse of the consumers to stay relevant. Skin care is one of the most commonly adopted categories in the U.S. market, with 8 out of 10 adults using skin care products at least once a day .
+Methodology
+Insights covered in this report are drawn from GVR’s ‘Voice of Consumer Survey-2024’ and its periodic updates. The latest survey represents 75,000+ consumer interviews conducted across 20 countries for 100+ product categories . These insights are designed to help Skin Care brands in their strategic decision-making process. Our VoC reports provide insights around category usage & attitude, buying behavior, brand performance metrics, and brand health indicators of leading players in the U.S. skincare market.
+Usage and Attitude
+The U.S. consumers are gradually moving towards a more consistent and balanced skin care trend, with 80% of consumers using the skin care products at least once every day. Among these consumers, around 40% use the skin care products multiple times a day .
+Skin care is part of the morning routine for 3 out of 5 consumers ; however, there is an opportunity to enhance the consumption of skin care products by encouraging product usage on other occasions, such as evening routine, bedtime routine, and post physical activity.
+When it comes to the rationale for using skin care products, maintaining skin health is the most important reason for males as well as females. However, it is interesting to note that among females, personal grooming and hygiene are also equally important; however, it is a far second among male consumers.
+Buying Behavior
+‘Departmental stores’ is the most preferred mode of purchase for skin care products for consumers. There is an interesting differentiation in terms of online purchase between Gen Z and Millennials. Gen Z is more comfortable shopping for skincare products directly on the official company websites, while Millennials prefer online retailers and resellers.
+U.S. consumers planned their purchases of skincare products, as evidenced by 7 out of 10 consumers mentioning it as an ‘always planned’ or ‘mostly planned’ purchase. Less than 10% of the US consumers purchase spontaneously (mostly and always spontaneous).
+The purchase decision is influenced by effective promotion strategies, discounts offered by the brands, and recommendations, especially from social media influencers.
+Promotions and discounts mostly influence 8 out of 10 consumers . It is encouraging to see that one-fourth of the US consumers surveyed are also driven by environmental factors, and it is expected to increase in the coming years, owing to the increasing sustainability awareness.
+Brand Power Play (Brand Health and Performance)
+Some of the popular skin care brands in the U.S. include Clinique, Estée Lauder, Neutrogena, CeraVe, Olay, La Mer, Kiehl's, L'Oréal Paris, Cetaphil, and Glossier.
+There are multiple brands offering skin care products in the U.S. market, the survey results show that some brands like Olay and Neutrogena had higher brand usage among the consumers compared to other brands like Cetaphil, Kiehl’s, La Mer and Glossier. The top 5 brands contribute around three-fourths of the market share in terms of current usage.
+Purchase Funnel
+While many skin care brands enjoy high awareness amongst the U.S. consumers, very few make it to the consideration and preference stage. Olay is one of the prominent brands which exhibits a strong purchase funnel despite having significant drops at each step of the funnel.
+While the overall NPS score of the leading brands varies from 30- 80 , some brands like Estee Lauder have a good NPS score (78) compared to other skin care products in the market.
+
+
+[셀 17]
+====================================================================================================
+TITLE: What is the most popular skincare brand in the USA?
+DATE: 2025-08-13
+CONTENT LENGTH: 10705
+TABLE COUNT: 2
+====================================================================================================
+
+[CONTENT]
+
+CeraVe is currently the top skincare brand in the U.S., with 28% market share in drugstores (Nielsen 2024). Its dermatologist-developed formulas, like the $15 Hyaluronic Acid Serum, drive 35% annual growth, fueled by TikTok trends and partnerships with 50,000+ skincare professionals nationwide.
+Toggle
+​​Top Picks by Sales​​
+​​Customer Favorites Ranked​​
+​​Best for Sensitive Skin​​
+​​Drugstore vs. Luxury Brands​
+​​What Experts Recommend​​
+​
+​Top Picks by Sales​
+​
+When it comes to skincare in the U.S., sales numbers don’t lie. In 2023, the American skincare market was valued at
+18.6 billion
+, with the top 5 brands accounting for
+34% of sales
+.
+CeraVe
+led with
+1.2 billion in sales
+last year alone, thanks to its dermatologist-recommended formulas and affordable pricing (
+10-25 per product
+). Close behind is
+Neutrogena
+, with
+950 million in annual sales
+, driven by its Hydro Boost line (selling
+1.5 million units per quarter
+).
+La Roche-Posay
+, a premium drugstore brand, saw a
+22% sales jump
+in 2023, largely due to its
+Anthelios sunscreen
+, which sells
+over 500,000 bottles monthly
+.
+The table below breaks down the ​
+​top-selling skincare brands​
+​ by revenue and key products:
+​
+​CeraVe’s dominance​
+​ comes from its ​
+​ceramide-based moisturizers​
+​, which make up ​
+​40% of its sales​
+​, while ​
+​The Ordinary’s success​
+​ is tied to its ​
+​low-cost, high-efficacy serums​
+​ (like its ​
+​$7 Hyaluronic Acid​
+​, selling ​
+​8 million bottles yearly​
+​). ​
+​Olay​
+​, despite being an older brand, maintains strong sales due to its ​
+​anti-aging creams​
+​, particularly among women ​
+​aged 45+​
+​, who account for ​
+​62% of its buyers​
+​.
+One surprising trend is the ​
+​rapid growth of Korean brands​
+​ like ​
+​COSRX​
+​ (up ​
+​48% in sales​
+​ since 2021), proving that ​
+​affordable, science-backed skincare​
+​ is what U.S. consumers want. ​
+​Dermatologist recommendations​
+​ also play a huge role—​
+​76% of CeraVe buyers​
+​ say they chose it because their skin doctor suggested it.
+​
+​Customer Favorites Ranked​
+​
+When it comes to skincare, sales tell one story—but ​
+​customer reviews and repeat purchases​
+​ reveal what people
+actually
+love. In 2023, ​
+​over 12 million verified buyer ratings​
+​ were analyzed across Amazon, Sephora, and Ulta, with ​
+​87% of shoppers​
+​ prioritizing “effectiveness” over brand prestige. The clear winner? ​
+​CeraVe’s Moisturizing Cream​
+​, with ​
+​4.8/5 stars from 280,000+ reviews​
+​, making it the ​
+​most-reviewed and highest-rated​
+​ product in the U.S. Close behind is ​
+​The Ordinary’s Niacinamide 10% Serum​
+​, which retains a ​
+​93% repurchase rate​
+​ thanks to its ​
+​$10 price and visible results in 4–6 weeks​
+​.
+​
+​”La Roche-Posay’s Toleriane Cleanser has a cult following—62% of buyers with sensitive skin say it’s their ‘forever product.’ Dermatologists recommend it 3x more than competitors.”​
+​
+​
+​Neutrogena’s Hydro Boost Gel Cream​
+​ ranks third, with ​
+​1.2 million units sold yearly​
+​ and a ​
+​4.7/5 rating​
+​ from users aged ​
+​18–34​
+​. What’s interesting is how ​
+​price sensitivity​
+​ affects loyalty: while ​
+​luxury brands like Tatcha​
+​ score high in satisfaction (​
+​4.6/5​
+​), their ​
+​$75+ price tags​
+​ result in a ​
+​lower repurchase rate (28%)​
+​ compared to drugstore staples like ​
+​Vanicream (68% repurchase rate)​
+​.
+​
+​Age demographics​
+​ also play a role. Shoppers ​
+​over 50​
+​ overwhelmingly prefer ​
+​Olay’s Regenerist Cream (4.5/5 stars)​
+​, citing its ​
+​anti-aging results in 8 weeks​
+​, while ​
+​Gen Z buyers (18–24)​
+​ gravitate toward ​
+​COSRX’s Snail Mucin Essence​
+​, which saw a ​
+​140% increase in sales​
+​ last year. ​
+​Men’s skincare​
+​ is growing too—​
+​Bulldog’s Face Wash​
+​ now has ​
+​450,000+ reviews (4.6/5)​
+​, with ​
+​40% of male users​
+​ calling it their “daily essential.”
+The biggest surprise? ​
+​Customer loyalty isn’t tied to marketing​
+​. ​
+​Cerave and The Ordinary spend just 12% of revenue on ads​
+​—far less than competitors (​
+​Estée Lauder spends 32%​
+​)—yet dominate because of ​
+​word-of-mouth and clinical endorsements​
+​.
+​
+​Best for Sensitive Skin​
+​
+If you have sensitive skin, you’re not alone—​
+​over 60% of Americans​
+​ report some degree of skin sensitivity, with ​
+​1 in 3​
+​ experiencing redness, irritation, or reactions to common skincare ingredients. The market for ​
+​gentle, hypoallergenic products​
+​ has grown ​
+​22% year-over-year​
+​, reaching ​
+​$4.3 billion in 2023​
+​. But not all “gentle” brands deliver. We analyzed ​
+​8,000+ dermatologist recommendations​
+​ and ​
+​1.5 million customer reviews​
+​ to find the ​
+​most reliable options​
+​ for reactive skin.
+​
+​Key Findings for Sensitive Skin Care:​
+​
+​
+​Fragrance-free formulas​
+​ reduce irritation by ​
+​73%​
+​ compared to scented products.
+​
+​Ceramides and niacinamide​
+​ are the ​
+​top-performing ingredients​
+​, improving skin barrier function in ​
+​89% of users​
+​ within ​
+​4 weeks​
+​.
+​
+​pH-balanced cleansers (5.0–5.5)​
+​ cause ​
+​40% fewer reactions​
+​ than standard face washes.
+CeraVe’s Hydrating Facial Cleanser
+is the
+#1 dermatologist-recommended
+product for sensitive skin, with
+92% of users
+reporting
+less dryness and redness
+after
+2 weeks
+. Its
+ceramide- and hyaluronic acid-infused formula
+costs just
+14
+, making it
+3x more affordable
+than luxury alternatives like
+La Mer’s Cleansing Foam (85)
+—which, despite its price, scores
+lower in clinical tolerance tests (78% satisfaction vs. CeraVe’s 94%)
+.
+​
+​Vanicream’s Moisturizing Cream​
+​ is another standout, with a ​
+​4.8/5 rating​
+​ from ​
+​220,000+ reviews​
+​. Its ​
+​minimalist formula (just 11 ingredients)​
+​ avoids common irritants like ​
+​dyes, parabens, and lanolin​
+​, making it ideal for ​
+​eczema-prone skin (effective in 83% of cases)​
+​. ​
+​La Roche-Posay’s Toleriane Double Repair Moisturizer​
+​ follows closely, with ​
+​86% of users​
+​ noting ​
+​reduced irritation​
+​ after ​
+​3 days​
+​—thanks to its ​
+​prebiotic-infused formula​
+​ that strengthens the skin barrier ​
+​2.5x faster​
+​ than basic moisturizers.
+For ​
+​sun protection​
+​, ​
+​EltaMD UV Clear SPF 46​
+​ is the ​
+​gold standard​
+​, recommended by ​
+​94% of dermatologists​
+​ for sensitive skin. Unlike chemical sunscreens (which cause ​
+​burning in 28% of users​
+​), its ​
+​zinc oxide-based formula​
+​ soothes while protecting, with ​
+​zero complaints of stinging​
+​ in ​
+​clinical tests​
+​. At ​
+​$39 per bottle​
+​, it’s pricier than drugstore options, but users report ​
+​4x longer tolerance​
+​ compared to ​
+​Neutrogena’s Ultra Sheer SPF 55​
+​.
+​
+​Drugstore vs. Luxury Brands
+​
+The skincare industry wants you to believe ​
+​higher price = better results​
+​, but the data tells a different story. In 2023, ​
+​drugstore brands captured 62% of the U.S. skincare market​
+​, while luxury brands (priced ​
+​$50+ per product​
+​) accounted for just ​
+​18%​
+​. Surprisingly, ​
+​clinical studies show​
+​ that ​
+​74% of drugstore moisturizers​
+​ perform ​
+​equally or better​
+​ than luxury counterparts in ​
+​hydration and barrier repair​
+​—with some costing ​
+​10x less​
+​.
+​
+​Key Differences at a Glance:​
+​
+​
+​Price Gap:​
+​ Drugstore products average ​
+​
+12–
+25​
+​, while luxury creams range ​
+​
+80–
+350​
+​.
+​
+​Customer Satisfaction:​
+​ Drugstore brands score ​
+​4.3/5​
+​ vs. luxury’s ​
+​4.1/5​
+​ (based on ​
+​1.2M reviews​
+​).
+​
+​Ingredient Overlap:​
+​ ​
+​82%​
+​ of luxury and drugstore products share ​
+​the same active ingredients​
+​ (e.g., hyaluronic acid, retinol).
+Here’s how top brands compare in ​
+​effectiveness vs. cost​
+​:
+​
+​Where drugstore wins:​
+​
+Cleansers:
+Neutrogena’s
+9 HydroBoost Cleanser
+removes
+98% of makeup
+as effectively as
+38 Rice Wash
+.
+Sunscreens:
+La Roche-Posay’s
+20 Anthelios SPF50
+outperforms
+Supergoop’s 38 Unseen Sunscreen
+in
+UVB protection (by 7%)
+.
+Hyaluronic Acid:
+The Ordinary’s
+7 HA Serum
+delivers
+identical hydration
+to
+Drunk Elephant’s 68 B-Hydra
+.
+​
+​Where luxury (sometimes) justifies cost:​
+​
+​
+​Advanced Formulas:​
+​ SkinCeuticals’ ​
+​$166 C E Ferulic​
+​ has ​
+​20% more antioxidant stability​
+​ than drugstore options.
+​
+​Texture/Experience:​
+​ Shiseido’s ​
+​$75 Ultimune Serum​
+​ absorbs ​
+​50% faster​
+​ than drugstore serums.
+​
+​Customer loyalty trends​
+​ reveal the truth:
+​
+​Drugstore buyers​
+​ repurchase ​
+​2.5x more frequently​
+​ (e.g., ​
+​CeraVe’s 68% repeat rate​
+​ vs. ​
+​La Mer’s 21%​
+​).
+​
+​Luxury shoppers​
+​ cite “packaging” and “brand prestige” as ​
+​top 3 purchase drivers​
+​—​
+​not efficacy​
+​.
+​
+​What Experts Recommend​
+​
+When dermatologists and cosmetic chemists speak, smart skincare shoppers listen. A 2024 survey of ​
+​1,200 board-certified dermatologists​
+​ revealed that ​
+​89%​
+​ recommend drugstore brands just as often as luxury lines—with ​
+​ceramides, sunscreen, and retinoids​
+​ topping their must-have lists. The data shows a clear disconnect between ​
+​social media hype​
+​ and ​
+​clinical reality​
+​: while influencers push ​
+​”viral” $100+ serums​
+​, experts overwhelmingly favor ​
+​affordable, research-backed workhorses​
+​ that deliver ​
+​measurable results without irritation​
+​.
+​
+​Sunscreen is the undisputed #1 expert pick​
+​, with ​
+​97% of dermatologists​
+​ naming daily SPF as the ​
+​single most effective anti-ager​
+​. ​
+​La Roche-Posay Anthelios SPF 50​
+​ gets recommended ​
+​3x more often​
+​ than any other sunscreen, thanks to its ​
+​photostable filters​
+​ that degrade ​
+​40% slower​
+​ than average drugstore options. For retinol, ​
+​adapalene 0.1% (Differin Gel, $15)​
+​ beats luxury retinols ​
+​88% of the time​
+​ in clinical comparisons, improving wrinkles and acne in ​
+​12 weeks​
+​ with ​
+​half the irritation​
+​ of prescription tretinoin.
+Niacinamide concentrations
+spark debate, though. While The Ordinary’s
+10% formula ($6)
+dominates searches, dermatologists confirm
+5% (like Paula’s Choice $44)
+work just as effectively with
+30% fewer reports of stinging
+.
+Hyaluronic acid
+follows a similar pattern:
+Vichy Mineral 89 ($30) contains 0.6% HA
+yet outperforms
+10 HA serums
+in
+24-hour moisture tests
+.
+The biggest expert pet peeve? Overcomplicating routines.
+Studies show that
+72% of users
+see better results when they stick to
+3–4 core products
+(cleanser, moisturizer, SPF, treatment) versus layering
+7+ steps
+. As cosmetic chemist David Petrillo notes:
+“A $10 cleanser + $20 moisturizer + $15 sunscreen will do more for your skin than a $300 cream if you’re skipping the basics. Most ‘breakthrough’ ingredients are just repackaged old actives with inflated claims.”
+For
+acne-prone skin
+, experts overwhelmingly choose
+benzoyl peroxide (2.5–5%)
+over trendy alternatives—
+PanOxyl’s $10 Wash
+clears
+50% more breakouts
+than
+$38 Acne Gel
+.
+Eczema sufferers
+get steered toward
+Vanicream’s $14 Ointment
+, which repairs cracks
+3 days quicker
+than
+Aquaphor ($17)
+in
+89% of cases
+.
+
+====================================================================================================
+TABLE 1 RAW ROWS
+['\u200b \u200bBrand\u200b \u200b', '\u200b \u200b2023 Sales (USD)\u200b \u200b', '\u200b \u200bBest-Selling Product\u200b \u200b', '\u200b \u200bAvg. Price\u200b \u200b', '\u200b \u200bUnits Sold (2023)\u200b \u200b']
+['CeraVe', '$1.2B', 'Hydrating Cleanser', '$14', '28M']
+['Neutrogena', '$950M', 'Hydro Boost Water Gel', '$20', '19M']
+['La Roche-Posay', '$720M', 'Anthelios SPF 50', '$36', '12M']
+['The Ordinary', '$680M', 'Niacinamide 10% Serum', '$10', '35M']
+
+TABLE 1 DATAFRAME PREVIEW
+
+      ​ ​Brand​ ​ ​ ​2023 Sales (USD)​ ​        ​ ​Best-Selling Product​ ​  \
+0          CeraVe                  $1.2B                Hydrating Cleanser   
+1      Neutrogena                  $950M             Hydro Boost Water Gel   
+2  La Roche-Posay                  $720M                  Anthelios SPF 50   
+3    The Ordinary                  $680M             Niacinamide 10% Serum   
+4            Olay                  $550M  Regenerist Micro-Sculpting Cream   
+
+  ​ ​Avg. Price​ ​ ​ ​Units Sold (2023)​ ​  
+0              $14                     28M  
+1              $20                     19M  
+2              $36                     12M  
+3              $10                     35M  
+4              $30                      9M  
+
+====================================================================================================
+TABLE 2 RAW ROWS
+['\u200b \u200bCategory\u200b \u200b', '\u200b \u200bDrugstore Pick\u200b \u200b', '\u200b \u200bPrice\u200b \u200b', '\u200b \u200bLuxury Alternative\u200b \u200b', '\u200b \u200bPrice\u200b \u200b', '\u200b \u200bPerformance Match?\u200b \u200b']
+['Moisturizer', 'CeraVe PM Facial Moisturizer', '$16', 'La Mer Moisturizing Cream', '$190', '\u200b \u200bYes\u200b \u200b (92% similarity)']
+['Retinol Serum', 'Olay Regenerist Retinol 24', '$29', 'Sunday Riley A+ Retinol', '$85', '\u200b \u200bYes\u200b \u200b (0.3% retinol in both)']
+['Vitamin C Serum', 'L’Oréal Revitalift 10%', '$22', 'SkinCeuticals C E Ferulic', '$182', '\u200b \u200bNo\u200b \u200b (L’Oréal lacks ferulic acid)']
+
+TABLE 2 DATAFRAME PREVIEW
+
+    ​ ​Category​ ​          ​ ​Drugstore Pick​ ​ ​ ​Price​ ​  \
+0      Moisturizer  CeraVe PM Facial Moisturizer         $16   
+1    Retinol Serum    Olay Regenerist Retinol 24         $29   
+2  Vitamin C Serum        L’Oréal Revitalift 10%         $22   
+
+    ​ ​Luxury Alternative​ ​ ​ ​Price​ ​  \
+0  La Mer Moisturizing Cream        $190   
+1    Sunday Riley A+ Retinol         $85   
+2  SkinCeuticals C E Ferulic        $182   
+
+                ​ ​Performance Match?​ ​  
+0             ​ ​Yes​ ​ (92% similarity)  
+1       ​ ​Yes​ ​ (0.3% retinol in both)  
+2  ​ ​No​ ​ (L’Oréal lacks ferulic acid)  
+
+
+[셀 18]
+====================================================================================================
+TITLE: Skincare Market Size, Share & Industry Analysis, By Product (Creams, Lotions, Powders, Sprays, and Others), Packaging Type (Tube, Bottle, Jar, and Others), Gender (Men and Women), Distribution Channel (Cosmetic Stores, Supermarkets/Hypermarkets, Online Channels, and Others), and Regional Forecast, 2026 - 2034
+DATE: February 23, 2026
+CONTENT LENGTH: 20182
+====================================================================================================
+Skincare Industry Analysis
+The global skincare market size was valued at USD 122.11 billion in 2025. The market is projected to grow from USD 129.11 billion in 2026 to USD 227.13 billion by 2034, exhibiting a CAGR of 7.32% during the forecast period. Asia Pacific dominated the skin care market with a market share of 51.46% in 2025. Moreover, the skincare market size in the U.S. is projected to grow significantly, reaching an estimated value of USD 30.42 billion by 2032, driven by rising demand for organic and natural products to surge product demand.
+Self-caring products include creams, lotions, and powders, which improve the quality and health of the skin and provide nourishment. These products are used daily by several women and men for various purposes, such as moisturizing, hydrating, and cleansing, and others. The trend for organic and herbal skin care has recently been in demand. This is because people are aware of the adverse effects of synthetic chemicals on the skin. Ingredients derived from natural products, such as leaf extracts and root extracts, are safe for use on the skin as they do not show any side effects. Therefore, companies such as Avon and Garnier use natural ingredients and label their products as ‘Avon Naturals’ and ‘Garnier Organic’ to attract consumers. This is consequently expected to propel the demand for skin nourishment products and boost the market size.
+During the COVID-19 pandemic, companies encountered challenges in conducting face-to-face meetings with their channel partners, leading to obstacles in finalizing business deals. This was owing to lockdown measures implemented in different countries globally. This has had repercussions on the product revenues of these companies. Moreover, the closure of beauty retail stores and cosmetic businesses, coupled with shortages in raw material supplies due to the lockdown restrictions, significantly impeded the consumption of products among the global population in 2020.
+GLOBAL SKINCARE MARKET SNAPSHOT
+Market Size & Forecast:
+- 2025 Market Size: USD 122.11 billion
+- 2026 Market Size: USD 129.11 billion
+- 2034 Forecast Market Size: USD 227.13 billion
+- CAGR: 7.32% from 2026–2034
+Market Share:
+- Asia Pacific led with a 51.46% share in 2025, driven by rising disposable income, working-class growth, and demand for personal care in China, India, and Japan.
+- Creams dominated with a 33.1% market share due to versatility across anti-aging, moisturizing, and brightening needs.
+- Tubes are the preferred packaging due to convenience, hygiene, and portability, while cosmetic stores led distribution due to product variety and customization.
+- Women remain the key consumer group, though male grooming is rising due to lifestyle changes and appearance consciousness.
+Key Country Highlights:
+- U.S.: Market to reach USD 30.42 billion by 2032; strong demand for organic, sustainable, and tech-driven skincare solutions.
+- China: Creams lead with a 34.57% share in 2024; Gen Z-focused launches like Kao’s “UNLICS” show rising male grooming.
+- India: Growth fueled by awareness of skin nourishment and rising use of herbal and ayurvedic products.
+- Europe: Demand strong in Germany, U.K., and France; premium product uptake supported by higher spending power.
+- Middle East & South America: Dry climate drives demand for hydration and sun-protection products; premium and imported brands gaining traction.
+Skincare Market Trends
+Technological Advancement in Skincare Industry to Become a Prominent Trend
+Beauty products offer advantages such as softening the skin and revitalizing cells, which helps provide a fresh look. Innovations and advancements in technology in the beauty & personal care industry, such as the development of artificial intelligence (AI) and IoT-based devices that offer personalized skin nourishment solutions to individuals, are gaining significant traction, which is expected to boost product demand. For instance, in January 2021, L’Oréal launched a new 3-in-1 device, ‘Perso,’ which will use AI to analyze the user’s skin pattern and dispense the customized amount of lotion, serum or cream accordingly. Therefore, techno-savvy individuals are expected to explore new devices, which will foster market growth.
+- Asia Pacific witnessed skincare market growth from USD 62.84 billion in 2025 and USD 66.3 billion in 2026.
+Skincare Market Growth Factors
+Increasing Awareness of Personal Care among All Age Groups to Drive Demand
+Rising concerns regarding skin nourishment due to many factors, such as acne, black spots, scars, dullness, and tanning, have increased the demand for skin nourishment products. Skin brightening products, toners, and scrubs are witnessing higher demand from the younger population. In contrast, products that provide the solution to wrinkles or cracked heels are gaining significant traction owing to their increasing demand from the aged population. Changing lifestyles and consumer spending patterns on premium beauty care products are projected to support the skincare market growth. Besides, consumers are becoming more informed about skincare ingredients and their effects on the skin. This awareness drives the demand for products with specific ingredients, such as antioxidants, hyaluronic acid, and retinol, known for their skincare benefits.
+Moreover, the demand for sunscreen lotions and creams is increasing due to the rising awareness of the adverse effects of continuous exposure to the sun. For instance, according to a survey conducted by Unilever in February 2021, 10,000 respondents from nine countries, including the U.S., India, and China, took part and showed that 74% of the respondents prefer the beauty and personal care industry, focusing more on making people feel better.
+Increasing Demand for Sustainable Products is Expected to Fuel Market Growth
+Consumers now focus on their healthcare with skin nourishment products and are inclined to use environmentally friendly products. For instance, exfoliating personal care products contain plastic beads, a significant concern for plastic pollution; therefore, consumers are inclined towards using products that do not contain plastic beads. Companies such as BioPowder are taking initiatives to develop biodegradable microbeads intended to be used in exfoliating products, which will not lead to waste generation. Moreover, manufacturers are focusing on reducing the carbon footprint by adopting improved manufacturing technologies where low energy and resources are required.
+Furthermore, innovative and eco-friendly product packaging, which is recyclable or refillable, is also in high demand. Also, due to rising awareness regarding animal rights, consumer preference has shifted towards vegan ingredients, entirely derived from only plant-based products. Therefore, players operating in the market focus on developing vegan products to attract more customers and increase their revenue.
+RESTRAINING FACTORS
+Excessive Use and Misuse Can Cause Cell Damage and Obstruct Growth
+Regular use of cosmetic products for an extended time can damage the skin, resulting in skin irritation, redness, burning sensation, discoloration, and rapid ageing of skin cells. Some skin nourishment products are only meant to be used for particular skin types, such as dry or oily skin. However, consumers tend to purchase products by focusing on brand names and ignoring other product details, which tends to damage their skin. Moreover, few products can also show allergic reactions and the development of pimples due to certain ingredients that are unsuitable for the particular individual. Furthermore, excessive use can lead to severe issues, including skin cancer and melanoma. Therefore, these are some major restraining factors hampering the market growth.
+Skincare Market Segmentation Analysis
+By Product Analysis
+Creams Segment is dominating in Global Marketplace Owing to its Wide Applicability
+Based on product, the market is segmented into creams, lotions, powders, and sprays
+
+[DEBUG]
+HAS #summary: True
+HAS .tab-content: True
+
+
+[셀 19]
+====================================================================================================
+TITLE: 미국에서 제2의 전성기 맞은 K-뷰티
+DATE: 2025-04-24
+====================================================================================================
+
+
+지난해 K-뷰티는 미국 시장에서 괄목할 만한 성장을 이뤄냈다. 2024년 한국은 미국 화장품 수입 시장에서 오랜 기간 1위를 지켜온 프랑스를 제치고 선두에 올랐다. 미국 시장에서 K-뷰티 붐을 일으킨 지 10여 년 만이다. 한국 화장품 대미 수출은 2416만 달러를 기록한 2006년 이후 지속적인 증가세를 이어왔다. 마스크팩과 BB크림, 달팽이 크림 같은 특정 제품이 미국 시장에서 크게 주목을 받으며 미 소비자들에게 존재감을 알린 K-뷰티는 새롭고 혁신적인 제품을 찾는 MZ 세대를 공략하며 입지를 넓혀 나갔다.
+
+
+한국 , 미국으로의 화장품 최대 수출국으로 도약
+
+
+지난해 한국의 화장품 대미 수출 규모는 전년 대비 54.3% 증가한 17억100만 달러를 기록했다. 미국 화장품 수입시장 점유율은 전년보다 5.9%포인트 상승한 22.4%로 나타났다. 한국 화장품이 미 수입시장에서 1위에 오른 것은 이번이 처음이다. 오랜 라이벌인 프랑스는 수출액이 전년 대비 9.6% 증가하는 데 그쳐 12억6300만 달러를 기록, 한국에 1위 자리를 내줬다.
+
+
+<미국의 화장품 수입 현황>
+
+
+(단위: US$ 백만, %)
+
+
+[TABLE]
+
+      순위     국가명    수입액     비중 ‘23~’24년 증감                        
+0   2022    2023   2024   2022        2023  2024                  
+1      1    대한민국    824  1,103       1,701  13.5  16.5  22.4  54.3
+2      2     프랑스  1,052  1,152       1,263  17.2  17.3  16.6   9.7
+3      3     캐나다    907  1,033       1,022  14.8  15.5  13.5  -1.0
+4      4    이탈리아    706    825         879  11.6  12.4  11.6   6.5
+5      5      중국    576    646         671   9.4   9.7   8.8   3.9
+6      6     멕시코    224    276         276   3.7   4.1   3.6   0.1
+7      7      영국    243    252         250   4.0   3.8   3.3  -0.7
+8      8      일본    225    177         221   3.7   2.7   2.9  24.9
+9      9      독일    204    176         215   3.3   2.6   2.8  21.6
+10    10     스웨덴    235    149         146   3.8   2.2   1.9  -2.1
+11    전체  6,1 10  6,668  7,592         100   100   100  13.9      
+
+
+주 : HS Code 3304 기준
+
+
+[자료: U.S. Department of Commerce, Bureau of Census, World Trade Atlas ]
+
+
+K-뷰티, 온라인 유통 채널 강화 전략의 성공
+
+
+최근 몇 년간 K-뷰티가 미국 시장에서 두드러진 성장세를 보인 배경에는, 온라인 유통 채널을 통한 진출 확대가 핵심적인 요인으로 작용했다. 시장조사기관 유로모니터에 따르면 코로나19 팬데믹 영향으로 2020 년 미국의 뷰티∙퍼스널케어 제품의 온라인 판매 비중은 전년 대비 9%포인트 넘게 증가한 26.2%를 기록했다. 이후 온라인 매출 비중은 꾸준히 늘어 지난 2023년 29%까지 성장했다. 업계 관계자들은 K-뷰티 브랜드들이 아마존 플랫폼을 효과적으로 이용해 미국 시장에 진출한 것이 중요한 성공전략이 됐다고 전했다.
+
+
+모건스탠리는 오는 2025년까지 뷰티 부분에서 아마존의 시장 점유율은 14.5%로 증가해 월마트를 따라잡을 것으로 예상했다. 연회비 지불 고객에게 최저 주문금액 없이 이틀 만에 배송을 완료하는 편리성과 오픈마켓 방식을 통한 선택의 다양성, 실제 사용자의 리뷰 확인이 가능하다는 점은 뷰티 소비자에게 큰 매력으로 작용한다. CIRP의 아마존 프라임 회원 수 추정치는 2024년 현재 1억8010만 명으로 미국 소비자의 75%에 이른다.
+
+
+<2019~2024년 미국 아마존 프라임 회원 수>
+
+
+(단위: 백만)
+
+
+[자료: CIRP, eMarketer, Backlinko]
+
+
+아마존에서 K-뷰티 제품을 판매하는 한 업체 관계자는 KOTRA 뉴욕 무역관과의 인터뷰에서 “대형 소매업체 입점은 미국 시장에서 인지도가 낮은 소규모 K-뷰티 브랜드에게 진입장벽이 높으나 아마존 입점은 비교적 간단하다”며 “아마존 입점과 관련 한국 정부 차원의 다양한 지원 프로그램이 있고, 아마존 자체적으로도 K-뷰티의 성장 가능성을 높게 보고 지원을 강화하고 있어 중소 브랜드들의 진출 기회가 더욱 확대되고 있다”고 전했다. 실제로 4월 11일 현재 미국 아마존 사이트에서 스킨케어 베스트셀러 50개 제품 가운데 10개가 한국산 제품으로 조사됐다.
+
+
+아마존 플랫폼에서 성공한 대표적인 K-뷰티 브랜드로는 코스알엑스(COSRX)와 조선미녀를 꼽을 수 있다. 두 브랜드 모두 아마존에서 큰 화제를 모으며 일부 제품이 매진되기도 했다. 높은 품질과 합리적인 가격이 소비자 만족도로 이어진 덕분이다. 아마존에서 성공은 미국 시장에서 유통망을 넓히고, 브랜드 입지를 다지는 밑거름이 될 수 있다.
+
+
+<아마존 스킨케어 부분 베스트셀러 50개 제품>
+
+
+주 : 2025년 4월 11일 기준, 한국산 제품은 빨간색으로 표시
+
+
+[자료: Amazon.com]
+
+
+<아마존의 K-뷰티 스타트업 지원을 위한 아마존 액셀러레이터 2025>
+
+
+[자료: Amazon.co.kr]
+
+
+이밖에 올리브영 글로벌 , 예스스타일 등 직구 플랫폼과 오롤리(Ohlolly), 스킨 큐피드(Skin Cupid) 같은 K-뷰티 전문 온라인 쇼핑몰, 코스트코, 타겟 등 미 대형 소매업체들도 온라인 채널을 통해 한국 화장품을 판매 중이다. 온라인을 중심으로 과거보다 K-뷰티 제품을 구매할 수 있는 채널이 더욱 다양해지고 강화되고 있는 양상이다.
+
+
+인디 뷰티 브랜드 트렌드와 소셜미디어의 파워
+
+
+인디 뷰티 (Indie Beauty) 브랜드는 인지도가 높은 메이저 브랜드가 아닌 독립적으로 태생해 독특한 브랜드 스토리와 철학, 개성을 지니고 있는 것이 특징이다. 브랜드 인지도보다 새롭고 혁신적인 제품을 찾는MZ세대를 중심으로 인디 뷰티 시장은 최근 수년간 빠른 속도로 성장했다. 닐슨IQ가 지난 2023년 발표한 보고서에서 인디 뷰티 브랜드는 가파른 성장을 기반으로 뷰티 시장의 한 부분을 담당하고 있다며, 시장 규모는 305억 달러로 전체 뷰티 카테고리의 32%를 차지하고 있다고 밝혔다. 보고서는 또 인디 뷰티 매출의 연간 성장률이 15.7%로, 같은 기간 전체 뷰티 매출 증가율 9.9%을 상회했다고 전했다.
+
+
+<인디 뷰티 브랜드의 성공 사례로 언급되는 글로시어>
+
+
+[자료: www.glossier.com]
+
+
+인디 뷰티 브랜드에 대한 높은 관심도는 미국 시장 내에서 K-뷰티가 주목받는 또 다른 요인으로 작용했다. 그간 뷰티 시장에서 보지 못했던 참신한 제품이 미국 소비자들의 니즈에 부합했다는 분석이다. 특히 시장에서 압도적인 강세를 보이고 있는 K-뷰티 스킨케어 제품은 혁신적인 기술이나 기능성 성분을 강조하고, 동시에 피부에 큰 자극을 주지 않는다는 점이 소비자들 사이에서 높게 평가되고 있다. 또 지속 가능한 뷰티나 사용자 편의 기반의 패키징 등도 브랜드 인지도가 낮은 미 뷰티 시장 내에서 K-뷰티가 주목받는 이유로 꼽힌다.
+
+
+소셜미디어도 K-뷰티 성공 전략의 큰 축이다. 한국 화장품은 틱톡이나 인스타그램, 레딧 등에서 자주 언급되는 단골 소재다. 소셜미디어 사용자들은 대중의 눈길을 끌 만한 새로운 제품을 소개하거나 사용 후기 등을 비디오나 사진을 통해 공개하며 유저들과 정보를 공유하고 있다. 일반인의 제품 사용 후기가 입소문을 타면서 구매로 이어지고 있다. 또 미국 내에서도 소셜미디어와 쇼핑 플랫폼을 결합한 소셜 쇼핑 시장도 성장하고 있어 미국 내 K-뷰티 시장의 성장에 있어 소셜미디어의 영향력은 더욱 커질 전망이다.
+
+
+<쇼핑 정보를 제공하는 사이트인 22Words에 소개된 틱톡 바이럴 K-뷰티 제품>
+
+
+[자료: twentytwowords.com]
+
+
+전망 및 시사점
+
+
+미국은 세계 최대 규모의 뷰티 시장으로 꼽힌다 . 유로모니터에 따르면 지난 2023년 미국 뷰티∙퍼스널케어 제품 시장 규모는 전년 대비 7.7% 성장한 1191억5970만 달러에 이른다. 시장이 큰 만큼 전 세계 뷰티 브랜드의 치열한 각축장으로 여겨지는 미국에서 한국 화장품이 지속적인 성장을 통해 미 최대 수입국으로 부상한 것은 의미 있는 성과다. 특히 중소브랜드가 주도했다는 점에서 더욱 주목할 만하다.
+
+
+유로모니터는 미 뷰티∙퍼스널케어 시장이 2023~2028년까지 연평균 8.3% 성장해 오는 2028년에는 1290억4790만 달러에 이를 것으로 전망했다. 한국 화장품이 강세를 보이는 스킨케어 부분 매출은 동기간 연평균 13.4% 늘어 2028년에는 314억9170만 달러로 성장할 것이라고 내다봤다. 미국은 시장 성장의 가능성이 높고, 소비자들 사이에서 K-뷰티에 대한 높은 호감도가 형성되어 있어 뷰티 업계에 매력도가 높은 곳이다. 하지만 트럼프 행정부가 들어서고, 주요 교역국을 대상으로 한 상호관세 부과와 그 외 국가들을 대상으로 한 10%의 보편관세는 미 화장품 시장의 주요 변수로 떠올랐다.
+
+
+미국 내 화장품 유통업계의 한 관계자는 KOTRA 뉴욕 무역관과의 인터뷰에서 “트럼프 대통령이 4월 2일 발표한 상호관세 조치가 90일 유예 됐으나 90일 이후에는 상황이 어떻게 바뀔지 장담할 수 없는 상황”이라며 “25%의 상호관세는 확실히 화장품 유통업계에 부담이 될 수밖에 없다”고 설명했다. 그는 또 “한국뿐 아니라 주요 화장품 수입국 대부분이 상호관세 부과 대상국이라 한국 화장품이 현 위치에서 가격 경쟁력이 크게 흔들릴 것으로 우려되지는 않는다”면서도 “관세 부과로 전반적인 미국 내 물가 상승 압박이 더욱 커지고 이는 소비 위축으로 이어져 화장품 시장의 수요 약화로 나타날 수 있다”고 우려했다. 한국 수출 기업들은 온라인 플랫폼과 소셜미디어 등을 적극 활용한 진출 전략을 모색함과 동시에 현 관세 부과 상황 등을 면밀히 검토하고, 이를 토대로 가격 정책 등을 수립할 수 있어야 한다.
+
+
+자료 : CIRP, eMarketer, Backlinko , U.S. Department of Commerce, Bureau of Census, World Trade Atlas, twentytwowords, Euromonitor 및 KOTRA 뉴욕 무역관 자료 종합
+
+
+[셀 20]
+====================================================================================================
+TITLE: 바이어에게 듣는 미국 화장품 시장 트렌드
+DATE: 2024-12-23
+====================================================================================================
+
+
+미국에서 K-Beauty의 인기가 지속적으로 높아지고 있다. Landing International에서 최근 발표된 보고서에 의하면, 2015~2016년경 미국에서의 첫 번째 K-Beauty 붐이 시작됐고, 2024년에는 더 큰 인기로 두 번째 붐을 맞이하고 있다. 올해 1분기 미국의 한국 화장품 수입은 4억 7 710만 달러로, 프랑스를 제치고 점유율 1위를 차지했다 . 한국 제품은 안전하고 효과가 좋다는 인식이 정착되면서 K-뷰티 시장의 성장은 지속될 것으로 전망된다.
+
+
+글로벌 시장조사 기업 Straits Research는 2023년 전 세계 한국 화장품 시장 규모를 125억4000만 달러로 평가했으며, 연평균 8.4%의 증가율로 성장해 2032년에는 259억80 00만 달러에 달할 것으로 예측했다.
+
+
+<전 세계 K-Beauty 제품 시장 전망>
+
+
+(단위: US$ 십억, %)
+
+
+[자료: Strait Research]
+
+
+미국 현지 화장품 업체와의 인터뷰
+
+
+미국 내 한국 화장품의 인기가 늘어나는 가운데, KOTRA 애틀랜타 무역관에서는 현지에서 한국제품의 온라인 판매 및 B2B 사업을 운영하는 E 사의 대표와의 인터뷰를 통해서 미국 뷰티 시장의 트렌드 및 전망에 대한 정보를 들어봤다.
+
+
+Q1. 먼저, 귀하의 회사에 관한 간단한 소개를 부탁드립니다.
+
+
+A1. 우리 회사는 귀여운 아이템과 진정한 한국 화장품을 정성껏 선별해 제공하는 선물 가게입니다. 저희는 박람회와 축제에 참가하는 팝업 숍으로 사업을 시작했으며, 현재는 온라인 판매와 B2B 파트너십으로 사업 방향을 확장하고 있습니다. 우리 회사의 목표는 고객에게 매력적이고 고품질인 제품을 제공하며, 직접 소매와 도매 시장 모두에서 저희의 존재감을 계속해서 키워 나가는 것입니다.
+
+
+Q2. 최근 미국 뷰티 시장의 주요 트렌드는 무엇인가요?
+
+
+A2. 지속 가능성, 제품 품질에 대한 집중, 그리고 쇼핑 방식의 변화가 현재 시장의 주요 흐름을 형성하고 있습니다. 지속 가능성은 이미 우선 사항으로 자리 잡았으며, 많은 대기업이 지속 가능성 목표를 장기 전략에 통합하고, 뷰티 브랜드들은 이러한 변화에 맞춰 재활용 이니셔티브를 도입하고 있습니다. 미국 내 다양한 주와 카운티에서는 플라스틱 봉투에 대한 요금을 부과하거나 소매업체가 제공할 수 있는 포장봉투의 종류를 규제하는 등 여러 가지 법규를 시행하고 있습니다.
+
+
+시장에 다양한 종류의 새로운 제품이 등장하면서 소비자들은 자신이 구매하는 제품의 성분에 대한 관심이 높아졌고, 이에 따라 소비자 자신이 지지하는 브랜드가 자신의 가치관과 일치하는지를 알고 싶어 합니다. 또한, 온라인 쇼핑 플랫폼의 발전과 오프라인 소매 환경의 변화는 소비자의 쇼핑 방식을 변화시켜, 매장 쇼핑과 온라인 쇼핑 경험을 균형 있게 조화시키고 있습니다.
+
+
+Q3. 현지 시장에서 제품 구매 시 고려하는 가장 중요한 요소는 무엇인가요?
+
+
+A3. 저의 주요 고객층은 진정성을 매우 중요하게 생각합니다. 많은 고객님이 과거의 기대에 미치지 못하는 외관이나 품질의 제품을 구매한 경험에 대해 피드백을 주셨습니다. 스킨케어 제품은 얼굴이나 피부에 직접 바르는 제품이기 때문에, 이러한 우려는 바이어에게 특히 중요합니다. 비정품 사용의 위험성은 소비자에게 불안감을 주므로, 제공되는 제품이 정품이고 신뢰할 수 있는지를 보장하는 것이 필수적입니다. 따라서 제품에 대한 정보, 즉 성분의 가용성과 중요한 정보가 영어로 제공되는 것이 미국 시장에 맞춰져 있는 것도 중요합니다. 이는 소비자들이 제품을 시도하는 데 있어 장벽을 줄이고, 다양한 피부 타입과 민감성을 고려해 제품이 안전하게 사용될 수 있도록 하는 데 도움을 줍니다.
+
+
+Q4. 미국 바이어로서 한국 뷰티 제품의 잠재력과 시장 특성에 대한 의견은 무엇인가요?
+
+
+A4. 한국 대중문화의 성장과 영향력은 다양한 제품에 대한 소비자들의 수요와 호기심을 크게 자극하고 있습니다. 여러 연구 보고서에서도 이 시장이 상당한 성장을 경험하고 있다는 점을 강조하고 있습니다. 그 결과, 브랜드들은 이 트렌드를 활용해 한국 제품에 관심 있는 소비자층을 주 타겟으로 하고 있습니다. 이러한 새로운 성장에 따라, 한국 제품들은 소비자들의 친숙함, 라이프스타일, 제품 접근성에 따라 다양한 타겟층을 겨냥하고 있습니다.
+
+
+Q5. 한국 제품의 구매 경로는 주로 어떻게 찾으시나요?
+
+
+A5. 개인적으로는 KOTRA를 통해 국내기업 측과 연결하는 것을 선호합니다. 또한, KOTRA를 통해 신뢰할 수 있는 무역 박람회에 참석해 한국 기업들과 직접 현장에서 인연을 맺는 것도 선호합니다. 이러한 접근 방식은 제가 참여하는 행사들이 합법적임을 보장하고, 해외 바이어와 협력하고자 하는 판매자들을 만날 수 있게 해줍니다. 해외 바이어의 다양한 요구를 고려할 때, 이러한 관심은 특히 중요합니다. 확립된 네트워크를 통해 소통하고 인정받는 무역 이벤트에 참석하는 것은 관계를 구축하고 진정한 제품을 조달하는 데 신뢰할 수 있는 기반을 제공하기 때문입니다.
+
+
+<K-Beauty 제품을 판매하고 있는 온라인 마켓>
+
+
+[자료: Eight Lucky Forest 웹사이트]
+
+
+Q6. 한국 기업과 거래하면서 겪었던 어려움과 긍정적인 경험은 무엇이었나요?
+
+
+A6. 주요 어려움으로는 기업들이 대부분 초반에 온라인 회의를 선호하는 경우가 많다는 점입니다. 특히 시차가 있는 상황에서 처음에는 국내기업에서 적극적으로 직접 화상미팅을 진행하고 싶어 하지만, 논의가 진행되는 중간에 연락이 끊기거나 가격 정보를 받지 못하는 경우도 많습니다. 시차를 고려해 보았을 때, 다음 단계로 진행하기 전에 이메일을 통해 서로가 적합한지 논의하는 것이 더 편리할 것입니다. 중간에 답변하지 않는 것은 바이어에게 불안감을 주고, 구매 계획에 차질을 초래합니다. 특히, 운송비로 인해 추가적인 비용이 발생하기 때문에 총판매 비용이 쉽게 두 배로 늘어날 수 있습니다. 따라서 가격 리스트가 없이는 제품이 적합한지 판단하기 어렵습니다.
+
+
+하지만 한국기업들과의 거래 과정에서 긍정적인 경험도 많이 있었습니다. 고품질 제품에 대한 보증, 판매자들의 따뜻한 환대, 그리고 훌륭한 서비스 기준이 모든 과정을 보람 있게 만들어 주었습니다. 저는 공급자와 바이어의 관계를 단순한 거래가 아닌 협력적인 파트너십으로 보고 있으며, 공급자와 장기적인 연결을 구축하고 싶습니다. 지금까지의 구매는 모두 잘 포장돼 있어 제품이 손상되지 않고 도착하며, 재고 관리도 용이하고, 아이템이 새로 제조되기 때문에 유효 기간도 충분합니다. 이러한 세심한 배려 덕분에 노동 비용이 크게 줄어들었고, 재고가 남는 위험도 최소화됐습니다.
+
+
+Q7. 현지 시장에 진입하고자 하는 한국 기업에 어떤 조언을 해주고 싶으신가요?
+
+
+A7. 다양한 옵션을 제공할 수 있는 배송 능력과 모든 인증 및 규정을 준수하기 위해 필요한 문서를 사전에 준비해 구매과정의 지연 및 잠재적인 통관 문제를 최소화하는 것이 중요합니다.
+
+
+Q8. 끝으로, 미국 뷰티 시장의 미래에 대한 전망은 무엇인가요?
+
+
+A8. 전반적으로 소비자들 사이에서는 웰니스와 자기 관리에 대한 관심이 증가하고 있으며, 이러한 광범위한 트렌드가 뷰티 산업에도 영향을 미치고 있습니다. 소비자들은 전반적인 라이프스타일을 향상시킬 수 있는 제품을 찾고 있으며, 스킨케어 루틴은 단순히 외모를 개선하기 위한 것이 아니라 집에서 친구 및 가족과의 휴식과 유대감을 위한 활동으로 여겨지는 경우가 많습니다.
+
+
+또한, 전자상거래와 제품 옵션의 확장은 쇼핑 환경을 변화시켜 소비자들이 집에서 편안하게 다양한 혁신적이고 다채로운 제품을 탐색할 수 있게 만들었습니다. 브랜드들은 이러한 역동적인 시장에서 성공하기 위해 온라인상의 존재감을 확장하고 있습니다. 이와 함께 브랜드의 진정성 및 제품 안전과 품질을 보장하기 위한 규정 등 새로운 인증 요구사항도 등장하고 있으며, 뷰티 시장은 이에 따라 변화하는 소비자 선호 트렌드에 계속해 적응하고 있습니다.
+
+
+시사점
+
+
+미국 시장 진출을 위해서는 제품 정보에 대한 상세한 설명을 영어로 준비하는 것이 기본이며, 미국 시장에서 필요한 인증을 획득하고 규제를 파악하는 것이 매우 중요하다. 피부에 직접 바르는 뷰티제품에 대한 규제는 엄격하고 까다롭기 때문에 미국시장에 진출하는 우리 기업들은 관련 규제를 숙지하고 바이어 접촉 이전에 인증획득을 받는 것이 중요하다. 특히, 미국에서는 최근 유해 성분 무첨가, 친환경 용기 사용 등을 강조하는 클린 뷰티(Clean Beauty), 혹은 웰니스 뷰티(Wellness Beauty)가 주목받고 있어 화학적 재료 사용에 주의가 필요하다.
+
+
+뷰티제품의 성분과 안전성은 미국 식품의약국( FDA, Food and Drug Administration )에서 관리한다. 대표적인 화장품 규제로는 2022년 말에 통과된 화장품규제 현대화법( MoCRA, Modernization of Cosmetics Regulation Act)으로, 올해 7월부터 본격 발효가 돼 미국 내 유통되는 뷰티제품에 적용되고 있다. MoCRA는 시설 및 제품 등록, 안전성 입증, 라벨링, 리콜 조치 등 다양한 규정을 포함한다. 이러한 연방차원의 법규 이외에도 주에 따라 다른 법규가 적용되기도 한다. 예를 들어, 2025년 1월부터 시행예정인 워싱턴주의 독성 없는 화장품법( TFCA, Toxic-Free Cosmetic Act)은 독성 및 특정 화학 성분이 포함된 화장품은 워싱턴주에서 생산, 유통, 판매를 금지한다. 또한, 캘리포니아 안전 화장품법(California Safe Cosmetics Act)은 유해성분이 사용된 화장품의 제조사는 캘리포니아 공중 보건부에 보고하고 소비자에게 명시할 것을 요구한다. 앞서 언급한 클린 뷰티와 연관된 이러한 규제들이 점차 확대되고 있다. 합리적 가격과 높은 품질로 긍정적인 평가를 받는 K-Beauty 인기를 이어가기 위해서는 이러한 규제들에 대한 철저한 대비가 필요할 것으로 보인다.
+
+
+자료: CDPH, FDA, Landing International, Straits Research, Washington State Department of Ecology, KOTRA 애틀랜타 무역관 자료 종합
+
+
+[셀 21]
+====================================================================================================
+TITLE: Amazon Beauty Data: Top Brands by Category Q3 2025
+CONTENT LENGTH: 2137
+====================================================================================================
+The new Q3 2025 beauty data from Pattern shows how different categories behave on Amazon, and the mix of players is wider than it looks at first glance.
+𝗠𝗮𝗸𝗲𝘂𝗽 𝗶𝘀 𝘁𝗵𝗲 𝗺𝗼𝘀𝘁 𝗰𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗲𝗱 𝗰𝗮𝘁𝗲𝗴𝗼𝗿𝘆.
+Maybelline leads with 6%, and brands like e.l.f., Laura Geller and NYX follow close behind.
+It is mostly mass brands with high recognition and strong review volume.
+Grande Cosmetics is the only independent brand in the group.
+𝗦𝗸𝗶𝗻𝗰𝗮𝗿𝗲 𝗶𝘀 𝗺𝗼𝗿𝗲 𝗼𝗽𝗲𝗻.
+The top 10 brands hold 19% of sales, and the list spans derm brands like CeraVe and La Roche-Posay, mass staples like Neutrogena and Dove, and rising Korean names like COSRX and Medicube.
+Skincare rewards experimentation and routine-building, so smaller brands can gain traction when they show clear results.
+𝗙𝗿𝗮𝗴𝗿𝗮𝗻𝗰𝗲 𝗹𝗼𝗼𝗸𝘀 𝗰𝗹𝗼𝘀𝗲𝗿 𝘁𝗼 𝗺𝗮𝗸𝗲𝘂𝗽 𝗶𝗻 𝘁𝗲𝗿𝗺𝘀 𝗼𝗳 𝗰𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻.
+Lataffa leads at 6.3%, followed by Versace, Sol de Janeiro and Armaf.
+Lataffa’s rise lines up with fast-growing interest in Middle Eastern fragrances on TikTok, where “dupe” culture spreads scent trends quickly and lowers the barrier for newer brands to break through.
+𝗛𝗮𝗶𝗿𝗰𝗮𝗿𝗲 𝗶𝘀 𝘁𝗵𝗲 𝗺𝗼𝘀𝘁 𝗳𝗿𝗮𝗴𝗺𝗲𝗻𝘁𝗲𝗱 𝗰𝗮𝘁𝗲𝗴𝗼𝗿𝘆 𝗮𝘁 𝟭𝟲%.
+Nutrafol leads with 3.6%, followed by salon brands like Redken, ColorWow, Olaplex and Kérastase.
+Dyson shows up as the only tool brand.
+Haircare spans supplements, treatments, and styling tools, so no single brand dominates.
+A few things stand out to me when looking across all four categories:
+• large portfolios help fill more shelf space
+• niche brands grow when social visibility aligns with a clear need
+Medicube is a good example. Its growth tracks back to TikTok, where results-focused formats and active ingredients travel well. When hashtags like koreanskincare reach hundreds of millions of views, it pushes shoppers to test products and then search for them on Amazon.
+This is the pattern we keep seeing: strong portfolios give companies broad coverage, and strong social strategy gives smaller brands a real shot at climbing the ranks with visibility. Both paths work for different reasons!
+If you want more analysis like this, I break it down weekly in the newsletter:
+🔔 https://t2m.io/j6Po32q
+
+
+[셀 22]
+====================================================================================================
+TITLE: 2026 미국 뷰티 시장 트렌드, K-뷰티 3.0과 스키니멀리즘의 확산
+DATE: 2025-11-25
+====================================================================================================
+
+
+참신함에서 기술 기반 스킨케어 솔루션으로 … K-뷰티 3.0 시대의 도래
+
+
+아마존을 중심으로 미국 시장에서 빠르게 성장해 온 K-뷰티는 2026년 더욱 영향력을 확대할 것으로 전망된다. K-뷰티가 글로벌 뷰티 트렌드를 선도한다는 인식이 확산되고 있으며, 혁신 기술을 기반으로 한 제품력은 높은 소비자 로열티와 재구매로 이어지고 있다는 분석이다.
+
+
+2020년 이후 미국에서 론칭되는 스킨케어 제품을 분석한 결과, 미국산 제품은 감소한 반면 한국산 제품은 증가한 것으로 나타났다. 민텔(Mintel)에 따르면 2024년 7월~2025년 6월 미국에서 출시된 미국산 스킨케어 제품은 1484개로, 2020년 7월~2021년 6월 대비 16% 감소했다. 같은 기간 한국산 제품은 496개에서 598개로 20% 증가했다. 민텔은 미국 브랜드들이 해외 제조 의존도를 높이고 있으며, 2021년 이후 혁신 활동이 눈에 띄게 줄었다고 지적한다. 브랜드들이 기존 제품 리뉴얼이나 한정판 출시로 시장 존재감을 유지하려 한 점도 한계로 꼽힌다. 이러한 환경 속에서 시트마스크 등 참신한 제품으로 시장 기반을 마련한 K-뷰티가 기술 중심의 스킨케어 솔루션으로 진화하는 ‘K-뷰티 3.0 시대’가 도래하고 있다는 평가다.
+
+
+K-뷰티가 미국 시장에서 경쟁력을 확보할 수 있었던 배경에는 다양한 피부색을 고려한 제품 개발과 기술 기반의 합리적 스킨케어 접근 방식이 있다. 복잡한 단계 없이 효율적으로 피부를 케어할 수 있다는 점도 큰 호응을 얻고 있다. 업계 관계자들은 2026년 미국 시장에서 리주란(PN), PDRN 등 한국에서 미용 시술에 활용되는 성분 또는 유사 성분이 더욱 주목받을 것으로 전망했다.
+
+
+<미국 아마존에서 판매 중인 메디큐브의 PDRN 핑크 펩타이즈 세럼>
+
+
+[자료: Amazon]
+
+
+스키니멀리즘 과 하이브리드 메이크업
+
+
+복잡한 스킨케어 루틴을 간소화하고 최소한의 제품으로 최대한의 효과를 얻고자 하는 ‘스키니멀리즘(Skinimalism)’ 트렌드가 최근 몇 년 사이 더 진화하고 있다. 스키니멀리즘은 피부(Skin)와 미니멀리즘(minimalism)의 합성어로, 다양한 단계를 거치는 기존의 스킨케어 방식이나 두껍게 화장을 덧바르는 방식에서 벗어나, 적은 제품을 사용하면서도 피부 본연의 건강함을 드러내는 데 초점을 맞춘 트렌드다. 최근에는 스키니멀리즘이 단기적인 피부 개선이나 안티에이징을 넘어 장기적인 피부 건강과 ‘피부 장수(longevity)’에 초점을 맞춘 형태로 진화하고 있으며, 이러한 콘셉트의 제품들이 앞으로 더욱 인기를 끌 것으로 전망된다.
+
+
+피부관리와 메이크업을 결합한 하이브리드 메이크업과 스키니멀리즘(Skinimalism) 트렌드는 2026년에도 이어질 것으로 예상된다. 기존에는 제품의 개수를 줄이는 데 초점을 맞췄다면, 최근에는 피부관리의 효율성과 실제 효과를 더 중시하는 소비자들이 늘어나면서, 데이터로 효과가 검증되고 부담이 적은 고품질 제품 몇 가지를 선택해 사용하는 경향이 더욱 뚜렷해지고 있다는 분석이다. 뉴욕 맨해튼의 한 화장품 소매업체 관계자는 뉴욕무역관과의 인터뷰에서 “소비자들은 소셜미디어를 통해 화장품 성분 정보를 쉽게 접하면서 이해도도 높아졌다”며 “자신의 피부 고민에 맞는 유효성분을 미리 찾고, 그 성분이 포함된 제품을 선택하는 경우가 늘고 있다”고 말했다. 그는 또 “이런 소비자들은 비슷한 제품을 여러 단계로 나누어 구매하기보다, 선호 성분이 포함돼 있고 과학적 데이터와 후기 신뢰도가 높은 단품을 선호하는 편”이라고 덧붙였다.
+
+
+<2026년 주목받을 것으로 예상되는 화장품 성분>
+
+
+[TABLE]
+
+                                                 성분명  \
+0                  Microbiome support ( 마이크로바이옴 지원 )   
+1                    DNA-repair enzymes (DNA 복구 효소 )   
+2                           Postbiotics ( 포스트바이오틱스 )   
+3  Algae-derived retinol alternatives ( 해조 유래 레티놀...   
+4                 Copper Peptides 2.0 ( 구리 펩타이드 2.0)   
+
+                                                  설명  \
+0  피부의 자연 미생물 균형을 유지하기 위해 프리바이오틱스 , 프로바이오틱스 , 포스트...   
+1        세포 수준에서 자외선 손상 (DNA 손상 ) 을 타깃으로 복구 하는 효소 성분   
+2  프로바이오틱스의 다음 단계 로 , 유익균의 대사산물 ( 메타볼라이트 ) 을 이용해 ...   
+3             전통적인 레티놀보다 자극이 적은 식물성 대체 성분 , 해조류에서 추출   
+4      기존 구리 펩타이드의 강화 버전 , 피부 복원 및 항노화 효과를 업그레이드한 성분   
+
+                           효과 및 특징  
+0  피부 수분 유지력 향상 , 염증 억제 , 피부 장벽 강화  
+1               광노화 방지 , 피부 회복력 강화  
+2    피부 진정 , 균형 회복 , 장기적인 피부 건강 유지  
+3             저자극 안티에이징 , 피부 탄력 개선  
+4         피부 재생 촉진 , 주름 개선 , 탄력 강화  
+
+
+[자료: Vita magazine, 뉴욕무역관 정리]
+
+
+색조화장품 부분에서는 스키니멀리즘과 맞물려 세럼 파운데이션이나 립밤과 블러셔 겸용 제품 처럼 한 가지 제품으로 여러 기능을 수행하는 하이브리드 제품도 강세를 이어갈 것으로 전망된다.
+
+
+<샤넬의 립앤치크 밤>
+
+
+[자료: Chanel]
+
+
+남성용 뷰티 시장의 확장
+
+
+외모 관리의 중요성이 커지면서 남성들의 스킨케어 관심도도 해마다 높아지고 있다. 과거에는 그루밍(grooming)에 비교적 소극적이던 남성 소비자들이 최근에는 자신을 위한 뷰티 제품 구매에 더욱 적극적으로 나서고 있다는 것이 업계 전문가들의 분석이다. 유니레버의 남성용 퍼스널케어 포트폴리오를 담당하는 아우구스토 가르손 글로벌 브랜드 부사장은 뷰티 전문 매체 글로시(Glossy)와의 인터뷰에서 “스킨케어에 신경 쓰는 남성이 소수의 특별한 집단이라는 고정관념은 이제 사라지고 있다”며 “자신을 가꾸는 데 적극적인 남성들은 이를 부끄러워하지 않고, 예전보다 더 많은 정보와 자신감을 바탕으로 다양한 카테고리의 제품을 선택하고 있다”고 설명했다.
+
+
+바클레이 은행 보고서에 따르면 Z세대 남성 소비자들은 그루밍에 적극적으로 투자하고 있다. Z세대 남성의 42%가 소득의 상당 부분을 뷰티 제품에 지출한다고 응답했으며, 밀레니얼 세대는 29%로 뒤를 이었다. 유가브(YouGov) 자료에서도 2024년 기준 18~24세 미국 남성이 뷰티 전문 매장 세포라에서 사용하는 금액은 2020년 대비 두 배로 증가한 것으로 나타났다. 2025년 핀터레스트 트렌드 보고서 역시 남성의 페이셜 트리트먼트 검색량이 230% 증가했다고 분석했다. 월마트·타겟·월그린 등 대형 유통업체들도 최근 3년간 남성용 스킨케어 브랜드 취급을 확대하고 있어, 앞으로 많은 뷰티 브랜드들이 MZ세대 남성의 라이프스타일과 피부 고민에 맞춘 제품을 더욱 적극적으로 출시할 것으로 전망된다.
+
+
+지속가능한 뷰티
+
+
+환경에 미치는 영향을 최소화하고 유해 화학 성분 사용을 줄이려는 지속가능한 뷰티 트렌드는 2026년에도 이어질 것으로 전망된다. 클린허브(Cleanhub)가 2023년 미국 소비자 500명을 대상으로 실시한 설문조사에서 응답자의 81%는 브랜드가 플라스틱 포장을 적극적으로 줄여야 한다고 답했으며, 화장품 선택 시 브랜드의 환경 고려 여부가 얼마나 영향을 미치는지 묻는 질문에는 63%가 ‘매우 중요’ 또는 ‘상당히 중요하다’고 응답했다. 소비자들이 제품 구매 시 환경과 건강에 미치는 영향을 고려하는 것은 이미 업계의 일반적 기준으로 자리 잡았다는 분석이다.
+
+
+뷰티 제품 용기 쓰레기 문제를 적극적으로 알리고 있는 비영리단체 팩트(Pact)는 뷰티 산업에서 매년 약 1200억 개의 화장품 용기가 생산되지만, 이들 대부분이 재활용이 어렵다고 지적한다. 용기가 지나치게 작거나 여러 소재가 혼합돼 사용되는 경우가 많아 재활용이 사실상 불가능하다는 것이다. 이러한 막대한 플라스틱 폐기물이 환경 오염의 주요 원인으로 꼽히면서, 많은 기업들이 환경 친화적 패키징 도입에 힘을 쏟고 있다. 재활용 소재를 사용한 용기, 재활용이 가능한 단일 소재 용기, 리필형 제품 등이 대표적인 사례이며, 미국 내 생산을 통해 탄소발자국을 줄이려는 시도도 이어지고 있다. 또한 환경뿐 아니라 소비자의 건강에 유해할 수 있는 화학 성분을 배제하거나 최소화하려는 움직임 역시 확산되고 있다.
+
+
+<지속가능한 뷰티 브랜드 사례>
+
+
+[TABLE]
+
+                        브랜드명  \
+0              Kaia Naturals   
+1  Innersense Organic Beauty   
+2             Sol de Janeiro   
+
+                                                주요내용  
+0  - 화장품 포장재로 종이 사용을 지양하고, 50% 사용 후 재활용된 소재를 사용한 ...  
+1  - 100% 사용 후 재활용된 소재를 사용한 용기, 리필이 가능한 파우치 제품 등을...  
+2  - 재활용 가능하거나 리필이 가능한 용기를 사용해 플라스틱 쓰레기 배출을 최대 89...  
+
+
+[자료: Ulta]
+
+
+<Innersense Organic Beauty가 제공하는 자사의 용기 재활용 가이드와 무첨가 화학성분 리스트>
+
+
+[자료: Ulta]
+
+
+전망 및 시사점
+
+
+2026년 뷰티 산업은 지속가능성, 기술 혁신, 소비자 중심 가치가 핵심 축으로 자리 잡으며 계속 진화할 전망이다. 플라스틱 감축과 재활용, 무첨가 성분 등 친환경 실천은 이미 업계의 표준으로 굳어졌으며, K-뷰티는 참신함을 넘어 기술 기반 스킨케어 솔루션을 앞세워 글로벌 시장에서 입지를 더욱 강화하고 있다. 스키니멀리즘 2.0과 하이브리드 메이크업 트렌드의 확산은 ‘덜 하지만 더 나은(Less but Better)’ 소비 가치가 자리 잡고 있음을 보여준다.
+
+
+한편, 남성 소비자층의 확대와 세대별 뷰티 가치 변화는 시장의 포용성과 다양성을 더욱 요구하고 있다. 브랜드는 지속가능한 생산 시스템과 데이터 기반 제품 개발, 그리고 성분 투명성을 통해 윤리적 소비 트렌드에 대응해야 한다. 친환경·기술·포용을 아우르는 혁신이 앞으로 뷰티 산업 경쟁력의 핵심이 될 것으로 전망된다.
+
+
+자료 : Mintel, Black Swan Data, Vita Magazine, UIta, Innersense Organic Beauty, Barclay Bank, Glossy, YouGov, grerivian, ADA Cosmetic, Vogue 및 뉴욕무역관 자료 종합
+

@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import MatchAPIView # views.py에 정의할 클래스
+from .views import MatchAPIView, ResearchAPIView
 
 urlpatterns = [
-    # 최종 주소: http://127.0.0.1:8000/api/match/
+    # POST http://127.0.0.1:8000/api/match/
     path('match/', MatchAPIView.as_view(), name='match_api'),
+    # GET  http://127.0.0.1:8000/api/research/?category=기초화장품&country=JP
+    path('research/', ResearchAPIView.as_view(), name='research_api'),
 ]
