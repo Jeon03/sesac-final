@@ -18,5 +18,5 @@ def fetch_api(hs_code, country, year):
                         "weight": int(item.findtext("expWgt") or 0)
                     }
     except Exception as e:
-        print(f"❌ API 호출 에러 ({year}): {e}")
+        print(f"[ERR] API 호출 에러 ({year}): {e}")
     return None
