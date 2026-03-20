@@ -5,7 +5,7 @@ from .services.main import run_analysis
 from .services.research_engine import get_research_dict
 from .services.hs_map import get_hs_code, COUNTRY_CODE_MAP, get_fetch_years
 from .services.trass_service import fetch_api
-from .models import MarketStat
+from .models import MarketStat, ProductRanking
 
 
 class MatchAPIView(APIView):
@@ -72,6 +72,41 @@ class TradeStatsView(APIView):
             return Response({"error": "수출 통계 데이터를 가져올 수 없습니다."}, status=404)
 
         return Response({"hs_code": hs_code, "country": country, "stats": stats})
+
+
+class RankingsView(APIView):
+    """
+    국가별 최신 Top5 랭킹 조회.
+    GET /api/rankings/?country=US   → Ulta, Sephora 각 Top5
+    GET /api/rankings/?country=JP   → Qoo10, Rakuten 각 Top5
+    """
+    PLATFORM_MAP = {
+        "US": ["Ulta", "Sephora"],
+        "JP": ["Qoo10", "Rakuten"],
+    }
+
+    def get(self, request):
+        country = request.query_params.get("country", "US").upper()
+        platforms = self.PLATFORM_MAP.get(country)
+        if not platforms:
+            return Response({"error": "country는 US 또는 JP"}, status=400)
+
+        result = {}
+        for platform in platforms:
+            # 가장 최근 collected_at 기준 Top5
+            rows = (
+                ProductRanking.objects
+                .filter(platform=platform, country=country, rank__lte=5)
+                .order_by("rank")
+                .values("rank", "platform_item_id", "title", "brand",
+                        "price", "rating", "reviews_count", "url")
+            )
+            if not rows:
+                result[platform] = []
+                continue
+            result[platform] = list(rows)
+
+        return Response({"country": country, "rankings": result})
 
 
 class ResearchAPIView(APIView):

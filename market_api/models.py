@@ -1,6 +1,60 @@
 from django.db import models
 
 
+class ProductRanking(models.Model):
+    """채널별 Top10 랭킹 스냅샷 (DB1)"""
+    PLATFORM_CHOICES = [
+        ('Ulta', 'Ulta'),
+        ('Sephora', 'Sephora'),
+        ('Qoo10', 'Qoo10'),
+        ('Rakuten', 'Rakuten'),
+    ]
+    COUNTRY_CHOICES = [('US', 'US'), ('JP', 'JP')]
+
+    platform = models.CharField(max_length=20, choices=PLATFORM_CHOICES)
+    country = models.CharField(max_length=2, choices=COUNTRY_CHOICES)
+    rank = models.PositiveSmallIntegerField()
+    platform_item_id = models.CharField(max_length=100)  # Ulta/Sephora: product_id, Qoo10: item_id, Rakuten: shop_id_item_id
+    title = models.TextField()
+    brand = models.CharField(max_length=200, blank=True, default='')
+    price = models.CharField(max_length=100, blank=True, default='')
+    rating = models.FloatField(null=True, blank=True)
+    reviews_count = models.IntegerField(null=True, blank=True)
+    url = models.URLField(max_length=500)
+    collected_at = models.DateTimeField()
+
+    class Meta:
+        unique_together = ('platform', 'platform_item_id', 'collected_at')
+        ordering = ['platform', 'rank']
+
+    def __str__(self):
+        return f"[{self.platform}] #{self.rank} {self.title[:40]}"
+
+
+class ProductReview(models.Model):
+    """채널별 상품 리뷰 (DB2)"""
+    platform = models.CharField(max_length=20)
+    country = models.CharField(max_length=2)
+    platform_item_id = models.CharField(max_length=100, db_index=True)
+    review_id = models.CharField(max_length=100)   # 플랫폼 원본 ID
+    author = models.CharField(max_length=200, blank=True, default='')
+    rating = models.FloatField(null=True, blank=True)
+    # 제목: Ulta=headline, Sephora=Title, Qoo10/Rakuten=없음
+    title_original = models.TextField(blank=True, default='')
+    title_ko = models.TextField(blank=True, default='')
+    # 본문 원문 / 영어번역 / 한국어번역
+    body_original = models.TextField(blank=True, default='')  # 원문 (EN or JP)
+    body_en = models.TextField(blank=True, default='')        # 영어 (JP→EN, EN은 원문과 동일)
+    body_ko = models.TextField(blank=True, default='')        # 한국어 번역
+    review_date = models.DateField(null=True, blank=True)
+
+    class Meta:
+        unique_together = ('platform', 'platform_item_id', 'review_id')
+
+    def __str__(self):
+        return f"[{self.platform}] {self.platform_item_id} - {self.author}"
+
+
 class HsClassification(models.Model):
     """카테고리별 HS 코드 판정 결과 및 근거 저장"""
     category = models.CharField(max_length=100, unique=True)

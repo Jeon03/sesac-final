@@ -223,8 +223,7 @@ class Command(BaseCommand):
         if not month:
             month = datetime.now().strftime("%Y-%m")
 
-        # 카테고리 기본값 (현재는 기초화장품만 URL 준비됨)
-        categories = [category_filter] if category_filter else ["기초화장품"]
+        categories = [category_filter] if category_filter else ["스킨케어"]
         countries = [country_filter] if country_filter else ["US", "JP"]
 
         for category in categories:

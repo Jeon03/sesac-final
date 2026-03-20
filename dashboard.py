@@ -143,6 +143,52 @@ st.markdown("""
 .us-col { color: #1d4ed8; }
 .jp-col { color: #db2777; }
 
+/* ── Top5 랭킹 테이블 ── */
+.top5-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+.top5-header-light {
+    background: #fff8f0;
+    padding: 12px 18px 10px;
+    border-bottom: 2px solid #fb923c;
+}
+.top5-header-dark {
+    background: #1a1a2e;
+    padding: 12px 18px 10px;
+    border-bottom: 2px solid #6366f1;
+}
+.top5-title-light {
+    font-size: 15px; font-weight: 700; color: #ea580c;
+}
+.top5-title-dark {
+    font-size: 15px; font-weight: 700; color: #fff;
+}
+.top5-table { width: 100%; border-collapse: collapse; }
+.top5-table th {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    color: #9ca3af; padding: 8px 12px; text-align: left;
+    border-bottom: 1px solid #f3f4f6; background: #fafafa;
+}
+.top5-table th.dark { background: #16213e; color: #6b7280; border-bottom: 1px solid #2d3748; }
+.top5-table td {
+    padding: 9px 12px; font-size: 13px; color: #374151;
+    border-bottom: 1px solid #f3f4f6; vertical-align: middle;
+}
+.top5-table td.dark {
+    color: #e2e8f0; border-bottom: 1px solid #2d3748; background: #1a1a2e;
+}
+.top5-rank-light {
+    font-size: 15px; font-weight: 700; color: #fb923c; width: 36px;
+}
+.top5-rank-dark {
+    font-size: 15px; font-weight: 700; color: #818cf8; width: 36px;
+}
+.top5-name { font-weight: 600; }
+.top5-brand { color: #6b7280; font-size: 12px; }
+.top5-brand.dark { color: #94a3b8; }
+
 /* st.container(border) 통일 */
 [data-testid="stVerticalBlockBorderWrapper"] > div:first-child {
     background: #fff !important;
@@ -497,6 +543,78 @@ def render_kbeauty_share_section(r: dict, country: str):
 
 
 
+def render_top5_rankings(country: str):
+    """국가별 플랫폼 Top5 랭킹 테이블 (항상 표시)"""
+    try:
+        resp = requests.get(
+            f"{API_BASE}/rankings/",
+            params={"country": country},
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            st.caption("랭킹 데이터를 불러올 수 없습니다.")
+            return
+        data = resp.json().get("rankings", {})
+    except Exception:
+        st.caption("랭킹 서버 연결 실패.")
+        return
+
+    if country == "US":
+        platforms = [("Ulta", "Ulta Beauty Top 5", "light"), ("Sephora", "Sephora Top 5", "dark")]
+    else:
+        platforms = [("Qoo10", "Qoo10 Top 5", "light"), ("Rakuten", "Rakuten Top 5", "dark")]
+
+    col1, col2 = st.columns(2)
+    for col, (platform, title, theme) in zip([col1, col2], platforms):
+        rows = data.get(platform, [])
+        with col:
+            header_cls = f"top5-header-{theme}"
+            title_cls = f"top5-title-{theme}"
+            rank_cls = f"top5-rank-{theme}"
+            dark = theme == "dark"
+            th_cls = " class='dark'" if dark else ""
+            td_cls = " class='dark'" if dark else ""
+
+            rows_html = ""
+            link_color = "#e2e8f0" if dark else "#111827"
+            for r in rows:
+                num = r.get("rank", "")
+                name = r.get("title", "")[:55]
+                brand = r.get("brand", "") or ""
+                url = r.get("url", "")
+                name_html = (
+                    f'<a href="{url}" target="_blank" style="color:{link_color};text-decoration:none;font-weight:600"'
+                    f' onmouseover="this.style.textDecoration=\'underline\'" onmouseout="this.style.textDecoration=\'none\'">'
+                    f'{name}</a>'
+                    if url else f'<span class="top5-name">{name}</span>'
+                )
+                rows_html += f"""
+                <tr>
+                  <td{td_cls}><span class="{rank_cls}">{num:02d}</span></td>
+                  <td{td_cls}>{name_html}</td>
+                  <td{td_cls}><span class="top5-brand{' dark' if dark else ''}">{brand}</span></td>
+                </tr>"""
+
+            bg = "#1a1a2e" if dark else "#fff"
+            html = f"""
+            <div class="top5-wrap" style="background:{bg}">
+              <div class="{header_cls}">
+                <span class="{title_cls}">{title}</span>
+              </div>
+              <table class="top5-table">
+                <thead>
+                  <tr>
+                    <th{th_cls}>RANK</th>
+                    <th{th_cls}>PRODUCT NAME</th>
+                    <th{th_cls}>BRAND</th>
+                  </tr>
+                </thead>
+                <tbody>{rows_html}</tbody>
+              </table>
+            </div>"""
+            st.markdown(html, unsafe_allow_html=True)
+
+
 # ── 메인 ─────────────────────────────────────────────────────────────────────
 if not submit_btn:
     st.markdown("""
@@ -556,6 +674,12 @@ else:
 
             # ── 트렌드 (선택 국가) ────────────────────────────────
             render_trends_section(r, selected_country)
+
+            st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+
+            # ── Top5 랭킹 ─────────────────────────────────────────
+            st.markdown('<div class="section-header">채널별 베스트셀러 Top 5</div>', unsafe_allow_html=True)
+            render_top5_rankings(selected_country)
 
             st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
