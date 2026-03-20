@@ -560,15 +560,15 @@ else:
             st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
             # ── 경쟁 브랜드 ───────────────────────────────────────
-            render_competitors_section(r, selected_country)
+            # render_competitors_section(r, selected_country)
 
             # ── 출처 ─────────────────────────────────────────────
-            sources = r.get("sources", [])
-            if sources:
-                with st.expander("데이터 출처"):
-                    for s in sources:
-                        if s:
-                            st.markdown(f"- {s}")
+            # sources = r.get("sources", [])
+            # if sources:
+            #     with st.expander("데이터 출처"):
+            #         for s in sources:
+            #             if s:
+            #                 st.markdown(f"- {s}")
 
         except requests.exceptions.ConnectionError:
             st.error("Django 서버가 실행 중이 아닙니다. `python manage.py runserver` 확인")
