@@ -215,6 +215,7 @@ searxng/
 downloaded_files/
 *.json
 *.jsonl
+*.csv
 
 # 추가로 추천하는 제외 항목 (주피터 노트북 체크포인트)
 .ipynb_checkpoints/
