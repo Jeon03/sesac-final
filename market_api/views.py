@@ -5,7 +5,7 @@ from .services.main import run_analysis
 from .services.research_engine import get_research_dict
 from .services.hs_map import get_hs_code, COUNTRY_CODE_MAP, get_fetch_years
 from .services.trass_service import fetch_api
-from .models import MarketStat, ProductRanking
+from .models import MarketStat, ProductRanking, ReviewAnalysisCache, MetaAdSummary
 
 
 class MatchAPIView(APIView):
@@ -93,20 +93,39 @@ class RankingsView(APIView):
 
         result = {}
         for platform in platforms:
-            # 가장 최근 collected_at 기준 Top5
             rows = (
                 ProductRanking.objects
-                .filter(platform=platform, country=country, rank__lte=5)
+                .filter(platform=platform, country=country, rank__lte=10)
                 .order_by("rank")
                 .values("rank", "platform_item_id", "title", "brand",
                         "price", "rating", "reviews_count", "url")
             )
-            if not rows:
-                result[platform] = []
-                continue
             result[platform] = list(rows)
 
         return Response({"country": country, "rankings": result})
+
+
+class ReviewAnalysisView(APIView):
+    """
+    상품별 리뷰 분석 결과 조회 (ReviewAnalysisCache에서 읽기).
+    GET /api/review-analysis/?platform=Sephora&item_id=P519160
+    """
+
+    def get(self, request):
+        platform = request.query_params.get("platform")
+        item_id = request.query_params.get("item_id")
+        if not platform or not item_id:
+            return Response({"error": "platform, item_id 파라미터 필요"}, status=400)
+
+        cache = (
+            ReviewAnalysisCache.objects
+            .filter(platform=platform, platform_item_id=item_id)
+            .first()
+        )
+        if not cache:
+            return Response({"error": "분석 데이터 없음"}, status=404)
+
+        return Response(cache.result)
 
 
 class ResearchAPIView(APIView):
@@ -130,3 +149,100 @@ class ResearchAPIView(APIView):
             return Response({"error": "해당 카테고리의 리서치 데이터가 없습니다."}, status=status.HTTP_404_NOT_FOUND)
 
         return Response(result, status=status.HTTP_200_OK)
+
+
+class CountryRecommendView(APIView):
+    """
+    제품 정보 기반 최적 진출 국가 추천
+    POST /api/country-recommend/
+    Body: {"product_name": "...", "category": "...", "ingredients": "...", "effects": "..."}
+    """
+    def post(self, request):
+        product_name = request.data.get("product_name", "")
+        category     = request.data.get("category", "")
+        ingredients  = request.data.get("ingredients", "")
+        effects      = request.data.get("effects", "")
+
+        if not category:
+            return Response({"error": "category 파라미터가 필요합니다."}, status=400)
+
+        from .services.country_recommender import recommend_countries
+        result = recommend_countries(
+            product_name=product_name,
+            category=category,
+            ingredients=ingredients,
+            effects=effects,
+        )
+
+        if "error" in result:
+            return Response(result, status=404)
+
+        return Response(result, status=200)
+
+
+class AdStrategyView(APIView):
+    """
+    AI 마케팅 전략 제안
+    POST /api/ad-strategy/
+    Body: {"product_name": "...", "category": "...", "ingredients": "...", "effects": "...", "country": "US"}
+    """
+    def post(self, request):
+        product_name = request.data.get("product_name", "")
+        category     = request.data.get("category", "")
+        ingredients  = request.data.get("ingredients", "")
+        effects      = request.data.get("effects", "")
+        country      = request.data.get("country", "US").upper()
+
+        if not category:
+            return Response({"error": "category 파라미터가 필요합니다."}, status=400)
+
+        from .services.ad_strategy import generate_ad_strategy
+        result = generate_ad_strategy(
+            product_name=product_name,
+            category=category,
+            ingredients=ingredients,
+            effects=effects,
+            country=country,
+        )
+
+        if "error" in result:
+            return Response(result, status=404)
+
+        return Response(result, status=200)
+
+
+class MetaAdView(APIView):
+    """
+    채널별 Meta 광고 요약 조회 (90일 기준 total_ads 상위 4개)
+    GET /api/meta-ads/?country=US   → ulta + sephora 상위 4개
+    GET /api/meta-ads/?country=JP   → qoo10 + rakuten 상위 4개
+    """
+    CHANNEL_MAP = {
+        "US": ["ulta", "sephora"],
+        "JP": ["qoo10", "rakuten"],
+    }
+
+    def get(self, request):
+        country = request.query_params.get("country", "US").upper()
+        channels = self.CHANNEL_MAP.get(country)
+        if not channels:
+            return Response({"error": "country는 US 또는 JP"}, status=400)
+
+        rows = (
+            MetaAdSummary.objects
+            .filter(channel__in=channels)
+            .order_by("-total_ads")
+            .values(
+                "channel", "brand", "total_ads", "image_ads", "video_ads",
+                "image_ratio", "video_ratio", "latest_ad_date",
+                "recent_30d_ads", "latest_ad_text", "page_id", "updated_at",
+            )
+        )
+        # 브랜드 중복 제거 (ulta/sephora 동일 브랜드 → total_ads 높은 쪽 유지)
+        seen_brands = {}
+        for row in rows:
+            brand = row["brand"]
+            if brand not in seen_brands:
+                seen_brands[brand] = row
+        deduped = sorted(seen_brands.values(), key=lambda x: x["total_ads"], reverse=True)[:4]
+        return Response({"country": country, "ads": deduped})

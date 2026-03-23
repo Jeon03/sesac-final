@@ -11,7 +11,8 @@ from django.core.management.base import BaseCommand
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
-from market_api.models import ProductRanking, ProductReview
+from market_api.models import ProductRanking, ProductReview, ReviewAnalysisCache
+from market_api.services.review_analysis import compute_review_analysis
 
 CRAWLING_DIR = Path(__file__).resolve().parents[3] / "crawling"
 
@@ -111,10 +112,10 @@ def load_rankings():
 def load_reviews():
     configs = [
         # (파일명, platform, country, 파서함수)
-        ("ulta_master_translated_en_ko.jsonl",    "Ulta",    "US", _parse_ulta),
-        ("sephora_master_translated_en_ko.jsonl", "Sephora", "US", _parse_sephora),
-        ("qoo10_master_translated_jp_ko.jsonl",   "Qoo10",   "JP", _parse_qoo10),
-        ("rakuten_master_translated_jp_ko.jsonl", "Rakuten", "JP", _parse_rakuten),
+        ("ulta_final_categorized.jsonl",    "Ulta",    "US", _parse_ulta),
+        ("sephora_final_categorized.jsonl", "Sephora", "US", _parse_sephora),
+        ("qoo10_final_categorized.jsonl",   "Qoo10",   "JP", _parse_qoo10),
+        ("rakuten_final_categorized.jsonl", "Rakuten", "JP", _parse_rakuten),
     ]
     created_total = updated_total = 0
 
@@ -142,6 +143,9 @@ def load_reviews():
                     body_en=body_en,
                     body_ko=body_ko,
                     review_date=review_date,
+                    keybert_keywords=row.get("keybert_keywords") or [],
+                    primary_category=row.get("primary_category") or "",
+                    categories=row.get("categories") or [],
                 ),
             )
             if created:
@@ -199,7 +203,7 @@ def _parse_qoo10(row):
     except (TypeError, ValueError):
         rating = None
     body_original = _s(row.get("Review"))           # 일본어 원문
-    body_en = ""                                    # Qoo10은 영어 번역 없음
+    body_en = _s(row.get("Review_en"))              # 영어 번역 (final_categorized에 포함)
     body_ko = _s(row.get("Review_ko"))
     date_str = user_info.split("|")[1].strip() if "|" in user_info else ""
     review_date = _parse_date(date_str.replace(".", "-"))
@@ -226,23 +230,87 @@ def _parse_rakuten(row):
     return pid, review_id, author, rating, "", "", body_original, body_en, body_ko, review_date
 
 
+# ── 분석 캐시 저장 ────────────────────────────────────────────────────────────
+
+def build_analysis_cache(platform_filter=None, item_id_filter=None):
+    """플랫폼별 전체 상품 리뷰 분석 결과를 계산하여 ReviewAnalysisCache에 저장"""
+    platforms = [
+        ("Ulta",    "US"),
+        ("Sephora", "US"),
+        ("Qoo10",   "JP"),
+        ("Rakuten", "JP"),
+    ]
+    if platform_filter:
+        platforms = [(p, c) for p, c in platforms if p.lower() == platform_filter.lower()]
+        if not platforms:
+            print(f"  [오류] 알 수 없는 플랫폼: {platform_filter}  (Ulta / Sephora / Qoo10 / Rakuten)")
+            return
+    total_saved = 0
+
+    for platform, country in platforms:
+        # 해당 플랫폼의 랭킹에 있는 상품 목록
+        qs = ProductRanking.objects.filter(platform=platform, country=country)
+        if item_id_filter:
+            qs = qs.filter(platform_item_id=item_id_filter)
+        item_ids = list(qs.values_list("platform_item_id", flat=True).distinct())
+        print(f"  {platform}: {len(item_ids)}개 상품 분석 시작")
+
+        for item_id in item_ids:
+            reviews = list(
+                ProductReview.objects
+                .filter(platform=platform, platform_item_id=item_id)
+                .exclude(primary_category="")
+                .values("rating", "primary_category", "categories",
+                        "keybert_keywords", "body_ko", "country")
+            )
+            ranking = (
+                ProductRanking.objects
+                .filter(platform=platform, platform_item_id=item_id)
+                .values("rating", "reviews_count", "title", "rank")
+                .first()
+            )
+
+            result = compute_review_analysis(platform, item_id, reviews, ranking)
+            if not result:
+                continue
+
+            ReviewAnalysisCache.objects.update_or_create(
+                platform=platform,
+                platform_item_id=item_id,
+                defaults={"result": result},
+            )
+            total_saved += 1
+
+        print(f"  {platform}: 완료")
+
+    print(f"  분석 캐시 완료 → 총 {total_saved}개 저장")
+
+
 # ── Command ──────────────────────────────────────────────────────────────────
 
 class Command(BaseCommand):
     help = "JSONL 파일(rankings + reviews)을 DB에 로드합니다."
 
     def add_arguments(self, parser):
-        parser.add_argument("--only", choices=["rankings", "reviews"], help="한 쪽만 실행")
+        parser.add_argument("--only", choices=["rankings", "reviews", "cache"], help="한 쪽만 실행")
+        parser.add_argument("--platform", help="캐시 빌드 대상 플랫폼 (Ulta / Sephora / Qoo10 / Rakuten)")
+        parser.add_argument("--item_id", help="캐시 빌드 대상 상품 ID")
 
     def handle(self, *args, **options):
         only = options.get("only")
+        platform_filter = options.get("platform")
+        item_id_filter = options.get("item_id")
 
-        if only != "reviews":
+        if only != "reviews" and only != "cache":
             self.stdout.write("=== Rankings 로드 ===")
             load_rankings()
 
-        if only != "rankings":
+        if only != "rankings" and only != "cache":
             self.stdout.write("=== Reviews 로드 ===")
             load_reviews()
+
+        if only != "rankings" and only != "reviews":
+            self.stdout.write("=== 분석 캐시 저장 ===")
+            build_analysis_cache(platform_filter, item_id_filter)
 
         self.stdout.write(self.style.SUCCESS("완료!"))

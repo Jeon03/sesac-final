@@ -47,6 +47,10 @@ class ProductReview(models.Model):
     body_en = models.TextField(blank=True, default='')        # 영어 (JP→EN, EN은 원문과 동일)
     body_ko = models.TextField(blank=True, default='')        # 한국어 번역
     review_date = models.DateField(null=True, blank=True)
+    # KeyBERT + GPT 분류 결과
+    keybert_keywords = models.JSONField(default=list, blank=True)   # ["moisturizing", "hydration", ...]
+    primary_category = models.CharField(max_length=50, blank=True, default='')  # "효과_성분"
+    categories = models.JSONField(default=list, blank=True)         # ["효과_성분", "재구매_추천"]
 
     class Meta:
         unique_together = ('platform', 'platform_item_id', 'review_id')
@@ -112,3 +116,69 @@ class MarketResearch(models.Model):
 
     def __str__(self):
         return f"{self.category} - {self.country} ({self.research_month})"
+
+
+class MetaAdSummary(models.Model):
+    """Meta 광고 라이브러리 브랜드별 90일 요약"""
+    CHANNEL_CHOICES = [
+        ('ulta', 'Ulta'),
+        ('sephora', 'Sephora'),
+        ('qoo10', 'Qoo10'),
+        ('rakuten', 'Rakuten'),
+    ]
+    channel = models.CharField(max_length=20, choices=CHANNEL_CHOICES)
+    brand = models.CharField(max_length=200)
+    total_ads = models.IntegerField(default=0)
+    image_ads = models.IntegerField(default=0)
+    video_ads = models.IntegerField(default=0)
+    image_ratio = models.FloatField(default=0)
+    video_ratio = models.FloatField(default=0)
+    latest_ad_date = models.DateField(null=True, blank=True)
+    recent_30d_ads = models.IntegerField(default=0)
+    latest_ad_text = models.TextField(blank=True, default='')
+    page_id = models.CharField(max_length=50, blank=True, default='')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('channel', 'brand')
+
+    def __str__(self):
+        return f"[{self.channel}] {self.brand}"
+
+
+class MetaAd(models.Model):
+    """Meta 광고 라이브러리 개별 광고 레코드"""
+    CHANNEL_CHOICES = MetaAdSummary.CHANNEL_CHOICES
+    channel = models.CharField(max_length=20, choices=CHANNEL_CHOICES)
+    brand = models.CharField(max_length=200, db_index=True)
+    library_id = models.CharField(max_length=50, blank=True, default='')
+    media_type = models.CharField(max_length=10, blank=True, default='')  # image / video
+    start_date = models.DateField(null=True, blank=True)
+    ad_text = models.TextField(blank=True, default='')
+    page_id = models.CharField(max_length=50, blank=True, default='')
+    market = models.CharField(max_length=2, blank=True, default='')  # US / JP
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('channel', 'library_id')
+        indexes = [
+            models.Index(fields=['channel', 'brand']),
+            models.Index(fields=['market']),
+        ]
+
+    def __str__(self):
+        return f"[{self.channel}] {self.brand} - {self.library_id}"
+
+
+class ReviewAnalysisCache(models.Model):
+    """상품별 리뷰 분석 결과 캐시"""
+    platform = models.CharField(max_length=20)
+    platform_item_id = models.CharField(max_length=100)
+    result = models.JSONField(default=dict)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('platform', 'platform_item_id')
+
+    def __str__(self):
+        return f"[{self.platform}] {self.platform_item_id}"
