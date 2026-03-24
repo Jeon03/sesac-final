@@ -172,6 +172,18 @@ API_BASE = "http://127.0.0.1:8000/api"
 
 CATEGORY_LIST = ["스킨케어"]
 
+INGREDIENT_LIST = [
+    "히알루론산", "글리세린", "레티놀", "나이아신아마이드","펩타이드", "아데노신",
+    "알부틴", "트라넥삼산", "AHA", "BHA", "비타민 C",
+    "세라마이드", "판테놀", "시카", "발효추출물", "병풀추출물",
+    "스피큘", "PDRN", "마데카소사이드", "바쿠치올",
+]
+
+EFFECT_LIST = [
+    "수분", "재생", "미백", "각질", "항산화",
+    "장벽", "진정", "피지", "기능성", "주름 개선", "결 개선",
+]
+
 # ── 사이드바 ─────────────────────────────────────────────────────────────────
 
 # ── 제품 정보 입력 폼 ─────────────────────────────────────────────────────────
@@ -184,9 +196,11 @@ with st.container():
     with c2:
         product_name = st.text_input("제품명", placeholder="제품명을 입력하세요")
     with c3:
-        ingredients = st.text_input("주요 성분", placeholder="병풀 추출물, 판테놀 등")
+        selected_ingredients = st.multiselect("주요 성분", INGREDIENT_LIST)
+        ingredients = ", ".join(selected_ingredients)
     with c4:
-        effects = st.text_input("핵심 효능", placeholder="장벽 강화, 진정")
+        selected_effects = st.multiselect("핵심 효능", EFFECT_LIST)
+        effects = ", ".join(selected_effects)
     with c5:
         st.markdown("<div style='height:28px'></div>", unsafe_allow_html=True)
         submit_btn = st.button("분석 시작하기", type="primary", use_container_width=True)
@@ -251,7 +265,7 @@ def render_country_recommendation(result: dict):
     market_label, market_color = _score_to_label(detail.get("market", 0))
     review_label, review_color = _score_to_label(
         detail.get("review", 0),
-        labels=("부정적", "중립", "긍정적"),
+        labels=("낮음", "중간", "높음"),
     )
 
     col_left, col_right = st.columns([3, 2])
@@ -291,7 +305,7 @@ def render_country_recommendation(result: dict):
             for col, label, val, color, title in [
                 (k1, trend_label,  detail.get("trend",  0), trend_color,  "성분 적합도"),
                 (k2, market_label, detail.get("market", 0), market_color, "시장 성장성"),
-                (k3, review_label, detail.get("review", 0), review_color, "소비자 반응"),
+                (k3, review_label, detail.get("review", 0), review_color, "카테고리 친숙도"),
             ]:
                 with col:
                     st.markdown(f"""

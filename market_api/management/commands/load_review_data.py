@@ -112,10 +112,10 @@ def load_rankings():
 def load_reviews():
     configs = [
         # (파일명, platform, country, 파서함수)
-        ("ulta_final_categorized.jsonl",    "Ulta",    "US", _parse_ulta),
-        ("sephora_final_categorized.jsonl", "Sephora", "US", _parse_sephora),
-        ("qoo10_final_categorized.jsonl",   "Qoo10",   "JP", _parse_qoo10),
-        ("rakuten_final_categorized.jsonl", "Rakuten", "JP", _parse_rakuten),
+        ("ulta_final_categorized_v2.jsonl",    "Ulta",    "US", _parse_ulta),
+        ("sephora_final_categorized_v2.jsonl", "Sephora", "US", _parse_sephora),
+        ("qoo10_final_categorized_v2.jsonl",   "Qoo10",   "JP", _parse_qoo10),
+        ("rakuten_final_categorized_v2.jsonl", "Rakuten", "JP", _parse_rakuten),
     ]
     created_total = updated_total = 0
 
@@ -146,6 +146,8 @@ def load_reviews():
                     keybert_keywords=row.get("keybert_keywords") or [],
                     primary_category=row.get("primary_category") or "",
                     categories=row.get("categories") or [],
+                    primary_category_v2=row.get("primary_category_v2") or "",
+                    categories_v2=row.get("categories_v2") or [],
                 ),
             )
             if created:
@@ -261,6 +263,7 @@ def build_analysis_cache(platform_filter=None, item_id_filter=None):
                 .filter(platform=platform, platform_item_id=item_id)
                 .exclude(primary_category="")
                 .values("rating", "primary_category", "categories",
+                        "primary_category_v2", "categories_v2",
                         "keybert_keywords", "body_ko", "country")
             )
             ranking = (

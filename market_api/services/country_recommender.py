@@ -2,7 +2,7 @@
 AI 최적 국가 추천 서비스
 설계 문서: docs/scoring_design.md 참고
 
-AI Score (0~100) = 트렌드 적합도(40%) + 시장 규모 점수(35%) + 리뷰 유사도(25%)
+AI Score (0~100) = 트렌드 적합도(25%) + 시장 규모 점수(50%) + 리뷰 유사도(25%)
 """
 import os
 import re
@@ -11,7 +11,6 @@ from collections import Counter
 from openai import OpenAI
 
 _client = None
-
 
 def _get_client():
     global _client
@@ -56,12 +55,27 @@ def _parse_pct(text: str) -> float:
     return float(match.group()) / 100 if match else 0.0
 
 
-def _normalize_pair(a: float, b: float):
-    """두 값을 상대 비율로 정규화 (합 = 1.0)"""
-    total = a + b
-    if total == 0:
-        return 0.5, 0.5
-    return a / total, b / total
+# 지표별 독립 정규화 기준 범위 (실제 US/JP 데이터 기반)
+# size: US K-beauty ~24B, JP ~0.9B → 상한 30B
+# growth: JP 8.38%, US 4.2~10% → 상한 15%
+# kbeauty: JP 42%, US ~4% → 상한 50%
+# ad_activity: 채널별 90일 광고 합산, 실측치 없으므로 보수적 상한
+# export_growth: JP YoY +22~27% → 상한 50%, 하락 고려 하한 -30%
+METRIC_RANGES = {
+    "size":          (0.0,   30.0),
+    "growth":        (0.0,    0.15),
+    "kbeauty":       (0.0,    0.50),
+    "ad_activity":   (0.0, 5000.0),
+    "export_growth": (-0.30,  0.50),
+}
+
+
+def _normalize_independent(value: float, key: str) -> float:
+    """지표별 고정 범위로 독립 정규화 (0~1)"""
+    min_v, max_v = METRIC_RANGES[key]
+    if max_v == min_v:
+        return 0.5
+    return max(0.0, min(1.0, (value - min_v) / (max_v - min_v)))
 
 
 # ── 1. 시장 규모 점수 (50%) ───────────────────────────────────────────
@@ -117,22 +131,11 @@ def calc_market_score(category: str, research_map: dict, export_growth: dict) ->
     if len(countries) < 2:
         return {countries[0]: 0.5} if countries else {}
 
-    c1, c2 = countries[0], countries[1]
-
     def norm(key):
-        return dict(zip([c1, c2], _normalize_pair(raw[c1][key], raw[c2][key])))
+        return {c: _normalize_independent(raw[c][key], key) for c in countries}
 
-    # 수출 성장률 음수 처리: shift to positive
-    raw_eg_c1 = export_growth.get(c1, 0.0)
-    raw_eg_c2 = export_growth.get(c2, 0.0)
-    min_eg = min(raw_eg_c1, raw_eg_c2, 0)
-    adj_c1 = raw_eg_c1 - min_eg
-    adj_c2 = raw_eg_c2 - min_eg
-    n_export_total = adj_c1 + adj_c2
-    if n_export_total == 0:
-        n_export = {c1: 0.5, c2: 0.5}
-    else:
-        n_export = {c1: adj_c1 / n_export_total, c2: adj_c2 / n_export_total}
+    n_export = {c: _normalize_independent(export_growth.get(c, 0.0), "export_growth")
+                for c in countries}
 
     n_size = norm("size")
     n_growth = norm("growth")
@@ -143,10 +146,10 @@ def calc_market_score(category: str, research_map: dict, export_growth: dict) ->
     for c in countries:
         result[c] = (
             n_size[c]   * 0.10 +
-            n_growth[c] * 0.25 +
-            n_kb[c]     * 0.25 +
-            n_export[c] * 0.20 +
-            n_ads[c]    * 0.20
+            n_growth[c] * 0.20 +
+            n_kb[c]     * 0.30 +
+            n_export[c] * 0.30 +
+            n_ads[c]    * 0.10
         )
     return result
 
@@ -172,6 +175,8 @@ def calc_trend_score(ingredients: str, effects: str, research_map: dict) -> dict
 
         country_name = {"US": "미국", "JP": "일본"}.get(country, country)
 
+        user_inputs = [k.strip() for k in re.split(r"[,\s]+", f"{ingredients} {effects}") if k.strip()]
+
         prompt = f"""당신은 K-Beauty 시장 분석 전문가입니다.
 
 [사용자 제품 정보]
@@ -183,12 +188,12 @@ def calc_trend_score(ingredients: str, effects: str, research_map: dict) -> dict
 - 트렌딩 기능: {', '.join(fn_list)}
 - 트렌드 상세: {details[:500]}
 
-위 제품이 {country_name} 시장 트렌드와 얼마나 부합하는지 0~10점으로 채점하세요.
-- 성분/효능이 트렌드 목록과 의미적으로 일치하는 항목을 찾으세요 (한국어·영어 무관)
+사용자 제품의 성분/효능 중 위 트렌드 목록과 의미적으로 일치하는 항목을 찾으세요 (한국어·영어 무관).
 - matched_keywords는 반드시 위 트렌드 목록에 실제로 있는 항목만 포함하세요
+- 점수는 포함하지 마세요
 
 반드시 아래 JSON 형식만 반환하세요:
-{{"score": 7.5, "matched_keywords": ["CICA", "보습"], "reasoning": "한두 문장 근거"}}"""
+{{"matched_keywords": ["CICA", "보습"], "reasoning": "한두 문장 근거"}}"""
 
         try:
             raw = _gpt([{"role": "user", "content": prompt}], temperature=0)
@@ -199,23 +204,18 @@ def calc_trend_score(ingredients: str, effects: str, research_map: dict) -> dict
             actual = set(ing_list + fn_list)
             verified = [k for k in data.get("matched_keywords", []) if k in actual]
 
-            score = max(0.0, min(10.0, float(data.get("score", 5.0)))) / 10.0
+            # 제곱근 스케일: 첫 매칭에 큰 점수 부여
+            max_possible = min(len(user_inputs), len(ing_list + fn_list))
+            ratio = len(verified) / max_possible if max_possible > 0 else 0.0
+            score = ratio ** 0.5  # sqrt: 1개 매칭도 의미있는 점수
 
             raw_results[country] = {
-                "score":     score,
+                "score":     min(score, 1.0),
                 "matched":   verified,
                 "reasoning": data.get("reasoning", ""),
             }
         except Exception:
             raw_results[country] = {"score": 0.5, "matched": [], "reasoning": ""}
-
-    # 국가 간 상대 비율 정규화
-    countries = list(raw_results.keys())
-    if len(countries) == 2:
-        c1, c2 = countries
-        n1, n2 = _normalize_pair(raw_results[c1]["score"], raw_results[c2]["score"])
-        raw_results[c1]["score"] = n1
-        raw_results[c2]["score"] = n2
 
     return raw_results
 
@@ -223,20 +223,43 @@ def calc_trend_score(ingredients: str, effects: str, research_map: dict) -> dict
 # ── 3. 리뷰 유사도 점수 (25%) ─────────────────────────────────────────
 
 # 사용자 입력 키워드 → ReviewAnalysisCache 카테고리 매핑 테이블
+# 키워드 → 카테고리 리스트 (하나의 성분이 여러 카테고리에 매핑 가능)
 KEYWORD_CATEGORY_MAP = {
-    "보습": "효과 / 성분",    "수분": "효과 / 성분",    "촉촉": "효과 / 성분",
-    "진정": "효과 / 성분",    "장벽": "효과 / 성분",    "재생": "효과 / 성분",
-    "미백": "효과 / 성분",    "탄력": "효과 / 성분",    "주름": "효과 / 성분",
-    "항산화": "효과 / 성분",  "성분": "효과 / 성분",    "효과": "효과 / 성분",
-    "발림": "발림성",          "흡수": "발림성",          "텍스처": "발림성",
-    "가벼": "발림성",          "끈적": "발림성",          "도포": "발림성",
-    "향": "향",               "냄새": "향",              "아로마": "향",
-    "자극": "피부 자극",       "민감": "피부 자극",       "트러블": "피부 자극",
-    "저자극": "피부 자극",     "예민": "피부 자극",
-    "지속": "지속력",          "밀착": "지속력",          "유지": "지속력",
-    "가성비": "가격 적절성",   "가격": "가격 적절성",     "합리": "가격 적절성",
-    "커버": "커버력 / 색상",   "색상": "커버력 / 색상",   "발색": "커버력 / 색상",
-    "재구매": "재구매 / 추천", "추천": "재구매 / 추천",
+    # ── 보습 / 수분 ──────────────────────────────────────────────────────
+    "보습": ["보습 / 수분"],    "수분": ["보습 / 수분"],    "촉촉": ["보습 / 수분"],
+    "히알루론산": ["보습 / 수분"], "글리세린": ["보습 / 수분"], "세라마이드": ["보습 / 수분"],
+    "판테놀": ["보습 / 수분"],
+    # ── 미백 / 브라이트닝 ────────────────────────────────────────────────
+    "미백": ["미백 / 브라이트닝"], "브라이트닝": ["미백 / 브라이트닝"], "광채": ["미백 / 브라이트닝"],
+    "알부틴": ["미백 / 브라이트닝"], "트라넥삼산": ["미백 / 브라이트닝"],
+    "나이아신아마이드": ["미백 / 브라이트닝"], "비타민 c": ["미백 / 브라이트닝"],
+    # ── 모공 / 각질 ──────────────────────────────────────────────────────
+    "각질": ["모공 / 각질"],    "모공": ["모공 / 각질"],    "피지": ["모공 / 각질"],
+    "결 개선": ["모공 / 각질"],
+    "aha": ["모공 / 각질", "피부 자극"], "bha": ["모공 / 각질", "피부 자극"],
+    # ── 주름 / 노화 ──────────────────────────────────────────────────────
+    "주름": ["주름 / 노화"],    "탄력": ["주름 / 노화"],    "항산화": ["주름 / 노화"],
+    "재생": ["주름 / 노화"],    "리프팅": ["주름 / 노화"],
+    "레티놀": ["주름 / 노화", "피부 자극"], "바쿠치올": ["주름 / 노화"],
+    "펩타이드": ["주름 / 노화"], "아데노신": ["주름 / 노화"],
+    # ── 진정 / 장벽 ──────────────────────────────────────────────────────
+    "진정": ["진정 / 장벽"],    "장벽": ["진정 / 장벽"],    "시카": ["진정 / 장벽"],
+    "병풀추출물": ["진정 / 장벽"], "마데카소사이드": ["진정 / 장벽"],
+    "발효추출물": ["진정 / 장벽"], "pdrn": ["진정 / 장벽"],
+    "스피큘": ["진정 / 장벽", "피부 자극"],
+    # ── 그 외 효과 (세분류 미해당) ───────────────────────────────────────
+    "성분": ["효과 / 성분"],    "효과": ["효과 / 성분"],    "기능성": ["효과 / 성분"],
+    # ── 사용감 ───────────────────────────────────────────────────────────
+    "발림": ["발림성"],  "흡수": ["발림성"],  "텍스처": ["발림성"],
+    "가벼": ["발림성"],  "끈적": ["발림성"],  "도포": ["발림성"],
+    # ── 기타 ────────────────────────────────────────────────────────────
+    "향": ["향"],              "냄새": ["향"],              "아로마": ["향"],
+    "자극": ["피부 자극"],     "민감": ["피부 자극"],       "트러블": ["피부 자극"],
+    "저자극": ["피부 자극"],   "예민": ["피부 자극"],
+    "지속": ["지속력"],        "밀착": ["지속력"],          "유지": ["지속력"],
+    "가성비": ["가격 적절성"], "가격": ["가격 적절성"],     "합리": ["가격 적절성"],
+    "커버": ["커버력 / 색상"], "색상": ["커버력 / 색상"],   "발색": ["커버력 / 색상"],
+    "재구매": ["재구매 / 추천"], "추천": ["재구매 / 추천"],
 }
 
 
@@ -248,7 +271,8 @@ def _get_country_review_data(country: str) -> dict:
     platforms = PLATFORM_MAP.get(country, [])
 
     all_keywords = []
-    cat_scores_raw = {}  # {category_label: [scores]}
+    # {category: {"score_sum": float, "weight_sum": int}}
+    cat_scores_raw = {}
 
     for platform in platforms:
         top_ids = ProductRanking.objects.filter(
@@ -262,18 +286,24 @@ def _get_country_review_data(country: str) -> dict:
             if not cache or not cache.result:
                 continue
 
+            weight = cache.result.get("review_count", 1) or 1
+
             for kw in cache.result.get("top_keywords", []):
                 all_keywords.append(kw.lstrip("#"))
 
-            for cs in cache.result.get("category_scores", []):
+            for cs in cache.result.get("category_scores_v2", cache.result.get("category_scores", [])):
                 cat   = cs.get("category", "")
                 score = cs.get("score")
                 if cat and score is not None:
-                    cat_scores_raw.setdefault(cat, []).append(score)
+                    acc = cat_scores_raw.setdefault(cat, {"score_sum": 0.0, "weight_sum": 0})
+                    acc["score_sum"]  += score * weight
+                    acc["weight_sum"] += weight
 
+    # 리뷰 수 가중 평균
     avg_cat_scores = {
-        cat: sum(v) / len(v)
+        cat: v["score_sum"] / v["weight_sum"]
         for cat, v in cat_scores_raw.items()
+        if v["weight_sum"] > 0
     }
 
     return {
@@ -286,9 +316,9 @@ def _user_to_categories(ingredients: str, effects: str) -> list:
     """사용자 입력에서 관련 리뷰 카테고리 추출 (규칙 테이블 기반)"""
     combined = f"{ingredients} {effects}".lower()
     matched = set()
-    for keyword, category in KEYWORD_CATEGORY_MAP.items():
+    for keyword, categories in KEYWORD_CATEGORY_MAP.items():
         if keyword in combined:
-            matched.add(category)
+            matched.update(categories)
     return list(matched) if matched else ["효과 / 성분"]
 
 
@@ -298,37 +328,14 @@ def calc_review_score(ingredients: str, effects: str, countries: list) -> dict:
     반환: {country: score (0~1)}
     """
     user_categories = _user_to_categories(ingredients, effects)
-    user_keywords = {
-        kw.strip()
-        for kw in re.split(r"[,\s]+", f"{ingredients} {effects}")
-        if len(kw.strip()) > 1
-    }
 
     raw = {}
     for country in countries:
-        review_data   = _get_country_review_data(country)
-        country_kws   = set(review_data["keywords"])
-        cat_scores    = review_data["category_scores"]
+        review_data = _get_country_review_data(country)
+        cat_scores  = review_data["category_scores"]
 
-        # 키워드 오버랩 (가중치 0.6)
-        if country_kws and user_keywords:
-            overlap       = len(user_keywords & country_kws)
-            keyword_score = min(overlap / len(user_keywords), 1.0)
-        else:
-            keyword_score = 0.5
-
-        # 카테고리 성향 (가중치 0.4)
         relevant = [cat_scores[c] for c in user_categories if c in cat_scores]
-        category_score = (sum(relevant) / len(relevant) / 5.0) if relevant else 0.5
-
-        raw[country] = keyword_score * 0.6 + category_score * 0.4
-
-    # 국가 간 상대 비율 정규화
-    countries_list = list(raw.keys())
-    if len(countries_list) == 2:
-        c1, c2 = countries_list
-        n1, n2 = _normalize_pair(raw[c1], raw[c2])
-        raw[c1], raw[c2] = n1, n2
+        raw[country] = (sum(relevant) / len(relevant) / 5.0) if relevant else 0.5
 
     return raw
 
@@ -425,7 +432,7 @@ def recommend_countries(
         t  = tr.get("score", 0.5) if isinstance(tr, dict) else 0.5
         rv = review_scores.get(country, 0.5)
 
-        ai_score = (t * 0.25 + m * 0.50 + rv * 0.25) * 100
+        ai_score = (t * 0.15 + m * 0.50 + rv * 0.35) * 100
 
         comp = research_map[country].get("competitors", {})
 

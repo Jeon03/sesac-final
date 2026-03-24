@@ -41,6 +41,15 @@ CATEGORY_LABEL = {
     "부정_리뷰":          "부정 리뷰",
 }
 
+CATEGORY_LABEL_V2 = {
+    **CATEGORY_LABEL,
+    "보습_수분":           "보습 / 수분",
+    "미백_브라이트닝":     "미백 / 브라이트닝",
+    "모공_각질":           "모공 / 각질",
+    "주름_노화":           "주름 / 노화",
+    "진정_장벽":           "진정 / 장벽",
+}
+
 _client = None
 
 def _get_client():
@@ -190,6 +199,23 @@ def compute_review_analysis(platform: str, item_id: str, reviews: list, ranking:
     ]
     category_scores.sort(key=lambda x: -x["count"])
 
+    # 3-b. v2 세분류 카테고리별 만족도 (점수산출용)
+    cat_ratings_v2 = {}
+    for r in reviews:
+        cat = r.get("primary_category_v2") or r["primary_category"]
+        if cat and cat != "미분류" and r["rating"] is not None:
+            cat_ratings_v2.setdefault(cat, []).append(r["rating"])
+    category_scores_v2 = [
+        {
+            "category": CATEGORY_LABEL_V2.get(cat, cat),
+            "score": round(sum(v) / len(v), 1),
+            "count": len(v),
+        }
+        for cat, v in cat_ratings_v2.items()
+        if len(v) >= 10
+    ]
+    category_scores_v2.sort(key=lambda x: -x["count"])
+
     # 4. 핵심 키워드 TOP 8 (한국어 번역)
     all_keywords = []
     for r in reviews:
@@ -227,6 +253,7 @@ def compute_review_analysis(platform: str, item_id: str, reviews: list, ranking:
         "platform_reviews_count": platform_reviews_count,
         "sentiment": sentiment,
         "category_scores": category_scores,
+        "category_scores_v2": category_scores_v2,
         "top_keywords": top_keywords,
         "sample_reviews": {
             "positive": positive_summary,

@@ -49,8 +49,10 @@ class ProductReview(models.Model):
     review_date = models.DateField(null=True, blank=True)
     # KeyBERT + GPT 분류 결과
     keybert_keywords = models.JSONField(default=list, blank=True)   # ["moisturizing", "hydration", ...]
-    primary_category = models.CharField(max_length=50, blank=True, default='')  # "효과_성분"
-    categories = models.JSONField(default=list, blank=True)         # ["효과_성분", "재구매_추천"]
+    primary_category = models.CharField(max_length=50, blank=True, default='')  # "효과_성분" (v1, 대시보드용)
+    categories = models.JSONField(default=list, blank=True)         # ["효과_성분", "재구매_추천"] (v1)
+    primary_category_v2 = models.CharField(max_length=50, blank=True, default='')  # "보습_수분" (v2, 점수산출용)
+    categories_v2 = models.JSONField(default=list, blank=True)      # ["보습_수분", "사용감_텍스처"] (v2)
 
     class Meta:
         unique_together = ('platform', 'platform_item_id', 'review_id')

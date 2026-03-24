@@ -37,6 +37,23 @@ CATEGORIES = [
     "재구매_추천", "커버력_색상", "지속력_밀착력", "미분류",
 ]
 
+# v2: 효과_성분을 효능별로 세분화 (리뷰 점수산출용)
+CATEGORIES_V2 = [
+    "보습_수분", "미백_브라이트닝", "모공_각질", "주름_노화", "진정_장벽",
+    "사용감_텍스처", "향_냄새", "피부_트러블_부작용", "부정_리뷰",
+    "포장_배송", "가격_가성비", "고객서비스", "제품불량",
+    "재구매_추천", "커버력_색상", "지속력_밀착력", "미분류",
+]
+
+# v2 세분류 → v1 통합 카테고리 매핑 (대시보드용)
+V2_TO_V1 = {
+    "보습_수분":       "효과_성분",
+    "미백_브라이트닝": "효과_성분",
+    "모공_각질":       "효과_성분",
+    "주름_노화":       "효과_성분",
+    "진정_장벽":       "효과_성분",
+}
+
 CATEGORY_KEYWORDS = {
     "효과_성분": ["moistur", "hydrat", "brighten", "firm", "wrinkle", "anti-aging", "pore", "glow",
                   "sooth", "calm", "vitamin", "retinol", "hyaluronic", "ceramide", "niacinamide",
@@ -286,7 +303,7 @@ def _gpt_classify_batch(batch: list, client) -> dict:
         for item in batch
     )
     system_msg = f"""뷰티 제품 리뷰를 아래 카테고리 중 하나로 분류하세요.
-카테고리: {CATEGORIES}
+카테고리: {CATEGORIES_V2}
 
 각 리뷰에 대해 JSON 배열로 응답하세요:
 [{{"idx": 번호, "primary_category": "카테고리명", "categories": ["카테고리1", ...]}}]
@@ -336,8 +353,21 @@ def classify_reviews(reviews: list, channel: str, batch_size: int = 30) -> list:
             for item in batch:
                 if item["idx"] in result_map:
                     res = result_map[item["idx"]]
-                    reviews[item["idx"]]["primary_category"] = res.get("primary_category", "미분류")
-                    reviews[item["idx"]]["categories"]        = res.get("categories", [])
+                    v2_primary = res.get("primary_category", "미분류")
+                    v2_cats    = res.get("categories", [])
+
+                    # v2 세분류 저장 (점수산출용)
+                    reviews[item["idx"]]["primary_category_v2"] = v2_primary
+                    reviews[item["idx"]]["categories_v2"]        = v2_cats
+
+                    # v1 통합 카테고리 파생 (대시보드용)
+                    reviews[item["idx"]]["primary_category"] = V2_TO_V1.get(v2_primary, v2_primary)
+                    seen = []
+                    for cat in v2_cats:
+                        mapped = V2_TO_V1.get(cat, cat)
+                        if mapped not in seen:
+                            seen.append(mapped)
+                    reviews[item["idx"]]["categories"] = seen
         except Exception as e:
             print(f"  [classify] GPT 오류: {e}")
 
