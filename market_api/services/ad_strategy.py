@@ -169,15 +169,17 @@ def _build_prompt(
 {country_label} 시장의 경쟁 브랜드 Meta 광고 데이터를 분석하고,
 사용자의 제품에 최적화된 광고 전략과 카피를 제안해주세요.
 
-중요: 광고 카피(brand_concept, headline, body_text)는 반드시 {copy_lang}({copy_lang_en})로 작성하세요.
+중요: 광고 카피(brand_concept, ad_copies)는 반드시 {copy_lang}({copy_lang_en})로 작성하세요.
 
 반드시 아래 JSON 형식으로만 응답하세요:
 {{
   "brand_concept": "추천 브랜드 포지셔닝 컨셉 ({copy_lang}, 한 문장)",
   "concept_reasoning": "브랜드 컨셉 선정 이유 (한국어, 2~3문장)",
-  "key_messages": ["핵심 메시징 포인트 1", "핵심 메시징 포인트 2"],
-  "headline": "추천 광고 헤드라인 ({copy_lang})",
-  "body_text": "추천 광고 본문 ({copy_lang}, 2~3문장)",
+  "key_messages": ["핵심 상품 소구점 1 (한국어)", "핵심 상품 소구점 2 (한국어)", "핵심 상품 소구점 3 (한국어)"],
+  "ad_copies": [
+    {{"headline": "광고 헤드라인 A ({copy_lang})", "body_text": "광고 본문 A ({copy_lang}, 2~3문장)"}},
+    {{"headline": "광고 헤드라인 B ({copy_lang})", "body_text": "광고 본문 B ({copy_lang}, 2~3문장)"}}
+  ],
   "detailed_insight": "상세 마케팅 인사이트 (한국어, 3~4문장. 시장 트렌드·경쟁사 광고 패턴·제안 근거 포함)"
 }}"""
 

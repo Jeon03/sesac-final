@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
 from .services.main import run_analysis
 from .services.research_engine import get_research_dict
 from .services.hs_map import get_hs_code, COUNTRY_CODE_MAP, get_fetch_years
@@ -246,3 +247,37 @@ class MetaAdView(APIView):
                 seen_brands[brand] = row
         deduped = sorted(seen_brands.values(), key=lambda x: x["total_ads"], reverse=True)[:4]
         return Response({"country": country, "ads": deduped})
+
+
+class AdImageView(APIView):
+    """
+    광고 이미지 생성
+    POST /api/ad-image/
+    multipart/form-data:
+        image      (file)    — 제품 이미지
+        product_name, category, ingredients, effects (str)
+        headline1, headline2 (str, optional) — 광고 전략에서 생성된 헤드라인
+    Response: {"images": [{"data": base64, "mime_type": "image/png"}, ...]}
+    """
+    parser_classes = [MultiPartParser, FormParser]
+
+    def post(self, request):
+        image_file = request.FILES.get("image")
+        if not image_file:
+            return Response({"error": "image 파일이 필요합니다."}, status=400)
+
+        from .services.ad_image import generate_ad_images
+        result = generate_ad_images(
+            image_file=image_file,
+            product_name=request.data.get("product_name", ""),
+            category=request.data.get("category", ""),
+            ingredients=request.data.get("ingredients", ""),
+            effects=request.data.get("effects", ""),
+            headline1=request.data.get("headline1", ""),
+            headline2=request.data.get("headline2", ""),
+        )
+
+        if "error" in result:
+            return Response(result, status=500)
+
+        return Response(result, status=200)

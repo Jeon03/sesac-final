@@ -161,6 +161,10 @@ def calc_trend_score(ingredients: str, effects: str, research_map: dict) -> dict
     GPT로 트렌드 적합도 채점 (temperature=0, 출력 검증 포함)
     반환: {country: {"score": 0~1, "matched": [...], "reasoning": "..."}}
     """
+    # 입력이 없으면 모든 국가 중립값 반환
+    if not ingredients.strip() and not effects.strip():
+        return {c: {"score": 0.5, "matched": [], "reasoning": ""} for c in research_map}
+
     raw_results = {}
 
     for country, r in research_map.items():

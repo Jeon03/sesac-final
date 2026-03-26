@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MatchAPIView, ResearchAPIView, TradeStatsView, RankingsView, ReviewAnalysisView, MetaAdView, CountryRecommendView, AdStrategyView
+from .views import MatchAPIView, ResearchAPIView, TradeStatsView, RankingsView, ReviewAnalysisView, MetaAdView, CountryRecommendView, AdStrategyView, AdImageView
 
 urlpatterns = [
     # POST http://127.0.0.1:8000/api/match/
@@ -18,4 +18,6 @@ urlpatterns = [
     path('country-recommend/', CountryRecommendView.as_view(), name='country_recommend_api'),
     # POST http://127.0.0.1:8000/api/ad-strategy/
     path('ad-strategy/', AdStrategyView.as_view(), name='ad_strategy_api'),
+    # POST http://127.0.0.1:8000/api/ad-image/
+    path('ad-image/', AdImageView.as_view(), name='ad_image_api'),
 ]
