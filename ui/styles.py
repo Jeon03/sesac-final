@@ -36,7 +36,7 @@ STYLES = _FONT_FACE + """
     pointer-events: none !important;
     transition: opacity 5s !important;
 }
-.main .block-container, .stMainBlockContainer { padding-top: 86px !important; padding-bottom: 180px !important; padding-left: 20% !important; padding-right: 20% !important; max-width: 100% !important; }
+.main .block-container, .stMainBlockContainer { padding-top: 86px !important; padding-bottom: 180px !important; padding-left: 18% !important; padding-right: 18% !important; max-width: 100% !important; }
 
 /* ── 고정 푸터 ── */
 .fixed-footer {
@@ -422,7 +422,7 @@ STYLES = _FONT_FACE + """
 .rv-review-card-label { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
 .rv-review-card-label.pos { color: #10b981; }
 .rv-review-card-label.neg { color: #ef4444; }
-.rv-review-card-text { color: var(--text-color); font-style: italic; }
+.rv-review-card-text { color: var(--text-color); }
 
 /* Complaints · Opportunities */
 .rv-section-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
