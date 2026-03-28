@@ -6,15 +6,12 @@
     python manage.py ingest_research --section-crawl           # 섹션별 URL 크롤링 (신규)
     python manage.py ingest_research --section-crawl --force   # 기존 DB 덮어쓰기
     python manage.py ingest_research --section-crawl --country JP  # 일본만
-    python manage.py ingest_research --deep-research           # Tavily 딥리서치 병행
     python manage.py ingest_research --country JP              # 일본만
     python manage.py ingest_research --country US              # 미국만
     python manage.py ingest_research --category 기초화장품     # 특정 카테고리만
 
 섹션 크롤링 우선순위 (--section-crawl):
     섹션별 URL 크롤링 → 섹션 전용 LLM 추출 → DB 저장
-딥리서치 우선순위 (--deep-research):
-    크롤링 원문 → Tavily 웹 검색 → LLM 파라메트릭 지식 추정
 """
 import os
 from django.core.management.base import BaseCommand
@@ -52,26 +49,6 @@ DATA_SOURCES = [
     },
 ]
 
-# 딥리서치 대상 (크롤링 파일 없는 카테고리/국가 조합 포함)
-DEEP_RESEARCH_TARGETS = [
-    {"category": "스킨케어", "country": "US"},
-    {"category": "스킨케어", "country": "JP"},
-    # {"category": "마스크팩",   "country": "US"},
-    # {"category": "마스크팩",   "country": "JP"},
-    # {"category": "메이크업",   "country": "US"},
-    # {"category": "메이크업",   "country": "JP"},
-    # {"category": "입술화장품", "country": "US"},
-    # {"category": "입술화장품", "country": "JP"},
-    # {"category": "눈화장품",   "country": "US"},
-    # {"category": "눈화장품",   "country": "JP"},
-    # {"category": "샴푸",       "country": "US"},
-    # {"category": "샴푸",       "country": "JP"},
-    # {"category": "헤어케어",   "country": "US"},
-    # {"category": "헤어케어",   "country": "JP"},
-    # {"category": "매니큐어",   "country": "US"},
-    # {"category": "매니큐어",   "country": "JP"},
-]
-
 
 def _load_crawled_text(category: str, country: str) -> tuple[str, list[str]]:
     """해당 카테고리/국가의 크롤링 원문을 모두 합쳐서 반환"""
@@ -102,10 +79,6 @@ class Command(BaseCommand):
             help='섹션별 URL 크롤링 후 전용 LLM 추출 (신규 정밀 방식)',
         )
         parser.add_argument(
-            '--deep-research', action='store_true',
-            help='Tavily 딥리서치 병행 실행 (TAVILY_API_KEY 필요)'
-        )
-        parser.add_argument(
             '--force', action='store_true',
             help='기존 DB 데이터 덮어쓰기'
         )
@@ -115,15 +88,11 @@ class Command(BaseCommand):
         category_filter = options.get('category')
         month = options.get('month')
         use_section_crawl = options.get('section_crawl', False)
-        use_deep_research = options.get('deep_research', False)
         force = options.get('force', False)
 
         if use_section_crawl:
             self.stdout.write(self.style.WARNING("[section-crawl] 섹션별 URL 크롤링 모드 활성화"))
             self._run_section_crawl(country_filter, category_filter, month, force)
-        elif use_deep_research:
-            self.stdout.write(self.style.WARNING("[deep-research] 딥리서치 모드 활성화 (Tavily + LLM)"))
-            self._run_deep_research_all(country_filter, category_filter, month, force)
         else:
             self.stdout.write("[ingest] 크롤링 파일 인제스트 모드")
             self._run_crawl_ingest(country_filter, category_filter, month)
@@ -166,52 +135,6 @@ class Command(BaseCommand):
                 self.stderr.write(self.style.ERROR(f"   [ERR] 에러: {e}"))
 
         self._merge_sources()
-
-    def _run_deep_research_all(self, country_filter, category_filter, month, force):
-        """딥리서치 모드: 크롤링 원문 요약 → Tavily 웹검색 병합 → LLM 구조화"""
-        from market_api.services.deep_research_engine import run_deep_research
-        from market_api.services.research_engine import summarize_crawled_text
-
-        targets = [
-            t for t in DEEP_RESEARCH_TARGETS
-            if (not country_filter or t["country"] == country_filter)
-            and (not category_filter or t["category"] == category_filter)
-        ]
-
-        self.stdout.write(f"   대상: {len(targets)}개 카테고리-국가 조합\n")
-
-        for target in targets:
-            category = target["category"]
-            country = target["country"]
-
-            self.stdout.write(f"\n[{category} - {country}]")
-
-            # 1단계: 크롤링 원문 로드
-            crawled_text, _ = _load_crawled_text(category, country)
-
-            # 2단계: LLM으로 핵심 정보 요약 (토큰 초과 방지)
-            summarized_text = ""
-            if crawled_text:
-                self.stdout.write(f"   + 크롤링 원문 {len(crawled_text)}자 → LLM 요약 중...")
-                try:
-                    summarized_text = summarize_crawled_text(category, country, crawled_text)
-                    self.stdout.write(f"   + 요약 완료: {len(summarized_text)}자")
-                except Exception as e:
-                    self.stderr.write(self.style.WARNING(f"   [WARN] 요약 실패, 원문 사용: {e}"))
-                    summarized_text = crawled_text[:5000]
-
-            # 3단계: 요약본 + Tavily 웹검색 → LLM 구조화 → DB 저장
-            try:
-                run_deep_research(
-                    category=category,
-                    country=country,
-                    extra_crawled_text=summarized_text,
-                    research_month=month,
-                    force=force,
-                )
-                self.stdout.write(self.style.SUCCESS(f"   [OK] 완료"))
-            except Exception as e:
-                self.stderr.write(self.style.ERROR(f"   [ERR] 에러: {e}"))
 
     def _run_section_crawl(self, country_filter, category_filter, month, force):
         """섹션별 URL 크롤링 → 섹션 전용 LLM 추출 → DB 저장"""

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MatchAPIView, ResearchAPIView, TradeStatsView, RankingsView, ReviewAnalysisView, MetaAdView, CountryRecommendView, AdStrategyView, AdImageView
+from .views import MatchAPIView, ResearchAPIView, TradeStatsView, RankingsView, ReviewAnalysisView, ReviewSummaryView, MetaAdView, CountryRecommendView, AdStrategyView, AdImageView
 
 urlpatterns = [
     # POST http://127.0.0.1:8000/api/match/
@@ -12,6 +12,8 @@ urlpatterns = [
     path('rankings/', RankingsView.as_view(), name='rankings_api'),
     # GET  http://127.0.0.1:8000/api/review-analysis/?platform=Sephora&item_id=P519160
     path('review-analysis/', ReviewAnalysisView.as_view(), name='review_analysis_api'),
+    # GET  http://127.0.0.1:8000/api/review-summary/?country=US
+    path('review-summary/', ReviewSummaryView.as_view(), name='review_summary_api'),
     # GET  http://127.0.0.1:8000/api/meta-ads/?country=US
     path('meta-ads/', MetaAdView.as_view(), name='meta_ads_api'),
     # POST http://127.0.0.1:8000/api/country-recommend/

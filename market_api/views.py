@@ -129,6 +129,85 @@ class ReviewAnalysisView(APIView):
         return Response(cache.result)
 
 
+class ReviewSummaryView(APIView):
+    """
+    국가별 Top10 상품 리뷰를 GPT로 통합 요약.
+    GET /api/review-summary/?country=US
+    Response: {country, platforms: {Sephora: {positive_summary, negative_summary, top_products}, ...}}
+    """
+    PLATFORM_MAP = {"US": ["Ulta", "Sephora"], "JP": ["Qoo10", "Rakuten"]}
+
+    def get(self, request):
+        import os
+        from openai import OpenAI
+
+        country = request.query_params.get("country", "US").upper()
+        platforms = self.PLATFORM_MAP.get(country)
+        if not platforms:
+            return Response({"error": "country는 US 또는 JP"}, status=400)
+
+        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        result = {}
+
+        for platform in platforms:
+            rows = list(
+                ProductRanking.objects
+                .filter(platform=platform, country=country, rank__lte=10)
+                .order_by("rank")
+                .values("rank", "platform_item_id", "title", "brand", "rating")
+            )
+
+            positives, negatives = [], []
+            for row in rows:
+                cache = ReviewAnalysisCache.objects.filter(
+                    platform=platform,
+                    platform_item_id=row["platform_item_id"],
+                ).first()
+                if cache and cache.result:
+                    sr = cache.result.get("sample_reviews", {})
+                    label = (row["brand"] or row["title"] or "")[:20]
+                    if sr.get("positive"):
+                        positives.append(f"[{label}] {sr['positive']}")
+                    if sr.get("negative"):
+                        negatives.append(f"[{label}] {sr['negative']}")
+
+            pos_text = "\n".join(positives) or "데이터 없음"
+            neg_text = "\n".join(negatives) or "데이터 없음"
+
+            prompt = (
+                f"다음은 {platform} Top 10 베스트셀러 스킨케어 상품들의 소비자 리뷰 요약입니다.\n\n"
+                f"[긍정 리뷰]\n{pos_text}\n\n"
+                f"[부정 리뷰]\n{neg_text}\n\n"
+                "위 리뷰들을 종합하여 아래 형식으로 각각 2~3문장씩 통합 요약하세요.\n"
+                "긍정: ...\n부정: ...\n\n한국어로 작성하세요."
+            )
+            resp = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=400,
+                temperature=0.3,
+            )
+            text = resp.choices[0].message.content.strip()
+
+            pos_summary, neg_summary = "", ""
+            for line in text.splitlines():
+                if line.startswith("긍정:"):
+                    pos_summary = line.replace("긍정:", "").strip()
+                elif line.startswith("부정:"):
+                    neg_summary = line.replace("부정:", "").strip()
+
+            result[platform] = {
+                "top_products": [
+                    {"rank": r["rank"], "brand": r["brand"] or "", "title": r["title"] or "", "rating": r["rating"]}
+                    for r in rows
+                ],
+                "positive_summary": pos_summary or text,
+                "negative_summary": neg_summary,
+            }
+
+        return Response({"country": country, "platforms": result})
+
+
 class ResearchAPIView(APIView):
     """시장 리서치 데이터 단독 조회 API"""
     def get(self, request):
@@ -266,15 +345,28 @@ class AdImageView(APIView):
         if not image_file:
             return Response({"error": "image 파일이 필요합니다."}, status=400)
 
+        import json
         from .services.ad_image import generate_ad_images
+
+        key_messages_raw = request.data.get("key_messages", "")
+        try:
+            key_messages = json.loads(key_messages_raw) if key_messages_raw else []
+        except (json.JSONDecodeError, TypeError):
+            key_messages = []
+
         result = generate_ad_images(
             image_file=image_file,
             product_name=request.data.get("product_name", ""),
             category=request.data.get("category", ""),
             ingredients=request.data.get("ingredients", ""),
             effects=request.data.get("effects", ""),
+            brand_concept=request.data.get("brand_concept", ""),
             headline1=request.data.get("headline1", ""),
+            body_text1=request.data.get("body_text1", ""),
             headline2=request.data.get("headline2", ""),
+            body_text2=request.data.get("body_text2", ""),
+            key_messages=key_messages,
+            country=request.data.get("country", "US"),
         )
 
         if "error" in result:

@@ -146,12 +146,6 @@ def render_country_recommendation(result: dict):
                 </div>
                 """, unsafe_allow_html=True)
 
-            if rationale:
-                with st.expander("선정 근거 전문 보기"):
-                    st.markdown(
-                        f'<div class="review-box" style="font-size:13px">{rationale}</div>',
-                        unsafe_allow_html=True,
-                    )
 
 
 def render_trade_and_channels(category: str, country: str, r: dict):
@@ -208,15 +202,14 @@ def render_trade_and_channels(category: str, country: str, r: dict):
 
     with col2:
         with st.container(border=True):
-            st.markdown("**주요 채널 Top 3**")
+            st.markdown("**주요 채널**")
             st.markdown(
                 '<div style="flex:1;display:flex;flex-direction:column;justify-content:space-around;padding:8px 0;min-height:220px">',
                 unsafe_allow_html=True,
             )
             ch = r.get("channels", {})
-            online  = _parse_channel_list(ch.get("online", []))
-            offline = _parse_channel_list(ch.get("offline", []))
-            top3 = (online + offline)[:3]
+            list  = _parse_channel_list(ch.get("channels", []))
+            top3 = (list)[:3]
             if top3:
                 html = ""
                 for i, c in enumerate(top3, 1):
@@ -225,7 +218,7 @@ def render_trade_and_channels(category: str, country: str, r: dict):
                         <div class="rank-num {rank_cls}">{i}</div>
                         <div>
                             <div class="rank-name">{c['name']}</div>
-                            <div class="rank-desc">{c['description'][:60] if c['description'] else ''}</div>
+                            <div class="rank-desc">{c['description'][:100] if c['description'] else ''}</div>
                         </div></div>"""
                 st.markdown(html, unsafe_allow_html=True)
             else:
@@ -276,43 +269,21 @@ def render_kpi_row(r: dict, country: str):
 
 def render_trends_section(r: dict, country: str):
     st.markdown('<div class="section-header">성분 · 기능 트렌드</div>', unsafe_allow_html=True)
-    tr      = r.get("trends", {})
-    tag_cls = "tag-us" if country == "US" else "tag-jp"
+    tr = r.get("trends", {})
 
-    col1, col2 = st.columns(2)
+    ingredients = tr.get("ingredients", [])[:7]
+    functions   = tr.get("functions", [])[:7]
+    rising      = tr.get("rising_keywords", [])[:5]
 
-    with col1:
-        with st.container(border=True):
-            st.markdown("**성분 트렌드 (Ingredient Trends)**")
-            ingredients = tr.get("ingredients", [])
-            html = _tags_html(ingredients[:7], tag_cls)
-            if html:
-                st.markdown(html, unsafe_allow_html=True)
-            else:
-                st.caption("데이터 없음")
-            rising = tr.get("rising_keywords", [])
-            if rising:
-                st.markdown('<div class="tag-label" style="margin-top:12px">부상 트렌드</div>', unsafe_allow_html=True)
-                rising_html = " ".join(
-                    f'<span style="display:inline-block;background:rgba(128,128,128,0.1);color:var(--text-color);'
-                    f'border-radius:6px;padding:3px 10px;font-size:12px;margin:3px 3px 3px 0">'
-                    f'{kw}</span>' for kw in rising
-                )
-                st.markdown(rising_html, unsafe_allow_html=True)
-
-    with col2:
-        with st.container(border=True):
-            st.markdown("**기능성 트렌드 (Functional Trends)**")
-            functions = tr.get("functions", [])
-            html = _tags_html(functions[:7], tag_cls)
-            if html:
-                st.markdown(html, unsafe_allow_html=True)
-            else:
-                st.caption("데이터 없음")
-
-    consumer_needs = tr.get("consumer_needs", "")
-    if consumer_needs:
-        st.caption(f"소비자 핵심 니즈: {consumer_needs}")
+    with st.container(border=True):
+        parts = []
+        parts += [f'<span class="tag-ingredient">{item}</span>' for item in ingredients]
+        parts += [f'<span class="tag-function">{item}</span>' for item in functions]
+        parts += [f'<span class="tag-rising">{item}</span>' for item in rising]
+        if parts:
+            st.markdown(" ".join(parts), unsafe_allow_html=True)
+        else:
+            st.caption("데이터 없음")
 
 
 def render_competitors_section(r: dict, country: str):
@@ -493,51 +464,54 @@ def render_review_analysis(platform: str, item: dict):
     complaints              = d.get("complaints", [])
     opportunities           = d.get("opportunities", [])
 
+    # ── 헤더: 제품명 + 만족도 뱃지 ──
     st.markdown(f"""
-    <div class="panel-header">
+    <div class="rv-header">
         <div>
-            <div style="font-size:11px;color:#9ca3af;font-weight:600;margin-bottom:4px">선택 제품 리뷰 분석</div>
-            <div class="panel-title">{title}&nbsp;&nbsp;<span class="panel-platform">({platform} #{rank})</span></div>
-            <div class="panel-sub">최근 2년 기준 {review_count:,}건</div>
+            <div class="rv-label">선택 제품 리뷰 분석</div>
+            <div class="rv-title">{title}&nbsp;&nbsp;<span class="rv-platform">({platform} #{rank})</span></div>
+            <div class="rv-sub">최근 2년 기준 {review_count:,}건</div>
         </div>
-        <div class="rating-badge">
-            <div class="rating-badge-label">전체 만족도</div>
-            <div><span class="rating-badge-value">{total_rating}</span><span class="rating-badge-denom"> / 5.0</span></div>
+        <div class="rv-badge">
+            <div class="rv-badge-label">전체 만족도</div>
+            <div class="rv-badge-score">{total_rating}<span class="rv-badge-denom"> / 5.0</span></div>
         </div>
     </div>""", unsafe_allow_html=True)
 
-    col_left, col_right = st.columns([3, 2])
+    # ── 카테고리 만족도 + 감성 도넛 ──
+    col_left, col_right = st.columns([5, 3])
 
     with col_left:
-        st.markdown('<div class="panel-label">카테고리별 만족도 (CATEGORY SATISFACTION)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="rv-section-label">카테고리별 만족도 (CATEGORY SATISFACTION)</div>', unsafe_allow_html=True)
         for cs in category_scores[:6]:
             score    = cs["score"]
             count    = cs.get("count", "")
             fill_pct = int(score / 5 * 100)
+            count_html = f'<span style="font-size:11px;color:#9ca3af;font-weight:400">({count}건)</span>' if count else ""
             st.markdown(f"""
-            <div class="score-bar-wrap">
-                <div class="score-bar-label">
+            <div class="rv-bar-wrap">
+                <div class="rv-bar-label">
                     <span>{cs['category']}</span>
-                    <span style="font-weight:700;color:#1d4ed8">{score}&nbsp;<span style="font-size:11px;color:#9ca3af;font-weight:400">({count}건)</span></span>
+                    <span><span class="rv-bar-score">{score}</span> {count_html}</span>
                 </div>
-                <div class="score-bar-bg"><div class="score-bar-fill" style="width:{fill_pct}%"></div></div>
+                <div class="rv-bar-bg"><div class="rv-bar-fill" style="width:{fill_pct}%"></div></div>
             </div>""", unsafe_allow_html=True)
 
     with col_right:
-        st.markdown('<div class="panel-label">긍부정 감성 비율 (SENTIMENT RATIO)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="rv-section-label">긍부정 감성 비율 (SENTIMENT RATIO)</div>', unsafe_allow_html=True)
         pos_pct = sentiment.get("positive", 0)
         neg_pct = sentiment.get("negative", 0)
         fig = go.Figure(go.Pie(
             values=[pos_pct, neg_pct],
             labels=["긍정", "부정"],
             hole=0.65,
-            marker_colors=["#3b82f6", "#e5e7eb"],
+            marker_colors=["#7c3aed", "#e5e7eb"],
             textinfo="none",
             hoverinfo="label+percent",
         ))
         fig.update_layout(
             margin=dict(t=0, b=0, l=0, r=0),
-            height=140,
+            height=150,
             showlegend=False,
             annotations=[dict(
                 text=f"<b>{pos_pct}%</b><br><span style='font-size:10px'>POSITIVE</span>",
@@ -546,53 +520,64 @@ def render_review_analysis(platform: str, item: dict):
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
         st.markdown(f"""
         <div style="text-align:center;font-size:12px;margin-top:-10px">
-            <span style="color:#3b82f6;font-weight:600">● 긍정 {pos_pct}%</span>&nbsp;&nbsp;
+            <span style="color:#7c3aed;font-weight:600">● 긍정 {pos_pct}%</span>&nbsp;&nbsp;
             <span style="color:#9ca3af">◎ 부정 {neg_pct}%</span>
         </div>""", unsafe_allow_html=True)
 
+    # ── 핵심 키워드 ──
     if top_keywords:
-        st.markdown('<div class="panel-label" style="margin-top:8px">핵심 키워드 (KEY KEYWORDS)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="rv-section-label" style="margin-top:12px">핵심 키워드 (KEY KEYWORDS)</div>', unsafe_allow_html=True)
         tags_html = " ".join(
-            f'<span class="kw-tag">{kw}</span>' if i < 4 else f'<span class="kw-tag-gray">{kw}</span>'
+            f'<span class="rv-kw">{kw}</span>' if i < 4 else f'<span class="rv-kw-gray">{kw}</span>'
             for i, kw in enumerate(top_keywords)
         )
         st.markdown(tags_html, unsafe_allow_html=True)
 
-    st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 
+    # ── 리뷰 요약 카드 ──
     col_p, col_neg = st.columns(2)
     with col_p:
-        st.markdown('<div class="review-label pos">👍 긍정 리뷰 요약 (Positive)</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="review-box pos">{sample_reviews.get("positive") or "데이터 없음"}</div>', unsafe_allow_html=True)
+        pos_text = sample_reviews.get("positive") or "데이터 없음"
+        st.markdown(f"""
+        <div class="rv-review-card pos">
+            <div class="rv-review-card-label pos">👍 긍정 리뷰 요약 (Positive)</div>
+            <div class="rv-review-card-text">"{pos_text}"</div>
+        </div>""", unsafe_allow_html=True)
     with col_neg:
-        st.markdown('<div class="review-label neg">👎 부정 리뷰 요약 (Negative)</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="review-box neg">{sample_reviews.get("negative") or "데이터 없음"}</div>', unsafe_allow_html=True)
+        neg_text = sample_reviews.get("negative") or "데이터 없음"
+        st.markdown(f"""
+        <div class="rv-review-card neg">
+            <div class="rv-review-card-label neg">👎 부정 리뷰 요약 (Negative)</div>
+            <div class="rv-review-card-text">"{neg_text}"</div>
+        </div>""", unsafe_allow_html=True)
 
-    st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 
+    # ── Complaints + Opportunities ──
     if complaints or opportunities:
         col_c, col_o = st.columns(2)
         with col_c:
             if complaints:
-                st.markdown('<div class="section-title-red">COMPLAINTS (주요 불만 사항)</div>', unsafe_allow_html=True)
+                st.markdown('<div class="rv-section-title red">COMPLAINTS (주요 불만 사항)</div>', unsafe_allow_html=True)
                 for c in complaints:
                     st.markdown(f"""
-                    <div class="complaint-bar-wrap">
-                        <span class="complaint-label">{c['label']}</span>
-                        <div class="complaint-bar-bg"><div class="complaint-bar-fill" style="width:{c['pct']}%"></div></div>
-                        <span class="complaint-pct">{c['pct']}%</span>
+                    <div class="rv-complaint-row">
+                        <span class="rv-complaint-label">{c['label']}</span>
+                        <div class="rv-complaint-bar-bg"><div class="rv-complaint-bar-fill" style="width:{c['pct']}%"></div></div>
+                        <span class="rv-complaint-pct">{c['pct']}%</span>
                     </div>""", unsafe_allow_html=True)
         with col_o:
             if opportunities:
-                st.markdown('<div class="section-title-green">OPPORTUNITIES (시장 기회)</div>', unsafe_allow_html=True)
+                st.markdown('<div class="rv-section-title green">OPPORTUNITIES (시장 기회)</div>', unsafe_allow_html=True)
                 for op in opportunities:
                     t    = op.get('title', '')
                     desc = op.get('description', '') or op.get('summary', '')
                     st.markdown(
-                        f'<div class="opp-item">✓ <b style="color:#10b981">{t}</b>: {desc}</div>',
+                        f'<div class="rv-opp-item">✓ <b style="color:#10b981">{t}</b>: {desc}</div>',
                         unsafe_allow_html=True)
 
 
@@ -635,10 +620,18 @@ def render_ad_strategy(result: dict, ad_images: list = None, image_generating: b
         img_data = (ad_images or [])[i] if ad_images and i < len(ad_images) else None
         if img_data and "data" in img_data:
             mime = img_data.get("mime_type", "image/png")
-            img_html = (
-                f'<img src="data:{mime};base64,{img_data["data"]}" '
-                f'style="width:100%;height:300px;object-fit:cover;" />'
-            )
+            if i == 1:
+                # 2번째: 9:16 세로 이미지 — 높이 고정, 양옆 공백 허용
+                img_html = (
+                    f'<img src="data:{mime};base64,{img_data["data"]}" '
+                    f'style="width:100%;height:300px;object-fit:contain;background:#f8f8f8;" />'
+                )
+            else:
+                # 1번째: 1:1 피드 이미지
+                img_html = (
+                    f'<img src="data:{mime};base64,{img_data["data"]}" '
+                    f'style="width:100%;height:300px;object-fit:contain;background:#f8f8f8;" />'
+                )
         elif image_generating:
             img_html = (
                 '<div class="ad-ref-img">'
@@ -740,9 +733,9 @@ def render_top10_rankings(country: str):
         return
 
     if country == "US":
-        platforms = [("Ulta", "Ulta Beauty Top 10"), ("Sephora", "Sephora Top 10")]
+        platforms = [("Ulta", "Ulta Beauty"), ("Sephora", "Sephora")]
     else:
-        platforms = [("Qoo10", "Qoo10 Top 10"), ("Rakuten", "Rakuten Top 10")]
+        platforms = [("Qoo10", "Qoo10"), ("Rakuten", "Rakuten")]
 
     sk_platform = f"ri_platform_{country}"
     sk_item     = f"ri_item_{country}"
@@ -756,49 +749,75 @@ def render_top10_rankings(country: str):
         st.session_state[sk_item]     = row
         st.session_state[sk_item_id]  = item_id
 
-    tab_labels = [title for _, title in platforms]
-    tabs = st.tabs(tab_labels)
+    # 우측 상단 국가 + 플랫폼 셀렉터
+    _, col_sel = st.columns([7, 3])
+    with col_sel:
+        platform_names = [name for name, _ in platforms]
+        selected_idx = 0
+        if st.session_state[sk_platform] in platform_names:
+            selected_idx = platform_names.index(st.session_state[sk_platform])
+        platform_choice = st.selectbox(
+            "플랫폼",
+            platform_names,
+            index=selected_idx,
+            key=f"ri_sel_{country}",
+            label_visibility="collapsed",
+            format_func=lambda x: f"{COUNTRY_KO[country]}  ·  {x}",
+        )
 
-    for tab, (platform, title) in zip(tabs, platforms):
-        rows = data.get(platform, [])
-        with tab:
-            col_list, col_detail = st.columns([5, 8])
+    platform = platform_choice
+    rows = data.get(platform, [])
 
-            with col_list:
-                st.markdown(
-                    '<div class="panel-label" style="margin-bottom:10px">TOP 10 베스트셀러</div>',
-                    unsafe_allow_html=True,
+    with st.container(border=True):
+        col_list, col_detail = st.columns([4, 10])
+
+        with col_list:
+            st.markdown(
+                '<div class="panel-label" style="margin-bottom:6px">TOP 10 베스트셀러</div>',
+                unsafe_allow_html=True,
+            )
+            for row in rows:
+                num     = row.get("rank", 0)
+                name    = row.get("title", "")
+                brand   = row.get("brand", "") or ""
+                item_id = row.get("platform_item_id", "")
+                is_selected = (
+                    st.session_state[sk_platform] == platform
+                    and st.session_state[sk_item_id] == item_id
                 )
-                for row in rows:
-                    num     = row.get("rank", 0)
-                    name    = row.get("title", "")
-                    brand   = row.get("brand", "") or ""
-                    item_id = row.get("platform_item_id", "")
-                    is_selected = (
-                        st.session_state[sk_platform] == platform
-                        and st.session_state[sk_item_id] == item_id
-                    )
-                    brand_short = f"  ·  {brand[:18]}" if brand else ""
-                    btn_label   = f"{num:02d}  {name[:28]}{brand_short}"
+
+                display_name = name[:100] + ("..." if len(name) > 25 else "")
+                sub_text = f"{platform} #{num}"
+                sel_cls = "selected" if is_selected else ""
+                arrow = '<div class="rank-arrow">›</div>' if is_selected else ""
+
+                with st.container():
+                    st.markdown(f"""
+                    <div class="rank-item {sel_cls}">
+                        <div class="rank-num">{num:02d}</div>
+                        <div class="rank-info">
+                            <div class="rank-name">{display_name}</div>
+                            <div class="rank-sub">{sub_text}</div>
+                        </div>
+                        {arrow}
+                    </div>""", unsafe_allow_html=True)
                     st.button(
-                        btn_label,
+                        " ",
                         key=f"ri_{country}_{platform}_{item_id}",
                         use_container_width=True,
-                        type="primary" if is_selected else "secondary",
                         on_click=_select,
                         args=(platform, row, item_id),
                     )
 
-            with col_detail:
-                if st.session_state[sk_platform] == platform and st.session_state[sk_item]:
-                    with st.container(border=True):
-                        render_review_analysis(platform, st.session_state[sk_item])
-                else:
-                    st.markdown("""
-                    <div style='text-align:center;min-height:520px;display:flex;flex-direction:column;
-                                align-items:center;justify-content:center;color:#9ca3af'>
-                        <div style='font-size:40px'>📊</div>
-                        <div style='font-size:14px;margin-top:14px;line-height:1.7'>
-                            왼쪽 상품을 클릭하면<br>리뷰 분석 결과를 확인할 수 있습니다
-                        </div>
-                    </div>""", unsafe_allow_html=True)
+        with col_detail:
+            if st.session_state[sk_platform] == platform and st.session_state[sk_item]:
+                render_review_analysis(platform, st.session_state[sk_item])
+            else:
+                st.markdown("""
+                <div style='text-align:center;min-height:520px;display:flex;flex-direction:column;
+                            align-items:center;justify-content:center;color:#9ca3af'>
+                    <div style='font-size:40px'>📊</div>
+                    <div style='font-size:14px;margin-top:14px;line-height:1.7'>
+                        왼쪽 상품을 클릭하면<br>리뷰 분석 결과를 확인할 수 있습니다
+                    </div>
+                </div>""", unsafe_allow_html=True)

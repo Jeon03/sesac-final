@@ -178,7 +178,7 @@ def get_research_dict(category: str, country: str, research_month: str = None):
     if not obj:
         return None
 
-    # data_source: channels 또는 market_size에서 deep_research_engine이 저장한 값 추출
+    # data_source: channels 또는 market_size에서 저장된 값 추출
     data_source = (
         (obj.market_size or {}).get("data_source")
         or (obj.channels or {}).get("data_source")
