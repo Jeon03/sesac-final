@@ -1,11 +1,19 @@
 services:
-  searxng:
-    container_name: searxng
-    image: searxng/searxng:latest
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./searxng:/etc/searxng:rw
-    environment:
-      - SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml
-    restart: always
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    # .env 파일의 변수들을 컨테이너 환경 변수로 주입합니다.
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+    dockerfile: Dockerfile.frontend
+    env_file:
+      - .env
+    depends_on:
+      - backend

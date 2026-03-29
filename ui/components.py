@@ -684,25 +684,38 @@ def render_ad_strategy(result: dict, ad_images: list = None, image_generating: b
             f'</div>'
         )
 
-    html = (
+    st.markdown(
         f'<div class="ad-strategy-outer">'
-        f'<div class="ad-strategy-badge"><span class="badge-icon">⚡</span> AI 종합 마케팅 전략 제안</div>'
-        f'<div class="ad-strategy-subtitle">{country_desc}</div>'
+        f'<div class="ad-strategy-badge">'
+        f'<div class="badge-icon-box">'
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'
+        f'</div>'
+        f'<div>'
+        f'<div class="badge-title">AI 종합 마케팅 전략 제안</div>'
+        f'<div class="badge-subtitle">{country_desc}</div>'
+        f'</div>'
+        f'</div>'
         f'<div class="ad-concept-box">'
         f'<div class="ad-strategy-concept">&ldquo;{concept}&rdquo;</div>'
         f'<div class="ad-strategy-reasoning">{reasoning}</div>'
         f'</div>'
-        f'<div class="ad-section-headers">'
-        f'<div class="ad-section-header-item"><div class="header-icon">💬</div> 핵심 상품 소구점</div>'
-        f'<div class="ad-section-header-item"><div class="header-icon">🖼</div> 광고 시안 레퍼런스</div>'
-        f'</div>'
         f'<div class="ad-cards-row">'
+        f'<div class="ad-col-usp">'
+        f'<div class="ad-section-header-item">'
+        f'<div class="header-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>'
+        f' 핵심 상품 소구점</div>'
         f'<div class="ad-usp-card">{usp_items}</div>'
-        f'{ref_cards}'
+        f'</div>'
+        f'<div class="ad-col-refs">'
+        f'<div class="ad-section-header-item">'
+        f'<div class="header-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>'
+        f' 광고 시안 레퍼런스</div>'
+        f'<div class="ad-ref-cards-inner">{ref_cards}</div>'
         f'</div>'
         f'</div>'
+        f'</div>',
+        unsafe_allow_html=True,
     )
-    st.markdown(html, unsafe_allow_html=True)
 
 
 def render_meta_ads_section(country: str):
@@ -716,36 +729,50 @@ def render_meta_ads_section(country: str):
             st.info("Meta 광고 데이터가 없습니다. `python manage.py load_meta_ads` 를 실행하세요.")
             return
 
-        cols = st.columns(len(ads))
-        for col, ad in zip(cols, ads):
-            image_pct = round(ad["image_ratio"] * 100)
-            video_pct = round(ad["video_ratio"] * 100)
-            updated   = str(ad.get("updated_at", ""))[:10]
-            copy_text = ad.get("latest_ad_text", "") or "—"
-            if len(copy_text) > 80:
-                copy_text = copy_text[:80] + "..."
+        last_updated = str(ads[0].get("updated_at", ""))[:10].replace("-", ".")
 
-            with col:
-                st.markdown(f"""
-                <div class="meta-card">
-                  <div class="meta-brand">{ad['brand']}</div>
-                  <div class="meta-channel">{ad['channel']}</div>
-                  <div class="meta-count-label">최근 90일 광고</div>
-                  <div class="meta-count-value">{ad['total_ads']}개</div>
-                  <div class="meta-copy-label">최근 광고 카피</div>
-                  <div class="meta-copy-text">"{copy_text}"</div>
-                  <div class="meta-updated">업데이트: {updated}</div>
-                </div>
-                """, unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown(f"""
+            <div class="mon-header">
+              <div class="mon-title">Meta 광고 모니터링</div>
+              <div class="mon-updated">마지막 업데이트: {last_updated}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            cols = st.columns(len(ads))
+            for col, ad in zip(cols, ads):
+                copy_text = ad.get("latest_ad_text", "") or "—"
+                if len(copy_text) > 60:
+                    copy_text = copy_text[:60] + "..."
+                brand_name = ad["brand"]
+                total_ads  = ad["total_ads"]
+                count_str  = f"{total_ads}개 이상" if total_ads >= 200 else f"{total_ads}개"
+
                 page_id = ad.get("page_id", "")
                 market  = "US" if ad["channel"] in ("ulta", "sephora") else "JP"
+                link_html = ""
                 if page_id:
                     ad_url = (
                         f"https://www.facebook.com/ads/library/"
                         f"?active_status=active&ad_type=all&country={market}"
                         f"&media_type=all&search_type=page&view_all_page_id={page_id}"
                     )
-                    st.link_button("Meta 광고 보기 →", ad_url, use_container_width=True)
+                    link_html = f'<a class="mon-link" href="{ad_url}" target="_blank">Meta 광고 보기 →</a>'
+
+                with col:
+                    st.markdown(f"""
+                    <div class="mon-card">
+                      <div class="mon-brand-name">{brand_name}</div>
+                      <div class="mon-count-row">
+                        <span class="mon-count-label">활성 광고수</span>
+                        <span class="mon-count-value">{count_str}</span>
+                      </div>
+                      <div class="mon-copy-label">최근 광고 카피</div>
+                      <div class="mon-copy-text">"{copy_text}"</div>
+                      {link_html}
+                    </div>
+                    """, unsafe_allow_html=True)
+            st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Meta 광고 섹션 오류: {e}")
 

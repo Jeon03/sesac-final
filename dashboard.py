@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
-
+import base64
+from pathlib import Path
 from ui.styles import STYLES
+
 from ui.components import (
     render_country_recommendation,
     render_trade_and_channels,
@@ -24,6 +26,7 @@ st.set_page_config(
 )
 
 st.markdown(STYLES, unsafe_allow_html=True)
+
 
 API_BASE = "http://127.0.0.1:8000/api"
 
@@ -53,6 +56,7 @@ for _k, _v in {
     "ad_images":           None,
     "review_summary":      None,
     "report_pdf":          None,
+    "generating_pdf":      False,
     "_img_bytes":          None,
     "_img_name":           None,
     "_img_type":           None,
@@ -66,15 +70,29 @@ if "current_tab" not in st.session_state:
 current_tab = st.session_state.current_tab
 has_data    = bool(st.session_state.cache_key)
 
-# ── 고정 헤더 (로고만 HTML, nav는 아래 Streamlit 버튼으로) ────────────────────
-st.markdown("""
+# 1. 이미지를 Base64로 변환하는 함수
+def get_base64_img(path):
+    with open(path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+# 2. 이미지 경로 및 데이터 준비
+img_path = "ui/fonts/1.png"
+img_base64 = get_base64_img(img_path)
+
+# 3. HTML 작성 (styles.py에 정의된 클래스 활용)
+# 아이콘 이미지는 fh-logo-img를 사용하고, 브랜드명은 fh-logo-text를 사용합니다.
+header_html = f"""
 <div class="fixed-header">
     <div class="fh-logo">
-        <div class="fh-logo-icon">V</div>
+        <img src="data:image/png;base64,{img_base64}" alt="VORA Icon" class="fh-logo-img">
         <span class="fh-logo-text">VORA</span>
     </div>
 </div>
-""", unsafe_allow_html=True)
+"""
+
+# 4. Streamlit에 렌더링
+st.markdown(header_html, unsafe_allow_html=True)
 
 # nav 버튼 — CSS로 고정 헤더 안에 위치 (position: fixed via .st-key-nav_*)
 _nav_disabled = not has_data
@@ -108,7 +126,7 @@ with st.container(border=True):
     st.markdown("""
     <div class="input-card-header">
       <div>
-        <div class="input-card-title">제품 정보 입력</div>
+        <div class="input-card-title"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:6px"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" stroke-linecap="round" stroke-linejoin="round"/></svg>제품 정보 입력</div>
         <div class="input-card-subtitle">분석하고자 하는 제품의 상세 정보를 입력해주세요.</div>
       </div>
     </div>
@@ -171,7 +189,7 @@ with st.container(border=True):
                 st.rerun()
 
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        submit_btn = st.button("📊 시장 분석 시작하기", type="primary", use_container_width=True, key="submit_btn")
+        submit_btn = st.button("시장 분석 시작하기", type="primary", use_container_width=True, key="submit_btn")
 
 
 # ── 메인 ──────────────────────────────────────────────────────────────────────
@@ -189,6 +207,7 @@ if submit_btn:
         st.session_state.ad_images          = None
         st.session_state.review_summary     = None
         st.session_state.report_pdf         = None
+        st.session_state.generating_pdf     = False
         st.session_state.current_tab        = "market"
     st.rerun()
 
@@ -359,7 +378,6 @@ if st.session_state.cache_key:
                     st.warning(f"광고 이미지 생성 오류: {e}")
 
         if r:
-            st.markdown('<div class="section-header">Top10 브랜드 Meta 광고 현황</div>', unsafe_allow_html=True)
             render_meta_ads_section(country)
             st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
 
@@ -368,43 +386,74 @@ if st.session_state.cache_key:
 
         if st.session_state.rec_data or research:
             st.markdown("---")
-            st.markdown('<div class="section-header">보고서 다운로드</div>', unsafe_allow_html=True)
+            _, col_report, _ = st.columns([1, 1, 1])
+            with col_report:
+                with st.container(border=True, key="report_box"):
+                    st.markdown("""
+                    <div class="report-box-header">
+                      <div class="report-icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="report-box-title">분석 보고서</div>
+                        <div class="report-box-subtitle">시장 분석, 리뷰 인사이트, 마케팅 전략을 포함한 종합 PDF 보고서</div>
+                      </div>
+                    </div>
+                    """, unsafe_allow_html=True)
 
-            # review_summary 캐시
-            if st.session_state.review_summary is None:
-                try:
-                    rv_resp = requests.get(
-                        f"{API_BASE}/review-summary/",
-                        params={"country": top_country},
-                        timeout=60,
-                    )
-                    if rv_resp.status_code == 200:
-                        st.session_state.review_summary = rv_resp.json()
-                except Exception:
-                    pass
-
-            # PDF 캐시 — 전략/이미지가 완성된 시점에 한 번만 생성
-            if st.session_state.report_pdf is None:
-                st.session_state.report_pdf = generate_report_pdf(
-                    product_name=product_name,
-                    category=selected_category,
-                    ingredients=ingredients,
-                    effects=effects,
-                    rec_data=st.session_state.rec_data,
-                    research=research,
-                    strategy_data=st.session_state.strategy_data,
-                    top_country=top_country,
-                    ad_images=st.session_state.ad_images,
-                    review_summary=st.session_state.review_summary,
-                )
-
-            st.download_button(
-                label="📄 분석 보고서 다운로드 (PDF)",
-                data=st.session_state.report_pdf,
-                file_name=f"beauty_insight_{product_name}_{selected_category}.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
+                    if st.session_state.report_pdf is None:
+                        if st.session_state.generating_pdf:
+                            with st.spinner("보고서 생성 중..."):
+                                if st.session_state.review_summary is None:
+                                    try:
+                                        rv_resp = requests.get(
+                                            f"{API_BASE}/review-summary/",
+                                            params={"country": top_country},
+                                            timeout=60,
+                                        )
+                                        if rv_resp.status_code == 200:
+                                            st.session_state.review_summary = rv_resp.json()
+                                    except Exception:
+                                        pass
+                                st.session_state.report_pdf = generate_report_pdf(
+                                    product_name=product_name,
+                                    category=selected_category,
+                                    ingredients=ingredients,
+                                    effects=effects,
+                                    rec_data=st.session_state.rec_data,
+                                    research=research,
+                                    strategy_data=st.session_state.strategy_data,
+                                    top_country=top_country,
+                                    ad_images=st.session_state.ad_images,
+                                    review_summary=st.session_state.review_summary,
+                                )
+                                st.session_state.generating_pdf = False
+                            st.rerun()
+                        else:
+                            if st.button("보고서 생성하기", type="primary", use_container_width=True, key="btn_generate_pdf"):
+                                st.session_state.generating_pdf = True
+                                st.rerun()
+                    else:
+                        st.markdown("""
+                        <div class="report-download-label">
+                          <div class="report-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                          </div>
+                          <span>보고서가 준비됐습니다</span>
+                        </div>
+                        """, unsafe_allow_html=True)
+                        st.download_button(
+                            label="분석 보고서 다운로드 (PDF)",
+                            data=st.session_state.report_pdf,
+                            file_name=f"beauty_insight_{product_name}_{selected_category}.pdf",
+                            mime="application/pdf",
+                            use_container_width=True,
+                            type="primary",
+                        )
 
 # ── 푸터 ──────────────────────────────────────────────────────────────────────
 st.markdown("""
