@@ -27,6 +27,7 @@ STYLES = _FONT_FACE + """
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes pulse-fade { 0%,100%{opacity:.4} 50%{opacity:1} }
 /* 배경 · 레이아웃 */
+[data-testid="stAppViewContainer"] { zoom: 0.95; }
 [data-testid="stAppViewContainer"], [data-testid="stMain"] { background: var(--secondary-background-color) !important; }
 [data-testid="stHeader"] { display: none !important; }
 
@@ -36,7 +37,7 @@ STYLES = _FONT_FACE + """
     pointer-events: none !important;
     transition: opacity 5s !important;
 }
-.main .block-container, .stMainBlockContainer { padding-top: 86px !important; padding-bottom: 180px !important; padding-left: 18% !important; padding-right: 18% !important; max-width: 100% !important; }
+.main .block-container, .stMainBlockContainer { padding-top: 86px !important; padding-bottom: 80px !important; padding-left: 20% !important; padding-right: 20% !important; max-width: 100% !important; }
 
 /* ── 고정 푸터 ── */
 .fixed-footer {
@@ -179,7 +180,7 @@ STYLES = _FONT_FACE + """
 [data-testid="stVerticalBlockBorderWrapper"]:first-of-type > div:first-child {
     border: 1.5px dashed rgba(128,128,128,0.35) !important;
     border-radius: 16px !important;
-    box-shadow: none !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05) !important;
 }
 .input-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .input-card-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(99,102,241,0.1); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
@@ -323,8 +324,8 @@ STYLES = _FONT_FACE + """
 .kpi-channel { font-size: 24px; font-weight: 700; color: #0ea5e9; }
 
 /* 태그 */
-.tag-us { display: inline-block; background: rgba(29,78,216,0.12); color: #3b82f6; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
-.tag-jp { display: inline-block; background: rgba(219,39,119,0.12); color: #ec4899; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
+.tag-us { display: inline-block; background: rgba(130,113,255,0.12); color: #8271FF; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
+.tag-jp { display: inline-block; background: rgba(130,113,255,0.12); color: #8271FF; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
 .tag-ingredient { display: inline-block; background: rgba(29,78,216,0.12); color: #3b82f6; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
 .tag-function { display: inline-block; background: rgba(16,185,129,0.12); color: #10b981; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
 .tag-rising { display: inline-block; background: rgba(128,128,128,0.10); color: #9ca3af; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 3px 3px 3px 0; }
@@ -338,7 +339,7 @@ STYLES = _FONT_FACE + """
 .rank-desc { font-size: 12px; color: #9ca3af; margin-top: 2px; }
 
 /* Top5 테이블 */
-.top5-wrap { border-radius: 12px; overflow: hidden; }
+.top5-wrap { border-radius: 12px; overflow: hidden; border: 1.5px solid rgba(128,128,128,0.25); box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05); }
 .top5-table { width: 100%; border-collapse: collapse; }
 .top5-table th { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: #9ca3af; padding: 8px 12px; text-align: left; border-bottom: 1px solid rgba(128,128,128,0.15); background: var(--background-color); }
 .top5-table td { padding: 9px 12px; font-size: 13px; color: var(--text-color); border-bottom: 1px solid rgba(128,128,128,0.1); vertical-align: middle; background: var(--background-color); }
@@ -348,11 +349,12 @@ STYLES = _FONT_FACE + """
 /* 랭킹 섹션 래퍼 */
 .ranking-wrapper {
     display: flex;
-    border: 1px solid rgba(128,128,128,0.15);
+    border: 1.5px solid rgba(128,128,128,0.25);
     border-radius: 16px;
     background: var(--background-color);
     overflow: hidden;
     min-height: 620px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05);
 }
 
 /* 랭킹 리스트 아이템 */
@@ -416,9 +418,9 @@ STYLES = _FONT_FACE + """
 .rv-kw-gray { display: inline-block; background: rgba(128,128,128,0.08); color: #9ca3af; border: 1px solid rgba(128,128,128,0.15); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; margin: 3px 4px 3px 0; }
 
 /* 리뷰 요약 카드 */
-.rv-review-card { border-radius: 12px; padding: 16px 18px; font-size: 13px; line-height: 1.7; }
-.rv-review-card.pos { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2); }
-.rv-review-card.neg { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); }
+.rv-review-card { border-radius: 12px; padding: 16px 18px; font-size: 13px; line-height: 1.7; box-shadow: 0 4px 16px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04); }
+.rv-review-card.pos { background: rgba(16,185,129,0.06); border: 1.5px solid rgba(16,185,129,0.3); }
+.rv-review-card.neg { background: rgba(239,68,68,0.06); border: 1.5px solid rgba(239,68,68,0.3); }
 .rv-review-card-label { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
 .rv-review-card-label.pos { color: #10b981; }
 .rv-review-card-label.neg { color: #ef4444; }
@@ -436,7 +438,7 @@ STYLES = _FONT_FACE + """
 .rv-opp-item { font-size: 12px; color: var(--text-color); margin-bottom: 8px; line-height: 1.5; }
 
 /* Meta 광고 카드 */
-.meta-card { background: var(--background-color); border: 1px solid rgba(128,128,128,0.2); border-radius: 14px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.meta-card { background: var(--background-color); border: 1.5px solid rgba(128,128,128,0.25); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05); }
 .meta-brand { font-size: 15px; font-weight: 700; color: var(--text-color); margin-bottom: 2px; }
 .meta-channel { font-size: 11px; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
 .meta-count-label { font-size: 11px; color: #9ca3af; font-weight: 600; margin-bottom: 4px; }
@@ -476,14 +478,14 @@ STYLES = _FONT_FACE + """
 .ad-cards-row { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* 핵심 소구점 카드 */
-.ad-usp-card { flex: 1; min-width: 240px; background: #fff; border-radius: 14px; padding: 24px 24px; justify-content: center; display: flex; flex-direction: column;}
+.ad-usp-card { flex: 1; min-width: 240px; background: #fff; border-radius: 14px; padding: 24px 24px; justify-content: center; display: flex; flex-direction: column; border: 1.5px solid rgba(128,128,128,0.2); box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.06); }
 .ad-usp-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
 .ad-usp-item:last-child { margin-bottom: 0; }
 .ad-usp-check { width: 24px; height: 24px; border-radius: 50%; background: rgba(139,92,246,0.15); color: #7c3aed; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 .ad-usp-text { font-size: 13px; font-weight: 600; color: #1f2937; line-height: 1.55; }
 
 /* 광고 시안 카드 */
-.ad-ref-card { flex: 1; min-width: 220px; background: #fff; border-radius: 14px; overflow: hidden; }
+.ad-ref-card { flex: 1; min-width: 220px; background: #fff; border-radius: 14px; overflow: hidden; border: 1.5px solid rgba(128,128,128,0.2); box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.06); }
 .ad-ref-img { width: 100%; height: 300px; background: #e5e7eb; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
 .img-spinner { width: 36px; height: 36px; border: 3px solid #6366f1; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
 .ad-ref-content { padding: 18px 20px; }
@@ -495,8 +497,58 @@ STYLES = _FONT_FACE + """
 [data-testid="stVerticalBlockBorderWrapper"] > div:first-child {
     background: var(--background-color) !important;
     border-radius: 14px !important;
-    border-color: rgba(128,128,128,0.2) !important;
-    box-shadow: 0 1px 4px rgba(0,0,0,.06) !important;
+    border: 1.5px solid rgba(128,128,128,0.25) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05) !important;
+}
+
+/* ─── 리뷰 탭 (플랫폼 탭) 스타일 ────────────────────────────────────── */
+[data-testid="stTabs"] [data-baseweb="tab-list"] {
+    gap: 0 !important;
+    border-bottom: 2px solid rgba(128,128,128,0.15) !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"] {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #9ca3af !important;
+    padding: 10px 0 !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border-bottom: 2px solid transparent !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] {
+    color: #7c3aed !important;
+    border-bottom: 2px solid #7c3aed !important;
+    background: transparent !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"]:hover {
+    color: #7c3aed !important;
+    background: rgba(124,58,237,0.04) !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+    background: #7c3aed !important;
+    height: 2px !important;
+}
+
+/* ─── 국가 선택 오버레이 버튼 ─────────────────────────────────────── */
+[class*="st-key-btn_country_"] {
+    margin-top: -84px !important;
+    height: 84px !important;
+    min-height: 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+[class*="st-key-btn_country_"] button {
+    opacity: 0 !important;
+    height: 84px !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    cursor: pointer !important;
+    width: 100% !important;
 }
 
 /* ─── Top10 순위 리스트 버튼 (탭 내부 버튼만 적용) ─────────────────── */

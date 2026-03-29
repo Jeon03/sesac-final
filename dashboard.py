@@ -250,23 +250,9 @@ if st.session_state.cache_key:
 
     research = st.session_state.research or {}
 
-    # ── 국가 토글 ────────────────────────────────────────────────────────────
     selected_country = st.session_state.selected_country
     top_country      = st.session_state.top_country
-
-    col_us, col_jp, col_spacer = st.columns([1, 1, 8])
-    with col_us:
-        if st.button("🇺🇸 미국", type="primary" if selected_country == "US" else "secondary", use_container_width=True, key="btn_us"):
-            st.session_state.selected_country = "US"
-            st.rerun()
-    with col_jp:
-        if st.button("🇯🇵 일본", type="primary" if selected_country == "JP" else "secondary", use_container_width=True, key="btn_jp"):
-            st.session_state.selected_country = "JP"
-            st.rerun()
-
-    st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
-
-    country = st.session_state.selected_country
+    country = selected_country
     r = research.get(country, {})
 
     # ── 탭 콘텐츠 (헤더 nav로 전환) ──────────────────────────────────────────
@@ -274,24 +260,23 @@ if st.session_state.cache_key:
     # ── 시장 분석 ────────────────────────────────────────────────────────────
     if current_tab == "market":
         if st.session_state.rec_data:
-            render_country_recommendation(st.session_state.rec_data)
-            st.markdown("---")
+            render_country_recommendation(st.session_state.rec_data, selected_country)
 
         if r:
             render_kpi_row(r, country)
             st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-            st.markdown(f'<div class="section-header">K-뷰티 시장 점유율 ({COUNTRY_KO[country]})</div>', unsafe_allow_html=True)
             render_kbeauty_share_section(r, country)
             st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-
+            
+            render_trends_section(r, country)
+            st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+            
             render_trade_and_channels(selected_category, country, r)
             st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-            render_trends_section(r, country)
-            st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-            st.markdown('<div class="section-header">채널별 베스트셀러 Top 5</div>', unsafe_allow_html=True)
+
             render_top5_rankings(country)
         elif research:
             st.warning(f"{COUNTRY_KO[country]} 시장 데이터가 없습니다.")
@@ -299,7 +284,6 @@ if st.session_state.cache_key:
     # ── 리뷰 인사이트 ────────────────────────────────────────────────────────
     elif current_tab == "review":
         if r:
-            st.markdown('<div class="section-header">리뷰 인사이트 & 채널 분석</div>', unsafe_allow_html=True)
             render_top10_rankings(country)
         elif research:
             st.warning(f"{COUNTRY_KO[country]} 데이터가 없습니다.")

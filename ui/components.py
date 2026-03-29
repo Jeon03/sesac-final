@@ -27,6 +27,8 @@ def _tags_html(items: list, cls: str) -> str:
     return " ".join(f'<span class="{cls}">{item}</span>' for item in items)
 
 
+_EN_MAP = {"낮음": "Low", "보통": "Moderate", "높음": "High", "중간": "Medium"}
+
 def _score_to_label(score: float, labels=("낮음", "보통", "높음"), thresholds=(40, 60)):
     palette = ("#ef4444", "#f59e0b", "#10b981")
     if score >= thresholds[1]:
@@ -35,12 +37,14 @@ def _score_to_label(score: float, labels=("낮음", "보통", "높음"), thresho
         idx = 1
     else:
         idx = 0
-    return labels[idx], palette[idx]
+    ko = labels[idx]
+    en = _EN_MAP.get(ko, ko)
+    return f"{ko} ({en})", palette[idx]
 
 
 # ── render 함수들 ──────────────────────────────────────────────────────────────
 
-def render_country_recommendation(result: dict):
+def render_country_recommendation(result: dict, selected_country: str = "US"):
     if not result or "error" in result:
         st.warning(result.get("error", "추천 결과를 생성할 수 없습니다."))
         return
@@ -55,7 +59,7 @@ def render_country_recommendation(result: dict):
     country_name = {"US": "미국 (USA)", "JP": "일본 (Japan)"}.get(top_country, top_country)
     score        = top["score"]
     detail       = top.get("score_detail", {})
-    score_color  = "#10b981" if score >= 60 else "#f59e0b" if score >= 40 else "#ef4444"
+    score_color  = "#8271FF"
 
     trend_label,  trend_color  = _score_to_label(detail.get("trend",  0))
     market_label, market_color = _score_to_label(detail.get("market", 0))
@@ -64,98 +68,126 @@ def render_country_recommendation(result: dict):
         labels=("낮음", "중간", "높음"),
     )
 
-    col_left, col_right = st.columns([3, 2])
+    if rationale:
+        short = rationale.split(".")[0] + "." if "." in rationale else rationale[:80]
+    else:
+        short = ""
 
-    with col_left:
-        with st.container(border=True):
+    matched = top.get("trend_matched", [])
+    tag_cls = "tag-us" if top_country == "US" else "tag-jp"
+    matched_html = ""
+    if matched:
+        tags = " ".join(f'<span class="{tag_cls}">{k}</span>' for k in matched)
+        matched_html = f'<div class="tag-label" style="margin-top:14px;margin-bottom:6px">트렌드 매칭</div><div style="padding-bottom:8px">{tags}</div>'
+
+    st.markdown("""
+    <style>
+    [data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"])
+        > div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"] {
+        align-items: stretch;
+    }
+    [data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"])
+        > div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"]
+        > [data-testid="stColumn"]:last-child { display: flex; flex-direction: column; }
+    [data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"])
+        > div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"]
+        > [data-testid="stColumn"]:last-child > div { flex: 1; display: flex; flex-direction: column; }
+    [data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"])
+        > div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"]
+        > [data-testid="stColumn"]:last-child > div > [data-testid="stVerticalBlock"] { flex: 1; display: flex; flex-direction: column; }
+    [data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"])
+        > div > [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"]
+        > [data-testid="stColumn"]:last-child > div > [data-testid="stVerticalBlock"]
+        > [data-testid="stVerticalBlockBorderWrapper"] { flex: 1; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    with st.container(border=True):
+      col_left, col_right = st.columns([3, 2], gap="large")
+
+      with col_left:
+        with st.container(border=False):
             st.markdown(f"""
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
-                <div>
-                    <div style="font-size:11px;font-weight:700;color:#9ca3af;letter-spacing:.06em;margin-bottom:6px">
-                        최적 시장 추천
-                    </div>
-                    <div style="font-size:26px;font-weight:800;color:var(--text-color);line-height:1.2">
-                        {country_name}
-                    </div>
+            <div style="display:inline-block;font-size:11px;font-weight:700;color:#8271FF;
+                        border:1.5px solid #8271FF;border-radius:20px;padding:2px 10px;margin-bottom:12px;letter-spacing:.04em">
+                최적 시장 추천
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+                <div style="font-size:28px;font-weight:800;color:var(--text-color);line-height:1.2">
+                    {country_name}
                 </div>
-                <div style="text-align:right">
-                    <div style="font-size:42px;font-weight:800;color:{score_color};line-height:1">
-                        {score}
-                    </div>
-                    <div style="font-size:11px;color:#9ca3af;font-weight:600">/100 &nbsp;AI SCORE</div>
+                <div style="text-align:right;line-height:1">
+                    <span style="font-size:40px;font-weight:800;color:{score_color}">{score}</span>
+                    <span style="font-size:13px;color:#9ca3af;font-weight:600">/100</span>
+                    <div style="font-size:10px;color:#9ca3af;font-weight:600;letter-spacing:.06em">AI SCORE</div>
+                </div>
+            </div>
+            <div style="font-size:13px;color:#6b7280;line-height:1.5;margin-bottom:16px">{short}</div>
+            {matched_html}
+            <div style="display:flex;gap:10px;margin-top:16px;padding-bottom:4px">
+                <div style="flex:1;border:none;border-radius:10px;padding:14px 8px;text-align:center">
+                    <div style="font-size:10px;color:#9ca3af;font-weight:700;margin-bottom:6px">성분 적합도</div>
+                    <div style="font-size:15px;font-weight:800;color:{trend_color}">{trend_label}</div>
+                </div>
+                <div style="flex:1;border:none;border-radius:10px;padding:14px 8px;text-align:center">
+                    <div style="font-size:10px;color:#9ca3af;font-weight:700;margin-bottom:6px">시장 성장성</div>
+                    <div style="font-size:15px;font-weight:800;color:{market_color}">{market_label}</div>
+                </div>
+                <div style="flex:1;border:none;border-radius:10px;padding:14px 8px;text-align:center">
+                    <div style="font-size:10px;color:#9ca3af;font-weight:700;margin-bottom:6px">카테고리 친숙도</div>
+                    <div style="font-size:15px;font-weight:800;color:{review_color}">{review_label}</div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
 
-            if rationale:
-                short = rationale.split(".")[0] + "." if "." in rationale else rationale[:80]
-                st.markdown(
-                    f'<div style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5">{short}</div>',
-                    unsafe_allow_html=True,
-                )
-
-            k1, k2, k3 = st.columns(3)
-            for col, label, val, color, title in [
-                (k1, trend_label,  detail.get("trend",  0), trend_color,  "성분 적합도"),
-                (k2, market_label, detail.get("market", 0), market_color, "시장 성장성"),
-                (k3, review_label, detail.get("review", 0), review_color, "카테고리 친숙도"),
-            ]:
-                with col:
-                    st.markdown(f"""
-                    <div style="background:rgba(128,128,128,0.06);border-radius:10px;padding:12px 14px;text-align:center">
-                        <div style="font-size:10px;color:#9ca3af;font-weight:700;margin-bottom:6px">{title}</div>
-                        <div style="font-size:16px;font-weight:800;color:{color}">{label}</div>
-                        <div style="font-size:10px;color:#9ca3af;margin-top:2px">{val:.0f}점</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-
-            matched = top.get("trend_matched", [])
-            if matched:
-                tag_cls = "tag-us" if top_country == "US" else "tag-jp"
-                tags = " ".join(f'<span class="{tag_cls}">{k}</span>' for k in matched)
-                st.markdown(
-                    f'<div class="tag-label" style="margin-top:14px">트렌드 매칭</div>{tags}',
-                    unsafe_allow_html=True,
-                )
-
-    with col_right:
-        with st.container(border=True):
-            st.markdown('<div class="panel-label">국가별 적합도 순위</div>', unsafe_allow_html=True)
+      with col_right:
+        with st.container(border=False):
+            st.markdown('<div style="font-size:18px;font-weight:700;color:var(--text-color);margin-bottom:20px;padding-top:4px;margin-top:20px">국가별 적합도 순위</div>', unsafe_allow_html=True)
             for i, c in enumerate(countries, 1):
-                c_flag    = "🇺🇸" if c["country"] == "US" else "🇯🇵"
                 c_name    = {"US": "미국 (USA)", "JP": "일본 (Japan)"}.get(c["country"], c["country"])
                 c_score   = c["score"]
-                c_color   = "#10b981" if c_score >= 60 else "#f59e0b" if c_score >= 40 else "#ef4444"
+                c_color   = "#8271FF" if c_score >= 60 else "#9ca3af"
                 reasoning = (c.get("trend_reasoning") or "")[:40]
-                is_top    = c["country"] == top_country
-                bg        = "rgba(16,185,129,0.06)" if is_top else "transparent"
-                border    = "1px solid rgba(16,185,129,0.3)" if is_top else "1px solid transparent"
+                is_selected = c["country"] == selected_country
+                is_top      = c["country"] == top_country
+                circle_bg     = "#8271FF" if is_selected else "transparent"
+                circle_border = "#8271FF" if is_selected else "#d1d5db"
+                circle_color  = "#fff" if is_selected else "#9ca3af"
+                row_bg        = "rgba(130,113,255,0.08)" if is_selected else "transparent"
+                row_border    = "1.5px solid rgba(130,113,255,0.35)" if is_selected else "1.5px solid transparent"
+                ai_badge      = '<span style="font-size:10px;font-weight:700;color:#8271FF;background:rgba(130,113,255,0.12);border-radius:4px;padding:2px 6px;margin-left:6px">AI 추천</span>' if is_top else ""
                 st.markdown(f"""
-                <div style="display:flex;align-items:center;gap:12px;padding:12px 10px;
-                            border-radius:10px;margin-bottom:8px;background:{bg};border:{border}">
-                    <div style="font-size:18px;font-weight:800;color:#d1d5db;width:20px">{i}</div>
-                    <div style="font-size:22px">{c_flag}</div>
+                <div style="display:flex;align-items:center;gap:14px;padding:20px 12px;
+                            border-radius:10px;margin-bottom:10px;background:{row_bg};
+                            border:{row_border};cursor:pointer;pointer-events:none;transition:all 0.15s">
+                    <div style="width:34px;height:34px;border-radius:50%;background:{circle_bg};
+                                border:2px solid {circle_border};display:flex;align-items:center;
+                                justify-content:center;font-size:15px;font-weight:800;color:{circle_color};flex-shrink:0">
+                        {i}
+                    </div>
                     <div style="flex:1;min-width:0">
-                        <div style="font-size:14px;font-weight:700;color:var(--text-color)">{c_name}</div>
-                        <div style="font-size:11px;color:#9ca3af;margin-top:2px;white-space:nowrap;
+                        <div style="font-size:16px;font-weight:700;color:var(--text-color)">{c_name}{ai_badge}</div>
+                        <div style="font-size:12px;color:#9ca3af;margin-top:4px;white-space:nowrap;
                                     overflow:hidden;text-overflow:ellipsis">{reasoning}</div>
                     </div>
-                    <div style="font-size:22px;font-weight:800;color:{c_color};flex-shrink:0">
-                        {c_score}<span style="font-size:11px;color:#9ca3af">점</span>
+                    <div style="font-size:24px;font-weight:800;color:{c_color};flex-shrink:0">
+                        {c_score}<span style="font-size:12px;color:#9ca3af">점</span>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
+                if st.button("　", key=f"btn_country_{c['country']}", use_container_width=True):
+                    st.session_state.selected_country = c["country"]
+                    st.rerun()
 
 
 
 def render_trade_and_channels(category: str, country: str, r: dict):
-    st.markdown('<div class="section-header">수출 현황 · 주요 채널</div>', unsafe_allow_html=True)
-    CHART_H = 280
+    CHART_H = 200
 
-    col1, col2 = st.columns(2)
+    with st.container(border=True):
+        col1, col2 = st.columns(2)
 
-    with col1:
-        with st.container(border=True):
+        with col1:
             st.markdown(f"**대{COUNTRY_SHORT[country]} 수출량 추이 (USD)**")
             try:
                 resp = requests.get(
@@ -166,7 +198,7 @@ def render_trade_and_channels(category: str, country: str, r: dict):
                 if resp.status_code == 200:
                     data = resp.json()
                     stats = data.get("stats", [])
-                    hs_code = data.get("hs_code", "")
+                    
                     if stats:
                         df = pd.DataFrame(stats)
                         df["amount_M"] = (df["amount"] / 1_000_000).round(1)
@@ -174,25 +206,21 @@ def render_trade_and_channels(category: str, country: str, r: dict):
                         fig.add_trace(go.Scatter(
                             x=df["year"],
                             y=df["amount_M"],
-                            mode="lines+markers+text",
-                            line=dict(color="#1d4ed8", width=2.5),
-                            marker=dict(color="#1d4ed8", size=8),
-                            text=df["amount_M"].apply(lambda v: f"${v}M"),
-                            textposition="top center",
-                            textfont=dict(size=11, color="#1d4ed8"),
+                            mode="lines+markers",
+                            line=dict(color="#8271FF", width=4),
+                            marker=dict(color="#8271FF", size=6),
                         ))
                         fig.update_layout(
-                            margin=dict(t=30, b=10, l=0, r=10),
+                            margin=dict(t=10, b=10, l=0, r=10),
                             height=CHART_H,
-                            yaxis_title="백만 달러 (USD M)",
                             plot_bgcolor="rgba(0,0,0,0)",
                             paper_bgcolor="rgba(0,0,0,0)",
-                            yaxis=dict(gridcolor="rgba(128,128,128,0.2)", zeroline=False),
-                            xaxis=dict(type="category", tickmode="array", tickvals=df["year"].tolist()),
+                            yaxis=dict(gridcolor="rgba(128,128,128,0.15)", zeroline=False, showline=False, tickfont=dict(size=10)),
+                            xaxis=dict(type="category", tickmode="array", tickvals=df["year"].tolist(), showgrid=False, tickfont=dict(size=10)),
+                            showlegend=False,
                         )
                         st.plotly_chart(fig, use_container_width=True)
-                        if hs_code:
-                            st.caption(f"HS Code: {hs_code}")
+
                     else:
                         st.caption("수출 통계 데이터 없음")
                 else:
@@ -200,11 +228,10 @@ def render_trade_and_channels(category: str, country: str, r: dict):
             except Exception as e:
                 st.caption(f"수출 데이터 오류: {e}")
 
-    with col2:
-        with st.container(border=True):
+        with col2:
             st.markdown("**주요 채널**")
             st.markdown(
-                '<div style="flex:1;display:flex;flex-direction:column;justify-content:space-around;padding:8px 0;min-height:220px">',
+                '<div style="display:flex;flex-direction:column;gap:8px;padding:4px 0">',
                 unsafe_allow_html=True,
             )
             ch = r.get("channels", {})
@@ -268,7 +295,6 @@ def render_kpi_row(r: dict, country: str):
 
 
 def render_trends_section(r: dict, country: str):
-    st.markdown('<div class="section-header">성분 · 기능 트렌드</div>', unsafe_allow_html=True)
     tr = r.get("trends", {})
 
     ingredients = tr.get("ingredients", [])[:7]
@@ -276,6 +302,7 @@ def render_trends_section(r: dict, country: str):
     rising      = tr.get("rising_keywords", [])[:5]
 
     with st.container(border=True):
+        st.markdown('**성분 · 기능 · 부상 트렌드**', unsafe_allow_html=True)
         parts = []
         parts += [f'<span class="tag-ingredient">{item}</span>' for item in ingredients]
         parts += [f'<span class="tag-function">{item}</span>' for item in functions]
@@ -397,38 +424,41 @@ def render_top5_rankings(country: str):
         ]
 
     col1, col2 = st.columns(2)
-    for col, (platform, title, header_bg, title_color, accent) in zip([col1, col2], platforms):
+    for col, (platform, title, header_bg, title_color, _) in zip([col1, col2], platforms):
         rows = data.get(platform, [])[:5]
         with col:
             rows_html = ""
-            for r in rows:
+            for idx, r in enumerate(rows):
                 num   = r.get("rank", "")
                 name  = r.get("title", "")[:55]
                 brand = r.get("brand", "") or ""
                 url   = r.get("url", "")
+                border_top = "border-top:1px solid rgba(128,128,128,0.1);" if idx > 0 else ""
                 name_html = (
-                    f'<a href="{url}" target="_blank" style="color:var(--text-color);text-decoration:none;font-weight:600"'
+                    f'<a href="{url}" target="_blank" style="color:var(--text-color);text-decoration:none;"'
                     f' onmouseover="this.style.textDecoration=\'underline\'" onmouseout="this.style.textDecoration=\'none\'">'
                     f'{name}</a>'
-                    if url else f'<span class="top5-name">{name}</span>'
+                    if url else f'<span>{name}</span>'
                 )
                 rows_html += f"""
-                <tr>
-                  <td><span style="font-size:15px;font-weight:700;color:{accent}">{num:02d}</span></td>
-                  <td>{name_html}</td>
-                  <td><span class="top5-brand">{brand}</span></td>
+                <tr style="{border_top}">
+                  <td style="font-size:15px;font-weight:700;color:#374151;width:48px">{num:02d}</td>
+                  <td style="font-size:14px;color:var(--text-color)">{name_html}</td>
+                  <td style="font-size:13px;color:#9ca3af;white-space:nowrap">{brand}</td>
                 </tr>"""
 
             st.markdown(f"""
-            <div class="top5-wrap" style="border:2px solid {accent}">
-              <div style="background:{header_bg};padding:12px 18px 10px;border-bottom:2px solid {accent}">
-                <span style="font-size:15px;font-weight:700;color:{title_color}">{title}</span>
+            <div style="border:1px solid rgba(128,128,128,0.2);border-radius:12px;overflow:hidden">
+              <div style="background:{header_bg};padding:14px 20px 12px;border-bottom:1px solid rgba(128,128,128,0.15)">
+                <span style="font-size:16px;font-weight:700;color:{title_color}">{title}</span>
               </div>
-              <table class="top5-table">
-                <thead><tr>
-                  <th>RANK</th><th>PRODUCT NAME</th><th>BRAND</th>
+              <table style="width:100%;border-collapse:collapse;padding:0 8px">
+                <thead><tr style="border-bottom:1px solid rgba(128,128,128,0.15)">
+                  <th style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.08em;padding:10px 20px 8px;text-align:left;width:48px">RANK</th>
+                  <th style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.08em;padding:10px 20px 8px;text-align:left">PRODUCT NAME</th>
+                  <th style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.08em;padding:10px 20px 8px;text-align:left">BRAND</th>
                 </tr></thead>
-                <tbody>{rows_html}</tbody>
+                <tbody style="padding:0 12px">{rows_html}</tbody>
               </table>
             </div>""", unsafe_allow_html=True)
 
@@ -737,87 +767,74 @@ def render_top10_rankings(country: str):
     else:
         platforms = [("Qoo10", "Qoo10"), ("Rakuten", "Rakuten")]
 
-    sk_platform = f"ri_platform_{country}"
-    sk_item     = f"ri_item_{country}"
-    sk_item_id  = f"ri_item_id_{country}"
-    for k in [sk_platform, sk_item, sk_item_id]:
-        if k not in st.session_state:
-            st.session_state[k] = None
-
-    def _select(platform, row, item_id):
-        st.session_state[sk_platform] = platform
-        st.session_state[sk_item]     = row
-        st.session_state[sk_item_id]  = item_id
-
-    # 우측 상단 국가 + 플랫폼 셀렉터
-    _, col_sel = st.columns([7, 3])
-    with col_sel:
-        platform_names = [name for name, _ in platforms]
-        selected_idx = 0
-        if st.session_state[sk_platform] in platform_names:
-            selected_idx = platform_names.index(st.session_state[sk_platform])
-        platform_choice = st.selectbox(
-            "플랫폼",
-            platform_names,
-            index=selected_idx,
-            key=f"ri_sel_{country}",
-            label_visibility="collapsed",
-            format_func=lambda x: f"{COUNTRY_KO[country]}  ·  {x}",
-        )
-
-    platform = platform_choice
-    rows = data.get(platform, [])
+    platform_names = [name for name, _ in platforms]
 
     with st.container(border=True):
-        col_list, col_detail = st.columns([4, 10])
+        tabs = st.tabs(platform_names)
 
-        with col_list:
-            st.markdown(
-                '<div class="panel-label" style="margin-bottom:6px">TOP 10 베스트셀러</div>',
-                unsafe_allow_html=True,
-            )
-            for row in rows:
-                num     = row.get("rank", 0)
-                name    = row.get("title", "")
-                brand   = row.get("brand", "") or ""
-                item_id = row.get("platform_item_id", "")
-                is_selected = (
-                    st.session_state[sk_platform] == platform
-                    and st.session_state[sk_item_id] == item_id
-                )
+        for tab, (platform, _) in zip(tabs, platforms):
+            sk_item    = f"ri_item_{country}_{platform}"
+            sk_item_id = f"ri_item_id_{country}_{platform}"
 
-                display_name = name[:100] + ("..." if len(name) > 25 else "")
-                sub_text = f"{platform} #{num}"
-                sel_cls = "selected" if is_selected else ""
-                arrow = '<div class="rank-arrow">›</div>' if is_selected else ""
+            if sk_item not in st.session_state:
+                st.session_state[sk_item]    = None
+                st.session_state[sk_item_id] = None
 
-                with st.container():
-                    st.markdown(f"""
-                    <div class="rank-item {sel_cls}">
-                        <div class="rank-num">{num:02d}</div>
-                        <div class="rank-info">
-                            <div class="rank-name">{display_name}</div>
-                            <div class="rank-sub">{sub_text}</div>
-                        </div>
-                        {arrow}
-                    </div>""", unsafe_allow_html=True)
-                    st.button(
-                        " ",
-                        key=f"ri_{country}_{platform}_{item_id}",
-                        use_container_width=True,
-                        on_click=_select,
-                        args=(platform, row, item_id),
+            def _select(row, item_id, _sk_item=sk_item, _sk_item_id=sk_item_id):
+                st.session_state[_sk_item]    = row
+                st.session_state[_sk_item_id] = item_id
+
+            with tab:
+                rows = data.get(platform, [])
+                # 플랫폼별 최초 1회만 1위 자동 선택
+                if rows and st.session_state[sk_item] is None:
+                    st.session_state[sk_item]    = rows[0]
+                    st.session_state[sk_item_id] = rows[0].get("platform_item_id", "")
+
+                col_list, col_detail = st.columns([4, 10])
+
+                with col_list:
+                    st.markdown(
+                        '<div class="panel-label" style="margin-bottom:6px">TOP 10 베스트셀러</div>',
+                        unsafe_allow_html=True,
                     )
+                    for row in rows:
+                        num     = row.get("rank", 0)
+                        name    = row.get("title", "")
+                        item_id = row.get("platform_item_id", "")
+                        is_selected = st.session_state[sk_item_id] == item_id
+                        display_name = name[:100] + ("..." if len(name) > 25 else "")
+                        sub_text = f"{platform} #{num}"
+                        sel_cls = "selected" if is_selected else ""
+                        arrow = '<div class="rank-arrow">›</div>' if is_selected else ""
 
-        with col_detail:
-            if st.session_state[sk_platform] == platform and st.session_state[sk_item]:
-                render_review_analysis(platform, st.session_state[sk_item])
-            else:
-                st.markdown("""
-                <div style='text-align:center;min-height:520px;display:flex;flex-direction:column;
-                            align-items:center;justify-content:center;color:#9ca3af'>
-                    <div style='font-size:40px'>📊</div>
-                    <div style='font-size:14px;margin-top:14px;line-height:1.7'>
-                        왼쪽 상품을 클릭하면<br>리뷰 분석 결과를 확인할 수 있습니다
-                    </div>
-                </div>""", unsafe_allow_html=True)
+                        with st.container():
+                            st.markdown(f"""
+                            <div class="rank-item {sel_cls}">
+                                <div class="rank-num">{num:02d}</div>
+                                <div class="rank-info">
+                                    <div class="rank-name">{display_name}</div>
+                                    <div class="rank-sub">{sub_text}</div>
+                                </div>
+                                {arrow}
+                            </div>""", unsafe_allow_html=True)
+                            st.button(
+                                " ",
+                                key=f"ri_{country}_{platform}_{item_id}",
+                                use_container_width=True,
+                                on_click=_select,
+                                args=(row, item_id),
+                            )
+
+                with col_detail:
+                    if st.session_state[sk_item]:
+                        render_review_analysis(platform, st.session_state[sk_item])
+                    else:
+                        st.markdown("""
+                        <div style='text-align:center;min-height:520px;display:flex;flex-direction:column;
+                                    align-items:center;justify-content:center;color:#9ca3af'>
+                            <div style='font-size:40px'>📊</div>
+                            <div style='font-size:14px;margin-top:14px;line-height:1.7'>
+                                왼쪽 상품을 클릭하면<br>리뷰 분석 결과를 확인할 수 있습니다
+                            </div>
+                        </div>""", unsafe_allow_html=True)
