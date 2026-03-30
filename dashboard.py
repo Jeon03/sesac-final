@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import base64
@@ -28,7 +29,7 @@ st.set_page_config(
 st.markdown(STYLES, unsafe_allow_html=True)
 
 
-API_BASE = "http://127.0.0.1:8000/api"
+API_BASE = os.environ.get("BACKEND_URL", "http://127.0.0.1:8000") + "/api"
 
 CATEGORY_LIST = ["스킨케어"]
 
