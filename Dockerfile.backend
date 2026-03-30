@@ -17,10 +17,6 @@ WORKDIR /app
 COPY requirements.backend.txt .
 RUN pip install --no-cache-dir -r requirements.backend.txt
 
-# Playwright 브라우저 및 필수 라이브러리 설치
-RUN playwright install chromium
-RUN playwright install-deps
-
 # 소스 코드 복사
 COPY . .
 
