@@ -85,10 +85,10 @@ img_base64 = get_base64_img(img_path)
 # 아이콘 이미지는 fh-logo-img를 사용하고, 브랜드명은 fh-logo-text를 사용합니다.
 header_html = f"""
 <div class="fixed-header">
-    <div class="fh-logo">
+    <a href="/" target="_self" style="text-decoration:none;" class="fh-logo">
         <img src="data:image/png;base64,{img_base64}" alt="VORA Icon" class="fh-logo-img">
         <span class="fh-logo-text">VORA</span>
-    </div>
+    </a>
 </div>
 """
 
@@ -107,7 +107,7 @@ if st.button("마케팅 전략",   key="nav_strategy", type="primary" if current
 
 # ── 초기 상태: 히어로 + 폼 중앙 배치 ─────────────────────────────────────────
 if not st.session_state.cache_key:
-    st.markdown("<div style='height:18vh'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:clamp(24px, calc((100vh - 816px) / 2), 28vh)'></div>", unsafe_allow_html=True)
     st.markdown("""
     <div style="text-align:center; padding-bottom:32px;">
         <div style="font-size:42px; font-weight:800; letter-spacing:-1px;
@@ -190,7 +190,8 @@ with st.container(border=True):
                 st.rerun()
 
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        submit_btn = st.button("시장 분석 시작하기", type="primary", use_container_width=True, key="submit_btn")
+        _can_submit = bool(product_name.strip() and selected_ingredients and selected_effects)
+        submit_btn = st.button("시장 분석 시작하기", type="primary", use_container_width=True, key="submit_btn", disabled=not _can_submit)
 
 
 # ── 메인 ──────────────────────────────────────────────────────────────────────

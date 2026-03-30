@@ -84,7 +84,7 @@ STYLES = _FONT_FACE + """
     display: flex; align-items: center; justify-content: center;
     font-size: 15px; font-weight: 800; color: white; flex-shrink: 0;
 }
-.fh-logo-text { font-size: 15px; font-weight: 800; color: var(--text-color); letter-spacing: -0.3px; }
+.fh-logo-text { font-size: 15px; font-weight: 800; background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.3px; }
 .fh-nav { display: flex; align-items: center; gap: 36px; margin: 0 auto; }
 .fh-nav-item {
     font-size: 13px; font-weight: 500; color: #9ca3af;
