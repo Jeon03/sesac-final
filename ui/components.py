@@ -434,7 +434,9 @@ def render_top5_rankings(country: str):
             rows_html = ""
             for idx, r in enumerate(rows):
                 num   = r.get("rank", "")
-                name  = r.get("title", "")[:55]
+                _raw  = r.get("title", "")
+                max_len = 18 if country != "US" else 50
+                name  = _raw[:max_len] + ".." if len(_raw) > max_len else _raw
                 brand = r.get("brand", "") or ""
                 url   = r.get("url", "")
                 border_top = "border-top:1px solid rgba(128,128,128,0.1);" if idx > 0 else ""
