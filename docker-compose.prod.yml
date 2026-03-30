@@ -4,7 +4,7 @@ services:
   backend:
     environment:
       - DEBUG=False
-      - ALLOWED_HOSTS=${EC2_PUBLIC_IP},localhost,127.0.0.1
+      - ALLOWED_HOSTS=${EC2_PUBLIC_IP},localhost,127.0.0.1,backend
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3
 
   frontend:
