@@ -1,6 +1,6 @@
 # 시스템 아키텍처 — K-Beauty 글로벌 진출 분석 플랫폼
 
-> 작성일: 2026-03-29
+> 최종 업데이트: 2026-03-30
 
 ---
 
@@ -16,7 +16,8 @@
 │                      Django REST API                            │
 │  /api/match/  /api/country-recommend/  /api/ad-strategy/        │
 │  /api/research/  /api/rankings/  /api/review-analysis/          │
-│  /api/meta-ads/  /api/trade-stats/  /api/ad-image/              │
+│  /api/review-summary/  /api/meta-ads/  /api/trade-stats/        │
+│  /api/ad-image/                                                  │
 └──┬──────────┬──────────┬──────────┬──────────┬─────────────────┘
    │          │          │          │          │
    ▼          ▼          ▼          ▼          ▼
@@ -119,6 +120,23 @@ MetaAdSummary (채널별 90일 광고량)
       ├─ country_recommender → 광고 활동량 (시장점수 내 10%)
       └─ ad_strategy → 경쟁사 광고 분석
 ```
+
+---
+
+## API 엔드포인트
+
+| 경로 | 메서드 | 기능 |
+|------|--------|------|
+| `/api/match/` | POST | 카테고리 통합 분석 (HS코드 → 수출통계 → 시장리서치) |
+| `/api/country-recommend/` | POST | AI 최적 국가 추천 점수 산출 |
+| `/api/ad-strategy/` | POST | 광고 마케팅 전략 생성 |
+| `/api/research/` | GET | 시장 리서치 조회 |
+| `/api/rankings/` | GET | 상품 랭킹 조회 |
+| `/api/review-analysis/` | GET | 상품별 리뷰 분석 결과 |
+| `/api/review-summary/` | GET | 국가별 Top10 리뷰 GPT 통합 요약 |
+| `/api/meta-ads/` | GET | Meta 광고 데이터 조회 |
+| `/api/trade-stats/` | GET | 한국 화장품 수출 통계 |
+| `/api/ad-image/` | POST | Gemini 광고 이미지 생성 |
 
 ---
 

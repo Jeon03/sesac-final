@@ -1,6 +1,6 @@
 # 시장 리서치 자동 업데이트 — LangGraph + Tavily 기술 설계서
 
-> 작성일: 2026-03-29
+> 최종 업데이트: 2026-03-30
 > 대상 파일: `market_api/services/update_graph.py`, `tavily_searcher.py`, `section_extractor.py`
 
 ---

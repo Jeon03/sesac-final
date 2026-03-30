@@ -1,8 +1,14 @@
 import os
+import base64
 import streamlit as st
 import requests
 import pandas as pd
 import plotly.graph_objects as go
+
+
+def _get_base64_img(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 
 API_BASE = os.environ.get("BACKEND_URL", "http://127.0.0.1:8000") + "/api"
 
@@ -230,28 +236,25 @@ def render_trade_and_channels(category: str, country: str, r: dict):
                 st.caption(f"수출 데이터 오류: {e}")
 
         with col2:
-            st.markdown("**주요 채널**")
-            st.markdown(
-                '<div style="display:flex;flex-direction:column;gap:8px;padding:4px 0">',
-                unsafe_allow_html=True,
-            )
             ch = r.get("channels", {})
             list  = _parse_channel_list(ch.get("channels", []))
             top3 = (list)[:3]
             if top3:
-                html = ""
+                rows_html = ""
                 for i, c in enumerate(top3, 1):
                     rank_cls = "top" if i == 1 else ""
-                    html += f"""<div class="rank-row">
+                    rows_html += f"""<div class="rank-row">
                         <div class="rank-num {rank_cls}">{i}</div>
                         <div>
                             <div class="rank-name">{c['name']}</div>
                             <div class="rank-desc">{c['description'][:100] if c['description'] else ''}</div>
                         </div></div>"""
-                st.markdown(html, unsafe_allow_html=True)
             else:
-                st.caption("채널 데이터 없음")
-            st.markdown("</div>", unsafe_allow_html=True)
+                rows_html = '<div style="font-size:13px;color:#9ca3af">채널 데이터 없음</div>'
+            st.markdown(f"""
+                <div style="font-weight:700;font-size:15px;color:var(--text-color);margin-bottom:6px">주요 채널</div>
+                <div style="display:flex;flex-direction:column;gap:8px;padding:2px 0">{rows_html}</div>
+            """, unsafe_allow_html=True)
 
 
 def render_kpi_row(r: dict, country: str):
@@ -415,17 +418,17 @@ def render_top5_rankings(country: str):
 
     if country == "US":
         platforms = [
-            ("Ulta",    "Ulta Beauty Top 5", "rgba(251,146,60,0.12)",  "#ea580c", "#fb923c"),
-            ("Sephora", "Sephora Top 5",      "rgba(59,130,246,0.12)", "#1d4ed8", "#3b82f6"),
+            ("Ulta",    "Ulta Beauty Top 5", "rgba(251,146,60,0.12)",  "#ea580c", "#fb923c", "미국 뷰티 리테일러", "인기 판매 제품 순위"),
+            ("Sephora", "Sephora Top 5",      "rgba(59,130,246,0.12)", "#1d4ed8", "#3b82f6", "미국 뷰티 리테일러", "인기 판매 제품 순위"),
         ]
     else:
         platforms = [
-            ("Qoo10",   "Qoo10 Top 5",   "rgba(251,146,60,0.12)",  "#ea580c", "#fb923c"),
-            ("Rakuten", "Rakuten Top 5", "rgba(59,130,246,0.12)", "#1d4ed8", "#3b82f6"),
+            ("Qoo10",   "Qoo10 Top 5",   "rgba(251,146,60,0.12)",  "#ea580c", "#fb923c", "일본 이커머스 플랫폼", "인기 판매 제품 순위"),
+            ("Rakuten", "Rakuten Top 5", "rgba(59,130,246,0.12)", "#1d4ed8", "#3b82f6", "일본 이커머스 플랫폼", "인기 판매 제품 순위"),
         ]
 
     col1, col2 = st.columns(2)
-    for col, (platform, title, header_bg, title_color, _) in zip([col1, col2], platforms):
+    for col, (platform, title, header_bg, title_color, _, badge, subtitle) in zip([col1, col2], platforms):
         rows = data.get(platform, [])[:5]
         with col:
             rows_html = ""
@@ -443,23 +446,27 @@ def render_top5_rankings(country: str):
                 )
                 rows_html += f"""
                 <tr style="{border_top}">
-                  <td style="font-size:15px;font-weight:700;color:#374151;width:48px">{num:02d}</td>
-                  <td style="font-size:14px;color:var(--text-color)">{name_html}</td>
-                  <td style="font-size:13px;color:#9ca3af;white-space:nowrap">{brand}</td>
+                  <td style="font-size:15px;font-weight:700;color:#374151;width:48px;padding:10px 20px">{num:02d}</td>
+                  <td style="font-size:14px;color:var(--text-color);padding:10px 20px">{name_html}</td>
+                  <td style="font-size:13px;color:#9ca3af;white-space:nowrap;padding:10px 20px">{brand}</td>
                 </tr>"""
 
             st.markdown(f"""
-            <div style="border:1px solid rgba(128,128,128,0.2);border-radius:12px;overflow:hidden">
+            <div style="border:1px solid rgba(128,128,128,0.2);border-radius:12px;overflow:hidden;margin-bottom:0">
               <div style="background:{header_bg};padding:14px 20px 12px;border-bottom:1px solid rgba(128,128,128,0.15)">
-                <span style="font-size:16px;font-weight:700;color:{title_color}">{title}</span>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:16px;font-weight:700;color:{title_color}">{title}</span>
+                  <span style="font-size:11px;font-weight:600;color:{title_color};background:rgba(255,255,255,0.6);border:1px solid {title_color};border-radius:4px;padding:1px 6px">{badge}</span>
+                </div>
+                <span style="font-size:12px;color:#6b7280">{subtitle}</span>
               </div>
-              <table style="width:100%;border-collapse:collapse;padding:0 8px">
+              <table style="width:100%;border-collapse:collapse;border-spacing:0;margin:0;display:table">
                 <thead><tr style="border-bottom:1px solid rgba(128,128,128,0.15)">
                   <th style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.08em;padding:10px 20px 8px;text-align:left;width:48px">RANK</th>
                   <th style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.08em;padding:10px 20px 8px;text-align:left">PRODUCT NAME</th>
                   <th style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.08em;padding:10px 20px 8px;text-align:left">BRAND</th>
                 </tr></thead>
-                <tbody style="padding:0 12px">{rows_html}</tbody>
+                <tbody style="margin:0;padding:0">{rows_html}</tbody>
               </table>
             </div>""", unsafe_allow_html=True)
 
@@ -575,14 +582,14 @@ def render_review_analysis(platform: str, item: dict):
         pos_text = sample_reviews.get("positive") or "데이터 없음"
         st.markdown(f"""
         <div class="rv-review-card pos">
-            <div class="rv-review-card-label pos">👍 긍정 리뷰 요약 (Positive)</div>
+            <div class="rv-review-card-label pos"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:5px"><path stroke-linecap="round" stroke-linejoin="round" d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>긍정 리뷰 요약 (Positive)</div>
             <div class="rv-review-card-text">"{pos_text}"</div>
         </div>""", unsafe_allow_html=True)
     with col_neg:
         neg_text = sample_reviews.get("negative") or "데이터 없음"
         st.markdown(f"""
         <div class="rv-review-card neg">
-            <div class="rv-review-card-label neg">👎 부정 리뷰 요약 (Negative)</div>
+            <div class="rv-review-card-label neg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:5px"><path stroke-linecap="round" stroke-linejoin="round" d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path stroke-linecap="round" stroke-linejoin="round" d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>부정 리뷰 요약 (Negative)</div>
             <div class="rv-review-card-text">"{neg_text}"</div>
         </div>""", unsafe_allow_html=True)
 
@@ -704,7 +711,7 @@ def render_ad_strategy(result: dict, ad_images: list = None, image_generating: b
         f'<div class="ad-col-usp">'
         f'<div class="ad-section-header-item">'
         f'<div class="header-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>'
-        f' 핵심 상품 소구점</div>'
+        f' 포지셔닝 메세지</div>'
         f'<div class="ad-usp-card">{usp_items}</div>'
         f'</div>'
         f'<div class="ad-col-refs">'
@@ -732,10 +739,29 @@ def render_meta_ads_section(country: str):
 
         last_updated = str(ads[0].get("updated_at", ""))[:10].replace("-", ".")
 
+        CHANNEL_DISPLAY = {
+            "ulta":    ("Ulta Beauty", "미국 뷰티 리테일러"),
+            "sephora": ("Sephora",     "미국 뷰티 리테일러"),
+            "qoo10":   ("Qoo10",       "일본 이커머스 플랫폼"),
+            "rakuten": ("Rakuten",     "일본 이커머스 플랫폼"),
+        }
+
+        try:
+            meta_b64 = _get_base64_img("ui/fonts/meta.png")
+            meta_icon_html = f'<img src="data:image/png;base64,{meta_b64}" alt="Meta" style="width:28px;height:28px;object-fit:contain;vertical-align:middle">'
+        except Exception:
+            meta_icon_html = ""
+
         with st.container(border=True):
             st.markdown(f"""
             <div class="mon-header">
-              <div class="mon-title">Meta 광고 모니터링</div>
+              <div style="display:flex;align-items:center;gap:10px">
+                {meta_icon_html}
+                <div>
+                  <div class="mon-title">Meta 광고 모니터링</div>
+                  <div style="font-size:11px;color:#9ca3af;margin-top:1px">Facebook · Instagram 광고 라이브러리 기반</div>
+                </div>
+              </div>
               <div class="mon-updated">마지막 업데이트: {last_updated}</div>
             </div>
             """, unsafe_allow_html=True)
@@ -745,12 +771,14 @@ def render_meta_ads_section(country: str):
                 copy_text = ad.get("latest_ad_text", "") or "—"
                 if len(copy_text) > 60:
                     copy_text = copy_text[:60] + "..."
-                brand_name = ad["brand"]
-                total_ads  = ad["total_ads"]
-                count_str  = f"{total_ads}개 이상" if total_ads >= 200 else f"{total_ads}개"
+                brand_name  = ad["brand"]
+                total_ads   = ad["total_ads"]
+                count_str   = f'{total_ads}개 <span style="font-size:16px;font-weight:600">이상</span>' if total_ads >= 200 else f"{total_ads}개"
+                channel_key = ad.get("channel", "")
+                ch_name, ch_desc = CHANNEL_DISPLAY.get(channel_key, (channel_key, ""))
 
                 page_id = ad.get("page_id", "")
-                market  = "US" if ad["channel"] in ("ulta", "sephora") else "JP"
+                market  = "US" if channel_key in ("ulta", "sephora") else "JP"
                 link_html = ""
                 if page_id:
                     ad_url = (
@@ -763,7 +791,14 @@ def render_meta_ads_section(country: str):
                 with col:
                     st.markdown(f"""
                     <div class="mon-card">
-                      <div class="mon-brand-name">{brand_name}</div>
+                      <div style="margin-bottom:8px">
+                        <span style="font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:.08em;margin-right:6px">브랜드</span>
+                        <span class="mon-brand-name">{brand_name}</span>
+                      </div>
+                      <div style="font-size:13px;color:#6b7280;margin-top:-10px;margin-bottom:14px">
+                        <span style="color:#0082fb;font-weight:600">{ch_name}</span>
+                        <span style="color:#9ca3af"> ({ch_desc})</span>
+                      </div>
                       <div class="mon-count-row">
                         <span class="mon-count-label">활성 광고수</span>
                         <span class="mon-count-value">{count_str}</span>

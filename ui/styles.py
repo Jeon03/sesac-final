@@ -453,13 +453,13 @@ STYLES = _FONT_FACE + """
 .mon-title { font-size: 17px; font-weight: 700; color: var(--text-color); }
 .mon-updated { font-size: 11px; color: #9ca3af; }
 .mon-card { background: var(--background-color); border: 1.5px solid rgba(128,128,128,0.2); border-radius: 14px; padding: 20px 18px 18px; box-shadow: 0 2px 10px rgba(0,0,0,.06); height: 100% !important; min-height: 250px; box-sizing: border-box; display: flex; flex-direction: column; }
-.mon-brand-name { display: inline-block; background: rgba(139,92,246,0.12); color: #7c3aed; font-size: 14px; font-weight: 700; border-radius: 8px; padding: 4px 12px; margin-bottom: 16px; }
+.mon-brand-name { display: inline-block; background: rgba(139,92,246,0.12); color: #7c3aed; font-size: 16px; font-weight: 700; border-radius: 8px; padding: 5px 14px; margin-bottom: 16px; }
 .mon-count-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
-.mon-count-label { font-size: 12px; color: #9ca3af; font-weight: 500; }
-.mon-count-value { font-size: 26px; font-weight: 800; color: var(--text-color); }
-.mon-copy-label { font-size: 11px; font-weight: 700; color: #9ca3af; letter-spacing: .05em; margin-bottom: 6px; }
-.mon-copy-text { font-size: 13px; color: var(--text-color); line-height: 1.5; font-style: flex: 1; }
-.mon-link { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: #6366f1; text-decoration: none; }
+.mon-count-label { font-size: 14px; color: #9ca3af; font-weight: 500; }
+.mon-count-value { font-size: 30px; font-weight: 800; color: var(--text-color); }
+.mon-copy-label { font-size: 13px; font-weight: 700; color: #9ca3af; letter-spacing: .05em; margin-bottom: 6px; }
+.mon-copy-text { font-size: 15px; color: var(--text-color); line-height: 1.5; flex: 1; }
+.mon-link { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: #6366f1; text-decoration: none; }
 .mon-link:hover { text-decoration: underline; }
 
 /* AI 마케팅 전략 제안 — 전체 외곽 컨테이너 */

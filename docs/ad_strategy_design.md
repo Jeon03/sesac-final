@@ -1,18 +1,33 @@
 # AI 광고 마케팅 전략 제안 — 설계 문서
 
+> 최종 업데이트: 2026-03-30
+> 대상 파일: `market_api/services/ad_strategy.py`
+
 ---
 
 ## 개요
 
-사용자 제품 정보와 경쟁 브랜드의 Meta 광고 데이터를 분석하여,
-타겟 국가에 최적화된 **광고 브랜드 컨셉 · 핵심 메시징 · 추천 카피 · 마케팅 인사이트**를 자동 생성한다.
+사용자 제품 정보와 4가지 데이터 소스를 종합하여,
+타겟 국가에 최적화된 **광고 브랜드 컨셉 · 핵심 소구점 · 추천 카피 · 마케팅 인사이트**를 GPT-4o로 자동 생성한다.
 
 ---
 
 ## 전체 파이프라인
 
 ```
-[사용자 입력] → [광고 데이터 수집] → [전처리·분석] → [GPT 프롬프트 구성] → [GPT 생성] → [결과 출력]
+[사용자 입력]
+     ↓
+[① Meta 광고 데이터 수집]   [② 시장 트렌드 조회]   [③ 리뷰 요약 수집]
+     ↓                              ↓                       ↓
+[④ 제품-트렌드 매칭 분석]  ←──────────────────────────────┘
+     ↓
+[⑤ GPT 프롬프트 구성]
+     ↓
+[⑥ GPT-4o 호출]
+     ↓
+[⑦ JSON 파싱 · 후처리]
+     ↓
+[결과 출력]
 ```
 
 ---
@@ -29,13 +44,14 @@
 | 핵심 효능 | 제품 소구 포인트 | "장벽 강화, 진정" |
 | 타겟 국가 | 국가 추천 결과에서 자동 결정 | "US" |
 
-### 1-2. 경쟁 브랜드 광고 데이터
+### 1-2. 경쟁 브랜드 Meta 광고 데이터
 
 | 항목 | 출처 | 설명 |
 |------|------|------|
-| 개별 광고 레코드 | `MetaAd` 모델 | 브랜드별 모든 광고 (문구, 유형, 게재일) |
+| 개별 광고 레코드 | `MetaAd` 모델 | 브랜드별 광고 문구·유형·게재일 |
 | 채널 매핑 | US: ulta + sephora / JP: qoo10 + rakuten | 국가별 채널 |
 | 필터 조건 | 최근 90일 (`start_date >= today - 90d`) | 활성 광고만 분석 |
+| 브랜드 선택 | 광고 수 기준 상위 4개 브랜드 × 최대 30개 문구 | GPT 컨텍스트 최적화 |
 
 ### 1-3. 시장 트렌드 데이터
 
@@ -43,47 +59,38 @@
 |------|------|------|
 | 인기 성분 | `MarketResearch.trends.ingredients` | 국가별 트렌드 성분 |
 | 기능 트렌드 | `MarketResearch.trends.functions` | 국가별 기능성 트렌드 |
-| 상세 정보 | `MarketResearch.trends.details` | 트렌드 배경 설명 |
+| 상세 정보 | `MarketResearch.trends.details` | 트렌드 배경 설명 (최대 300자) |
+
+### 1-4. 소비자 리뷰 요약 데이터
+
+채널별 Top10 상품(총 최대 20개)의 `ReviewAnalysisCache`에서 수집.
+
+| 항목 | 출처 | 설명 |
+|------|------|------|
+| 긍정 요약 | `sample_reviews.positive` | GPT 생성 1문장 요약 |
+| 부정 요약 | `sample_reviews.negative` | GPT 생성 1문장 요약 |
+| 불만 카테고리 | `complaints` | 화장품 관련 상위 3개 카테고리 레이블 |
+
+**부정 리뷰 필터링 — 제외 카테고리:**
+
+| 제외 카테고리 | 이유 |
+|-------------|------|
+| 포장 / 배송 | 제품 성능과 무관 |
+| 고객서비스 | 제품 성능과 무관 |
+| 제품불량 | 마케팅 전략 컨텍스트에서 제외 |
 
 ---
 
-## 2. 전처리 · 분석
+## 2. 제품-시장 트렌드 매칭 분석
 
-### 2-1. 광고 데이터 집계
-
-```python
-# MetaAd에서 국가 채널의 최근 90일 광고 조회
-ads = MetaAd.objects.filter(channel__in=channels, start_date__gte=cutoff)
-```
-
-**브랜드별 집계 항목:**
-
-| 항목 | 설명 |
-|------|------|
-| `texts` | 해당 브랜드의 모든 광고 문구 리스트 |
-| `image` | 이미지 광고 수 |
-| `video` | 영상 광고 수 |
-| `total` | 전체 광고 수 |
-
-### 2-2. 광고 문구 키워드 빈도 분석
+사용자 제품 성분·효능과 시장 트렌드 성분·기능의 **교집합**을 사전에 계산하여 GPT에 명시적으로 전달한다.
 
 ```python
-# 전체 광고 문구에서 단어 빈도 집계 (2글자 이상)
-word_counter = Counter()
-for text in all_texts:
-    words = [w.strip(".,!?\"'()[]") for w in text.split()]
-    words = [w for w in words if len(w) >= 2]
-    word_counter.update(words)
-
-top_keywords = word_counter.most_common(30)
+matched_ingredients = [i for i in trend_ingredient_list if i.lower() in user_ingredients_lower]
+matched_functions   = [f for f in trend_function_list   if f.lower() in user_effects_lower]
 ```
 
-### 2-3. 전체 광고 유형 비율
-
-```python
-image_ratio = total_image / (total_image + total_video)
-video_ratio = total_video / (total_image + total_video)
-```
+**목적:** GPT가 임의로 강점을 추정하지 않고, 실제 제품이 시장 트렌드와 겹치는 포인트를 전략의 중심으로 활용하도록 유도.
 
 ---
 
@@ -92,23 +99,34 @@ video_ratio = total_video / (total_image + total_video)
 ### 3-1. System 메시지
 
 - 역할: K-뷰티 브랜드 해외 진출 마케팅 전략 전문가
-- 출력 형식: 지정된 JSON 구조로만 응답 요구
+- 출력 형식: 지정된 JSON 구조로만 응답
+- 광고 카피 언어: US → 영문 / JP → 일본어
 
-### 3-2. User 메시지에 포함되는 컨텍스트
+**key_messages 생성 규칙 (system에 명시):**
+
+1. 사용자 제품 성분·효능으로 실제 뒷받침 가능한 내용만 작성
+2. 소비자 부정 리뷰 패턴이 있을 경우, 제품이 실제로 해결 가능한 불만에 한해서만 극복 소구점으로 활용
+3. 화장품·뷰티 마케팅 감성 언어 사용 (고객이 느끼는 감각·감정·결과 중심)
+4. 개발·비즈니스 용어 금지 ("멀티태스킹 기능", "효율적 루틴", "시간 절약" 등)
+5. 뷰티 브랜드 광고 카피 스타일의 짧고 감성적인 문장
+
+### 3-2. User 메시지 구성 (순서)
 
 | 섹션 | 내용 |
 |------|------|
-| 사용자 제품 정보 | 제품명, 카테고리, 성분, 효능 |
-| 타겟 시장 | 국가명 |
-| 시장 트렌드 | 인기 성분, 기능 트렌드, 상세 설명 |
-| 광고 통계 요약 | 전체 광고 수, 이미지/영상 비율, 빈출 키워드 Top 15 |
-| 브랜드별 광고 데이터 | 상위 6개 브랜드 × 최대 10개 광고 문구 + 유형별 수 |
+| ① 사용자 제품 정보 | 제품명, 카테고리, 성분, 효능 |
+| ② 시장 트렌드 | 인기 성분, 기능 트렌드, 상세 설명 |
+| ③ 제품-시장 트렌드 매칭 | 교집합 계산 결과 + 전략 중심 활용 지시 |
+| ④ Meta 광고 통계 | 전체 광고 수, 매체 비율, 빈출 키워드 Top15 |
+| ⑤ 브랜드별 광고 문구 | 상위 4개 브랜드 × 최대 30개 문구 |
+| ⑥ 긍정 리뷰 요약 | 채널별 Top10 상품 긍정 반응 |
+| ⑦ 소비자 부정 리뷰 패턴 | 채널 2개 × Top10 = 최대 20개 부정 요약 + 극복 소구점 활용 지시 |
 
 ### 3-3. GPT 파라미터
 
 | 파라미터 | 값 | 이유 |
 |----------|-----|------|
-| 모델 | `gpt-4o` | 복합적 컨텍스트 분석 + 창의적 카피 생성 |
+| 모델 | `gpt-4o` | 복합 컨텍스트 분석 + 창의적 카피 생성 |
 | temperature | `0.3` | 분석 근거 기반이되 약간의 창의성 허용 |
 
 ---
@@ -117,25 +135,33 @@ video_ratio = total_video / (total_image + total_video)
 
 ```json
 {
-  "brand_concept": "추천 브랜드 포지셔닝 컨셉 (영문, 한 문장)",
+  "brand_concept": "추천 브랜드 포지셔닝 컨셉 (영문 또는 일본어, 한 문장)",
   "concept_reasoning": "브랜드 컨셉 선정 이유 (한국어, 2~3문장)",
   "key_messages": [
-    "핵심 메시징 포인트 1",
-    "핵심 메시징 포인트 2"
+    "핵심 소구점 1 (한국어, 뷰티 마케팅 언어)",
+    "핵심 소구점 2 (한국어, 뷰티 마케팅 언어)",
+    "핵심 소구점 3 (한국어, 뷰티 마케팅 언어)"
   ],
-  "headline": "추천 광고 헤드라인 (영문)",
-  "body_text": "추천 광고 본문 (영문, 2~3문장)",
-  "detailed_insight": "상세 마케팅 인사이트 (한국어, 3~4문장)"
+  "ad_copies": [
+    {
+      "headline": "광고 헤드라인 A (영문/일본어)",
+      "body_text": "광고 본문 A (영문/일본어, 2~3문장)"
+    },
+    {
+      "headline": "광고 헤드라인 B (영문/일본어)",
+      "body_text": "광고 본문 B (영문/일본어, 2~3문장)"
+    }
+  ],
+  "detailed_insight": "상세 마케팅 인사이트 (한국어, 3~4문장. 시장 트렌드·경쟁사 광고 패턴·제안 근거 포함)"
 }
 ```
 
 | 필드 | 설명 | 언어 |
 |------|------|------|
-| `brand_concept` | 시장에서 차별화 가능한 브랜드 포지셔닝 | 영문 |
+| `brand_concept` | 시장에서 차별화 가능한 브랜드 포지셔닝 | 영문/일본어 |
 | `concept_reasoning` | 경쟁사 분석·트렌드 기반 컨셉 선정 근거 | 한국어 |
-| `key_messages` | 광고에서 강조할 핵심 소구점 (2개) | 혼합 |
-| `headline` | 실제 광고에 사용 가능한 헤드라인 카피 | 영문 |
-| `body_text` | 광고 본문 카피 | 영문 |
+| `key_messages` | 광고에서 강조할 핵심 소구점 3개 (성분·효능 기반, 뷰티 감성 언어) | 한국어 |
+| `ad_copies` | 실제 광고에 사용 가능한 헤드라인+본문 카피 2세트 | 영문/일본어 |
 | `detailed_insight` | 시장 트렌드·경쟁사 패턴·제안 근거 통합 인사이트 | 한국어 |
 
 ---
@@ -145,7 +171,6 @@ video_ratio = total_video / (total_image + total_video)
 ### 5-1. JSON 파싱
 
 ```python
-# GPT 응답에서 ```json ... ``` 감싸기 제거 후 파싱
 cleaned = raw.strip()
 if cleaned.startswith("```"):
     cleaned = cleaned.split("\n", 1)[1]
@@ -158,12 +183,12 @@ result = json.loads(cleaned.strip())
 
 ```python
 result["ad_stats"] = {
-    "total_ads": 총 분석 광고 수,
-    "brand_count": 분석 브랜드 수,
-    "image_ratio": 이미지 비율,
-    "video_ratio": 영상 비율,
+    "total_ads": int,       # 총 분석 광고 수
+    "brand_count": int,     # 분석 브랜드 수
+    "image_ratio": float,   # 이미지 광고 비율
+    "video_ratio": float,   # 영상 광고 비율
 }
-result["country"] = 타겟 국가 코드
+result["country"] = str     # 타겟 국가 코드
 ```
 
 ---
@@ -172,10 +197,11 @@ result["country"] = 타겟 국가 코드
 
 | 상황 | 처리 방법 |
 |------|----------|
-| MetaAd 데이터 없음 (0개 브랜드) | `{"error": "...시장의 Meta 광고 데이터가 없습니다."}` 반환 |
+| MetaAd 데이터 없음 | `{"error": "...시장의 Meta 광고 데이터가 없습니다."}` 반환 |
 | MarketResearch 트렌드 없음 | 트렌드 필드를 "데이터 없음"으로 채워서 GPT에 전달 |
+| 트렌드 매칭 결과 없음 | "없음"으로 표시, GPT가 성분·효능 기반으로 자체 판단 |
+| ReviewAnalysisCache 없음 | 해당 섹션 생략, 나머지 데이터로 전략 생성 |
 | GPT 응답 JSON 파싱 실패 | `{"error": "GPT 응답 파싱 실패", "raw_response": ...}` 반환 |
-| 광고 문구가 대부분 비어있음 | 키워드 빈도·유형 비율 등 정량 데이터 + 트렌드로 보완 생성 |
 
 ---
 
@@ -187,7 +213,7 @@ result["country"] = 타겟 국가 코드
 |------|------|------|
 | `channel` | CharField(20) | ulta / sephora / qoo10 / rakuten |
 | `brand` | CharField(200) | 브랜드명 |
-| `library_id` | CharField(50) | Meta 광고 라이브러리 ID (unique with channel) |
+| `library_id` | CharField(50) | Meta 광고 라이브러리 ID |
 | `media_type` | CharField(10) | image / video |
 | `start_date` | DateField | 광고 게재 시작일 |
 | `ad_text` | TextField | 광고 문구 |
@@ -196,6 +222,28 @@ result["country"] = 타겟 국가 코드
 
 **인덱스:** `(channel, brand)`, `(market)`
 **유니크:** `(channel, library_id)`
+
+### ReviewAnalysisCache (리뷰 분석 캐시)
+
+| 컬럼 | 타입 | 설명 |
+|------|------|------|
+| `platform` | CharField(20) | ulta / sephora / qoo10 / rakuten |
+| `platform_item_id` | CharField(100) | 상품 ID |
+| `result` | JSONField | 분석 결과 전체 |
+
+**result JSON 구조 (전략 관련 필드):**
+```json
+{
+  "sample_reviews": {
+    "positive": "긍정 리뷰 1문장 요약",
+    "negative": "부정 리뷰 1문장 요약"
+  },
+  "complaints": [
+    {"label": "효과 / 성분", "pct": 42},
+    {"label": "발림성", "pct": 28}
+  ]
+}
+```
 
 ---
 
@@ -218,13 +266,22 @@ result["country"] = 타겟 국가 코드
 ```json
 {
   "brand_concept": "Clean & Science-Backed Skin Barrier Solution",
-  "concept_reasoning": "전문적인 과학적 근거와 투명한 성분 공개를 강조하는...",
+  "concept_reasoning": "미국 시장에서 'Skin Barrier Repair' 트렌드가 급상승 중이며...",
   "key_messages": [
-    "피부 본연의 건강을 되찾아주는 72시간 장벽 보호",
-    "불필요한 향료와 자극 성분을 배제한 고농축 진정 포뮬러"
+    "병풀이 피부 장벽을 한 겹 한 겹 되살려냅니다",
+    "자극받은 피부가 하루 만에 편안해지는 진정 포뮬러",
+    "소비자들이 아쉬워했던 그 보습력, 판테놀이 채워드립니다"
   ],
-  "headline": "Say Goodbye to Sensitive Skin Flare-ups.",
-  "body_text": "Experience the power of Centella combined with Panthenol. Dermatologist-tested, Fragrance-free.",
+  "ad_copies": [
+    {
+      "headline": "Say Goodbye to Sensitive Skin Flare-ups.",
+      "body_text": "Experience the power of Centella combined with Panthenol. Dermatologist-tested, Fragrance-free."
+    },
+    {
+      "headline": "Your Skin Barrier, Restored.",
+      "body_text": "Clinically proven ingredients work overnight to rebuild and strengthen your skin's natural defense."
+    }
+  ],
   "detailed_insight": "현재 미국 MZ세대 사이에서는 'Skin Barrier Repair' 검색량이 전년 대비 45% 증가했습니다...",
   "ad_stats": {
     "total_ads": 342,
@@ -242,6 +299,8 @@ result["country"] = 타겟 국가 코드
 
 - **위치:** 대시보드 최하단 (국가별 시장 분석 탭 아래)
 - **트리거:** 추천 1위 국가(`top_country`) 기준 자동 호출
-- **레이아웃:** 파란 그라데이션 배경, 좌우 2컬럼
-  - 좌측: 브랜드 컨셉 + 선정 이유 + 핵심 메시징
-  - 우측: 추천 광고 카피 (Headline + Body) + Detailed Insight
+- **레이아웃:** 파란 그라데이션 배경
+  - 상단: 브랜드 컨셉 + 선정 이유
+  - 좌측: 핵심 소구점 3개 카드
+  - 우측: 광고 시안 2세트 (헤드라인 + 본문 + AI 생성 이미지)
+  - 하단: 상세 마케팅 인사이트

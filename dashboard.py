@@ -101,7 +101,7 @@ if st.button("시장 분석",    key="nav_market",   type="primary" if current_t
     st.session_state.current_tab = "market";   st.rerun()
 if st.button("리뷰 인사이트", key="nav_review",   type="primary" if current_tab == "review"   else "secondary", disabled=_nav_disabled):
     st.session_state.current_tab = "review";   st.rerun()
-if st.button("마케팅 전략",   key="nav_strategy", type="primary" if current_tab == "strategy" else "secondary", disabled=_nav_disabled):
+if st.button("마케팅 인사이트",   key="nav_strategy", type="primary" if current_tab == "strategy" else "secondary", disabled=_nav_disabled):
     st.session_state.current_tab = "strategy"; st.rerun()
 
 

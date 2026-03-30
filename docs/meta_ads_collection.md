@@ -1,6 +1,6 @@
 # Meta 광고 라이브러리 수집 및 업데이트 기술서
 
-> 작성일: 2026-03-29
+> 최종 업데이트: 2026-03-30
 > 대상 파일: `crawling/find_page_ids.py`, `crawling/crawl_meta.py`, `market_api/management/commands/load_meta_ads.py`
 
 ---

@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -c \":*)"
+      "Bash(python -c \":*)",
+      "Bash(wc -l /c/Users/Jeon/sesac-final/market_api/services/*.py)"
     ]
   }
 }
