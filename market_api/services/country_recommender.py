@@ -63,9 +63,9 @@ def _parse_pct(text: str) -> float:
 # export_growth: JP YoY +22~27% → 상한 50%, 하락 고려 하한 -30%
 METRIC_RANGES = {
     "size":          (0.0,   30.0),
-    "growth":        (0.0,    0.15),
+    "growth":        (0.0,    0.08),   # 뷰티 CAGR 실측 기준 상한 조정 (15%→8%)
     "kbeauty":       (0.0,    0.50),
-    "ad_activity":   (0.0, 5000.0),
+    "ad_activity":   (0.0, 1200.0),   # 실측 최대치 기준 상한 조정 (5000→1200)
     "export_growth": (-0.30,  0.50),
 }
 

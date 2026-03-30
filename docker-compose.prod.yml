@@ -1,0 +1,11 @@
+# 프로덕션 환경 (EC2 배포 시 사용)
+# 사용법: docker compose -f docker-compose.yaml -f docker-compose.prod.yml up -d
+services:
+  backend:
+    environment:
+      - DEBUG=False
+      - ALLOWED_HOSTS=${EC2_PUBLIC_IP},localhost,127.0.0.1
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3
+
+  frontend:
+    restart: always

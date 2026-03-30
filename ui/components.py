@@ -1,9 +1,10 @@
+import os
 import streamlit as st
 import requests
 import pandas as pd
 import plotly.graph_objects as go
 
-API_BASE = "http://127.0.0.1:8000/api"
+API_BASE = os.environ.get("BACKEND_URL", "http://127.0.0.1:8000") + "/api"
 
 COUNTRY_KO    = {"US": "미국 (USA)", "JP": "일본 (Japan)"}
 COUNTRY_SHORT = {"US": "미국", "JP": "일본"}
@@ -110,7 +111,7 @@ def render_country_recommendation(result: dict, selected_country: str = "US"):
             st.markdown(f"""
             <div style="display:inline-block;font-size:11px;font-weight:700;color:#8271FF;
                         border:1.5px solid #8271FF;border-radius:20px;padding:2px 10px;margin-bottom:12px;letter-spacing:.04em">
-                최적 시장 추천
+                우선진출 국가 추천
             </div>
             <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
                 <div style="font-size:28px;font-weight:800;color:var(--text-color);line-height:1.2">

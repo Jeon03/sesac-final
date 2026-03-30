@@ -384,9 +384,10 @@ if st.session_state.cache_key:
         if st.session_state.strategy_data:
             render_ad_strategy(st.session_state.strategy_data, ad_images=st.session_state.ad_images)
 
+        st.markdown("<div style='height:40px'></div>", unsafe_allow_html=True)
+
         if st.session_state.rec_data or research:
-            st.markdown("---")
-            _, col_report, _ = st.columns([1, 1, 1])
+            _, col_report, _ = st.columns([0.75, 1.5, 0.75])
             with col_report:
                 with st.container(border=True, key="report_box"):
                     st.markdown("""

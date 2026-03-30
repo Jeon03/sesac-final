@@ -458,7 +458,7 @@ STYLES = _FONT_FACE + """
 .mon-count-label { font-size: 12px; color: #9ca3af; font-weight: 500; }
 .mon-count-value { font-size: 26px; font-weight: 800; color: var(--text-color); }
 .mon-copy-label { font-size: 11px; font-weight: 700; color: #9ca3af; letter-spacing: .05em; margin-bottom: 6px; }
-.mon-copy-text { font-size: 13px; color: var(--text-color); line-height: 1.5; font-style: italic; flex: 1; }
+.mon-copy-text { font-size: 13px; color: var(--text-color); line-height: 1.5; font-style: flex: 1; }
 .mon-link { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: #6366f1; text-decoration: none; }
 .mon-link:hover { text-decoration: underline; }
 
@@ -488,8 +488,7 @@ STYLES = _FONT_FACE + """
     background-repeat: no-repeat;
 }
 
-.ad-strategy-outer { background: #1a1f35; border-radius: 18px; padding: 32px 36px 36px; position: relative; overflow: hidden; }
-.ad-strategy-outer::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+.ad-strategy-outer { background: linear-gradient(135deg, #1a1f35 0%, #3a3d6a 100%); border-radius: 18px; padding: 32px 36px 36px; position: relative; overflow: hidden; }
 
 /* 배지 */
 .ad-strategy-badge { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 20px; }

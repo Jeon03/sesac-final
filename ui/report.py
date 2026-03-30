@@ -163,7 +163,7 @@ def generate_report_pdf(
         rationale = rec_data.get("rationale", "")
         countries = rec_data.get("recommended_countries", [])
 
-        pdf.section_title("1. AI 최적 진출 국가 추천")
+        pdf.section_title("1. AI 우선 진출 국가 추천")
 
         # 추천 국가 + 점수 한 줄
         pdf.set_font("pretendard", "B", 11)
@@ -287,13 +287,13 @@ def generate_report_pdf(
                 pdf.quote_box(desc)
 
         # 시장 규모 근거
-        _근거("시장 규모 근거", ms)
+        _근거("시장 규모", ms)
 
         # 성장률 근거 (market_size 안에 growth_rate 관련 description이 있을 수 있으나
         # 별도 섹션이 없으므로 ms description으로 통합 — 이미 위에서 출력됨)
 
         # K-뷰티 점유율 근거
-        _근거("K-뷰티 점유율 근거", kb)
+        _근거("K-뷰티 점유율", kb)
 
         # 트렌드 근거
         pdf.sub_title("트렌드")
@@ -327,7 +327,7 @@ def generate_report_pdf(
     # ════════════════════════════════════════════════════════════════════════
     platforms_data = (review_summary or {}).get("platforms", {})
     if platforms_data:
-        pdf.section_title(f"4. 플랫폼 리뷰 분석 ({COUNTRY_KO.get(top_country, top_country)})")
+        pdf.section_title(f"4. 플랫폼 리뷰 분석")
 
         for platform, pdata in platforms_data.items():
             pdf.sub_title(platform)
