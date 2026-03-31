@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(python -c \":*)",
-      "Bash(wc -l /c/Users/Jeon/sesac-final/market_api/services/*.py)"
+      "Bash(wc -l /c/Users/Jeon/sesac-final/market_api/services/*.py)",
+      "Bash(xargs grep:*)",
+      "Bash(find . -type f -name \"*.py\" -exec grep -l \"OpenAI\\\\|ChatOpenAI\\\\|google.genai\\\\|langchain\" {})"
     ]
   }
 }
